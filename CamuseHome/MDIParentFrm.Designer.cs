@@ -34,9 +34,12 @@
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.lvProduct = new System.Windows.Forms.ListView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnModify = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
             this.btnAdd = new System.Windows.Forms.ToolStripButton();
+            this.btnModify = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.sbtnApprove = new System.Windows.Forms.ToolStripSplitButton();
+            this.btnApprove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnUndoApprove = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,28 +87,13 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAdd,
             this.btnModify,
-            this.btnDelete});
+            this.toolStripButton1,
+            this.sbtnApprove});
             this.toolStrip1.Location = new System.Drawing.Point(0, 25);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(784, 40);
             this.toolStrip1.TabIndex = 5;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnModify
-            // 
-            this.btnModify.Image = global::CamuseHome.Properties.Resources.Pen;
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(52, 37);
-            this.btnModify.Text = "编辑";
-            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::CamuseHome.Properties.Resources.Cancel;
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(52, 37);
-            this.btnDelete.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -115,6 +103,46 @@
             this.btnAdd.Size = new System.Drawing.Size(52, 37);
             this.btnAdd.Text = "新增";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Image = global::CamuseHome.Properties.Resources.Pen;
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(52, 37);
+            this.btnModify.Text = "编辑";
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::CamuseHome.Properties.Resources.Cancel;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(52, 37);
+            this.toolStripButton1.Text = "删除";
+            // 
+            // sbtnApprove
+            // 
+            this.sbtnApprove.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnApprove,
+            this.btnUndoApprove});
+            this.sbtnApprove.Image = global::CamuseHome.Properties.Resources.Success;
+            this.sbtnApprove.Name = "sbtnApprove";
+            this.sbtnApprove.Size = new System.Drawing.Size(64, 37);
+            this.sbtnApprove.Text = "审核";
+            this.sbtnApprove.ButtonClick += new System.EventHandler(this.sbtnApprove_ButtonClick);
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.Name = "btnApprove";
+            this.btnApprove.Size = new System.Drawing.Size(152, 22);
+            this.btnApprove.Text = "审核";
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+            // 
+            // btnUndoApprove
+            // 
+            this.btnUndoApprove.Name = "btnUndoApprove";
+            this.btnUndoApprove.Size = new System.Drawing.Size(152, 22);
+            this.btnUndoApprove.Text = "弃审";
+            this.btnUndoApprove.Click += new System.EventHandler(this.btnUndoApprove_Click);
             // 
             // MDIParentFrm
             // 
@@ -146,9 +174,12 @@
         private System.Windows.Forms.ListView lvProduct;
         private System.Windows.Forms.ToolStripMenuItem 系统管理ToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnDelete;
         private System.Windows.Forms.ToolStripButton btnModify;
         private System.Windows.Forms.ToolStripButton btnAdd;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripSplitButton sbtnApprove;
+        private System.Windows.Forms.ToolStripMenuItem btnUndoApprove;
+        private System.Windows.Forms.ToolStripMenuItem btnApprove;
     }
 }
 

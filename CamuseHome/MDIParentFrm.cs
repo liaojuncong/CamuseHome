@@ -135,5 +135,20 @@ namespace CamuseHome
             //http://www.easyicon.net/iconsearch/iconset:bitsies-icons/
             MessageBox.Show("delete");
         }
+
+        private void sbtnApprove_ButtonClick(object sender, EventArgs e)
+        {
+            this.sbtnApprove.ShowDropDown();
+        }
+
+        private void btnApprove_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("approve");
+        }
+
+        private void btnUndoApprove_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("undoapprove");
+        }
     }
 }
