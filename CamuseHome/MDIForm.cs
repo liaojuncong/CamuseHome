@@ -8,6 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CamuseHome.Uilities;
+using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace CamuseHome
 {
@@ -36,8 +39,26 @@ namespace CamuseHome
                     NameEn = "en1",
                     Category = "DeskLamp",
                     Pictures = new List<Picture>() {
-                    new Picture() { Path = "/Images/1.jpg" },
-                    new Picture() { Path = "/Images/2.jpg" }
+                    new Picture() { Name="菊花",Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
+                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" },
+                    new Picture() { Path = "Chrysanthemum.jpg" }
                 }
                 });
                 db.Product.Add(new Product()
@@ -47,8 +68,7 @@ namespace CamuseHome
                     NameEn = "en2",
                     Category = "DeskLamp",
                     Pictures = new List<Picture>() {
-                    new Picture() { Path = "/Images/3.jpg" },
-                    new Picture() { Path = "/Images/4.jpg" }
+                    new Picture() { Path = "Chrysanthemum.jpg" }
                 }
                 });
                 db.SaveChanges();
@@ -65,18 +85,10 @@ namespace CamuseHome
 
             }
 
-            this.lvProduct.GridLines = true; //显示表格线
-            this.lvProduct.View = View.Details;//显示表格细节
-            this.lvProduct.LabelEdit = false; //是否可编辑,ListView只可编辑第一列。
-            this.lvProduct.Scrollable = true;//有滚动条
-            this.lvProduct.HeaderStyle = ColumnHeaderStyle.Clickable;//对表头进行设置
-            this.lvProduct.FullRowSelect = true;//是否可以选择行
-            //添加表头
-            this.lvProduct.Columns.Add("序号", 50, HorizontalAlignment.Center);
-            this.lvProduct.Columns.Add("名称", 80);
-            this.lvProduct.Columns.Add("英文名称", 80);
-            this.lvProduct.Columns.Add("图片", 80);
             tvCategory.ExpandAll();
+
+            gvProduct.ReadOnly = true;
+            gvProduct.AutoGenerateColumns = false;
         }
 
         /// <summary>
@@ -101,18 +113,8 @@ namespace CamuseHome
             using (var db = new CamuseHomeContext())
             {
                 var products = db.Product.Include("Pictures").Where(i => i.Category == e.Node.Name).ToList();
-                var index = 1;
-                var listViewItemList = from i in products
-                                       select new ListViewItem(new string[] {
-                                           index++.ToString(),
-                                           i.Name,
-                                           i.NameEn,
-                                           string.Join(",", i.Pictures.Select(p => p.Path))
-                                       });
 
-
-                this.lvProduct.Items.Clear();
-                this.lvProduct.Items.AddRange(listViewItemList.ToArray());
+                gvProduct.DataSource = products.ToDataTable<Product>();
             }
         }
 
@@ -139,6 +141,69 @@ namespace CamuseHome
         private void btnUndoApprove_Click(object sender, EventArgs e)
         {
             MessageBox.Show("UnApprove");
+        }
+
+        private void gvProduct_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (gvProduct.Columns[e.ColumnIndex].Name.Equals("Picture"))
+            {
+                string path = e.Value.ToString();
+                e.Value = GetImage(path);
+            }
+        }
+        public System.Drawing.Image GetImage(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, path)))
+                return null;
+            System.IO.FileStream fs = new System.IO.FileStream(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, path), System.IO.FileMode.Open);
+            System.Drawing.Image result = System.Drawing.Image.FromStream(fs);
+
+            fs.Close();
+
+            return result;
+
+        }
+
+        private void gvProduct_SelectionChanged(object sender, EventArgs e)
+        {
+            using (var db = new CamuseHomeContext())
+            {
+                var id = int.Parse(this.gvProduct.CurrentRow.Cells["Id"].Value.ToString());
+                var pictures = db.Picture.Where(p => p.ProductId == id).Select(p => new { p.Name, p.Path });
+
+                #region 显示图片
+                this.pnPictures.Controls.Clear();
+                int leftX = 10;
+                foreach (var pic in pictures)
+                {
+                    PictureBox pb = new PictureBox();
+                    pb.Paint += (s, e1) =>
+                    {
+                        Graphics g = e1.Graphics;
+                        g.SmoothingMode = SmoothingMode.HighQuality;
+                        g.DrawString(pic.Name, new Font("Arial ", 10, FontStyle.Bold), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
+                    };
+                    pb.Click += (s, e1) =>
+                    {
+                        var c = s as PictureBox;
+                        if (c != null)
+                        {
+                            var p = c.Tag.ToString();
+                            var img = c.Image;
+                            var frm = new PictureView(img);
+                            frm.Show();
+                        }
+                    };
+                    pb.SizeMode = PictureBoxSizeMode.Zoom;
+                    pb.Image = GetImage(pic.Path);
+                    pb.Tag = pic;
+                    pb.Size = new System.Drawing.Size(80, 80);
+                    pb.Location = new System.Drawing.Point(leftX, 10);
+                    leftX += 100;
+                    this.pnPictures.Controls.Add(pb);
+                }
+                #endregion
+            }
         }
     }
 }
