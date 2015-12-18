@@ -31,6 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIForm));
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
+            this.btnNew = new System.Windows.Forms.RibbonButton();
+            this.btnModify = new System.Windows.Forms.RibbonButton();
+            this.btnDelete = new System.Windows.Forms.RibbonButton();
+            this.btnApprove = new System.Windows.Forms.RibbonButton();
+            this.btnUndoApprove = new System.Windows.Forms.RibbonButton();
             this.lvProduct = new System.Windows.Forms.ListView();
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.ribbonItemGroup1 = new System.Windows.Forms.RibbonItemGroup();
@@ -38,11 +43,6 @@
             this.ribbonUpDown1 = new System.Windows.Forms.RibbonUpDown();
             this.ribbon1 = new System.Windows.Forms.Ribbon();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
-            this.btnNew = new System.Windows.Forms.RibbonButton();
-            this.btnModify = new System.Windows.Forms.RibbonButton();
-            this.btnDelete = new System.Windows.Forms.RibbonButton();
-            this.btnApprove = new System.Windows.Forms.RibbonButton();
-            this.btnUndoApprove = new System.Windows.Forms.RibbonButton();
             this.SuspendLayout();
             // 
             // ribbonTab1
@@ -59,6 +59,45 @@
             this.ribbonPanel1.Items.Add(this.btnDelete);
             this.ribbonPanel1.Items.Add(this.btnApprove);
             this.ribbonPanel1.Text = "";
+            // 
+            // btnNew
+            // 
+            this.btnNew.Image = global::CamuseHome.Properties.Resources.new_file_32px;
+            this.btnNew.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnNew.SmallImage")));
+            this.btnNew.Text = "新增";
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Image = global::CamuseHome.Properties.Resources.Tests_32;
+            this.btnModify.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnModify.SmallImage")));
+            this.btnModify.Text = "编辑";
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Image = global::CamuseHome.Properties.Resources.delete_file_32;
+            this.btnDelete.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.SmallImage")));
+            this.btnDelete.Text = "删除";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnApprove
+            // 
+            this.btnApprove.DropDownItems.Add(this.btnUndoApprove);
+            this.btnApprove.Image = global::CamuseHome.Properties.Resources.file_complete_32;
+            this.btnApprove.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnApprove.SmallImage")));
+            this.btnApprove.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
+            this.btnApprove.Text = "审核";
+            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+            // 
+            // btnUndoApprove
+            // 
+            this.btnUndoApprove.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnUndoApprove.Image = global::CamuseHome.Properties.Resources.undo_32;
+            this.btnUndoApprove.SmallImage = global::CamuseHome.Properties.Resources.undo_16;
+            this.btnUndoApprove.Text = "弃审";
+            this.btnUndoApprove.Value = "";
+            this.btnUndoApprove.Click += new System.EventHandler(this.btnUndoApprove_Click);
             // 
             // lvProduct
             // 
@@ -99,7 +138,7 @@
             // 
             this.ribbon1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ribbon1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.ribbon1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.ribbon1.Location = new System.Drawing.Point(0, 0);
             this.ribbon1.Minimized = false;
             this.ribbon1.Name = "ribbon1";
@@ -128,6 +167,7 @@
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
             this.ribbon1.Text = "ribbon1";
+            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
             // 
             // ribbonOrbMenuItem1
             // 
@@ -135,45 +175,6 @@
             this.ribbonOrbMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.Image")));
             this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
             this.ribbonOrbMenuItem1.Text = "会员管理";
-            // 
-            // btnNew
-            // 
-            this.btnNew.Image = global::CamuseHome.Properties.Resources.new_file_32px;
-            this.btnNew.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnNew.SmallImage")));
-            this.btnNew.Text = "新增";
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
-            // 
-            // btnModify
-            // 
-            this.btnModify.Image = global::CamuseHome.Properties.Resources.Tests_32;
-            this.btnModify.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnModify.SmallImage")));
-            this.btnModify.Text = "编辑";
-            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Image = global::CamuseHome.Properties.Resources.delete_file_32;
-            this.btnDelete.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnDelete.SmallImage")));
-            this.btnDelete.Text = "删除";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnApprove
-            // 
-            this.btnApprove.DropDownItems.Add(this.btnUndoApprove);
-            this.btnApprove.Image = global::CamuseHome.Properties.Resources.file_complete_32;
-            this.btnApprove.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnApprove.SmallImage")));
-            this.btnApprove.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
-            this.btnApprove.Text = "审核";
-            this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
-            // 
-            // btnUndoApprove
-            // 
-            this.btnUndoApprove.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.btnUndoApprove.Image = global::CamuseHome.Properties.Resources.undo_32;
-            this.btnUndoApprove.SmallImage = global::CamuseHome.Properties.Resources.undo_16;
-            this.btnUndoApprove.Text = "弃审";
-            this.btnUndoApprove.Value = "";
-            this.btnUndoApprove.Click += new System.EventHandler(this.btnUndoApprove_Click);
             // 
             // MDIForm
             // 

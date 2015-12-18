@@ -62,6 +62,7 @@ namespace CamuseHome
                 tvCategory.Nodes.Add(tn);
                 var categoryList = db.Category.ToList();
                 BindTvCategory(categoryList, tn.Nodes, 0);
+
             }
 
             this.lvProduct.GridLines = true; //显示表格线
