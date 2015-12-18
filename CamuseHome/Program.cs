@@ -16,7 +16,7 @@ namespace CamuseHome
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIParentFrm());
+            Application.Run(new MDIForm());
         }
     }
 }

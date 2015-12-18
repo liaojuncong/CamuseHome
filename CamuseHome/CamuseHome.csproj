@@ -61,6 +61,10 @@
       <HintPath>..\packages\System.Data.SQLite.Linq.1.0.99.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms.Ribbon35">
+      <HintPath>..\..\Ribbon\System.Windows.Forms.Ribbon35.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,11 +76,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MDIParentFrm.cs">
+    <Compile Include="MDIForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MDIParentFrm.Designer.cs">
-      <DependentUpon>MDIParentFrm.cs</DependentUpon>
+    <Compile Include="MDIForm.Designer.cs">
+      <DependentUpon>MDIForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CamuseHomeContext.cs" />
@@ -84,8 +88,8 @@
     <Compile Include="Models\Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MDIParentFrm.resx">
-      <DependentUpon>MDIParentFrm.cs</DependentUpon>
+    <EmbeddedResource Include="MDIForm.resx">
+      <DependentUpon>MDIForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,10 +120,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Lamp.ico" />
-    <None Include="Resources\Success.png" />
-    <None Include="Resources\Pen.png" />
-    <None Include="Resources\Cancel.png" />
-    <None Include="Resources\Add.png" />
+    <Content Include="Lib\System.Windows.Forms.Ribbon35.dll" />
+    <None Include="Resources\undo_16.png" />
+    <None Include="Resources\undo_32.png" />
+    <None Include="Resources\file_complete_32.png" />
+    <None Include="Resources\Lamp_22.png" />
+    <None Include="Resources\Lamp.ico" />
+    <None Include="Resources\Lamp_32.png" />
+    <None Include="Resources\delete_file_32.png" />
+    <None Include="Resources\Tests_32.png" />
+    <None Include="Resources\new_file_32px.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

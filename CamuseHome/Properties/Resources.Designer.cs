@@ -63,9 +63,9 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap Add {
+        internal static System.Drawing.Bitmap delete_file_32 {
             get {
-                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                object obj = ResourceManager.GetObject("delete_file_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap Cancel {
+        internal static System.Drawing.Bitmap file_complete_32 {
             get {
-                object obj = ResourceManager.GetObject("Cancel", resourceCulture);
+                object obj = ResourceManager.GetObject("file_complete_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap Pen {
+        internal static System.Drawing.Bitmap Lamp_22 {
             get {
-                object obj = ResourceManager.GetObject("Pen", resourceCulture);
+                object obj = ResourceManager.GetObject("Lamp_22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,49 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
-        internal static System.Drawing.Bitmap Success {
+        internal static System.Drawing.Bitmap Lamp_32 {
             get {
-                object obj = ResourceManager.GetObject("Success", resourceCulture);
+                object obj = ResourceManager.GetObject("Lamp_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap new_file_32px {
+            get {
+                object obj = ResourceManager.GetObject("new_file_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Tests_32 {
+            get {
+                object obj = ResourceManager.GetObject("Tests_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap undo_16 {
+            get {
+                object obj = ResourceManager.GetObject("undo_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap undo_32 {
+            get {
+                object obj = ResourceManager.GetObject("undo_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

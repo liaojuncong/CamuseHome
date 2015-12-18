@@ -1,11 +1,8 @@
-﻿using CamuseHome;
-using CamuseHome.Models;
+﻿using CamuseHome.Models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,13 +11,11 @@ using System.Windows.Forms;
 
 namespace CamuseHome
 {
-    public partial class MDIParentFrm : Form
+    public partial class MDIForm : RibbonForm
     {
-        public MDIParentFrm()
+        public MDIForm()
         {
-            InitializeComponent();
-
-            using (var db = new CamuseHomeContext())
+            InitializeComponent(); using (var db = new CamuseHomeContext())
             {
                 var categorys = new List<Category>() {
                     new Category() { Code = "DeskLamp", Name = "台灯" },
@@ -120,35 +115,29 @@ namespace CamuseHome
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnNew_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("add");
+            MessageBox.Show("New");
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("modify");
+            MessageBox.Show("Modify");
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            //http://www.easyicon.net/iconsearch/iconset:bitsies-icons/
-            MessageBox.Show("delete");
-        }
-
-        private void sbtnApprove_ButtonClick(object sender, EventArgs e)
-        {
-            this.sbtnApprove.ShowDropDown();
+            MessageBox.Show("Delete");
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("approve");
+            MessageBox.Show("Approve");
         }
 
         private void btnUndoApprove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("undoapprove");
+            MessageBox.Show("UnApprove");
         }
     }
 }
