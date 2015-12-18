@@ -166,6 +166,8 @@ namespace CamuseHome
 
         private void gvProduct_SelectionChanged(object sender, EventArgs e)
         {
+            if (this.gvProduct.CurrentRow == null)
+                return;
             using (var db = new CamuseHomeContext())
             {
                 var id = int.Parse(this.gvProduct.CurrentRow.Cells["Id"].Value.ToString());
@@ -183,7 +185,7 @@ namespace CamuseHome
                         g.SmoothingMode = SmoothingMode.HighQuality;
                         g.DrawString(pic.Name, new Font("Arial ", 10, FontStyle.Bold), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
                     };
-                    pb.Click += (s, e1) =>
+                    pb.DoubleClick += (s, e1) =>
                     {
                         var c = s as PictureBox;
                         if (c != null)
