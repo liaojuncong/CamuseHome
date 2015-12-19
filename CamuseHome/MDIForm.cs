@@ -36,7 +36,7 @@ namespace CamuseHome
                 {
                     Code = "code1",
                     Name = "cn1",
-                    NameEn = "en1",
+                    EN = "en1",
                     Category = "DeskLamp",
                     Pictures = new List<Picture>() {
                     new Picture() { Name="菊花",Path = "Chrysanthemum.jpg" },
@@ -65,7 +65,7 @@ namespace CamuseHome
                 {
                     Code = "code2",
                     Name = "cn2",
-                    NameEn = "en2",
+                    EN = "en2",
                     Category = "DeskLamp",
                     Pictures = new List<Picture>() {
                     new Picture() { Path = "Chrysanthemum.jpg" }

@@ -85,8 +85,13 @@
     </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CamuseHomeContext.cs" />
+    <Compile Include="Models\Cost.cs" />
     <Compile Include="Models\Picture.cs" />
+    <Compile Include="Models\Popuplst.cs" />
+    <Compile Include="Models\PopuplstElement.cs" />
+    <Compile Include="Models\Price.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Specification.cs" />
     <Compile Include="PictureView.cs">
       <SubType>Form</SubType>
     </Compile>
