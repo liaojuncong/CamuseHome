@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIForm));
             this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
@@ -41,14 +42,18 @@
             this.ribbonItemGroup2 = new System.Windows.Forms.RibbonItemGroup();
             this.ribbonUpDown1 = new System.Windows.Forms.RibbonUpDown();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.pnPictures = new System.Windows.Forms.Panel();
-            this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameCn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnPictures = new System.Windows.Forms.Panel();
+            this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
+            this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
+            this.cmCategory.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonTab1
@@ -114,6 +119,7 @@
             this.tvCategory.Size = new System.Drawing.Size(141, 437);
             this.tvCategory.TabIndex = 4;
             this.tvCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvCategory_AfterSelect);
+            this.tvCategory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvCategory_MouseDown);
             // 
             // ribbonItemGroup1
             // 
@@ -152,6 +158,36 @@
             this.gvProduct.TabIndex = 7;
             this.gvProduct.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvProduct_CellFormatting);
             this.gvProduct.SelectionChanged += new System.EventHandler(this.gvProduct_SelectionChanged);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 5;
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "货号";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            // 
+            // NameCn
+            // 
+            this.NameCn.DataPropertyName = "Name";
+            this.NameCn.HeaderText = "品名";
+            this.NameCn.Name = "NameCn";
+            this.NameCn.ReadOnly = true;
+            // 
+            // NameEn
+            // 
+            this.NameEn.DataPropertyName = "EN";
+            this.NameEn.HeaderText = "英文名称";
+            this.NameEn.Name = "NameEn";
+            this.NameEn.ReadOnly = true;
             // 
             // pnPictures
             // 
@@ -206,35 +242,27 @@
             this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
             this.ribbonOrbMenuItem1.Text = "会员管理";
             // 
-            // Id
+            // cmCategory
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 5;
+            this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddCategory,
+            this.btnDeleteCategory});
+            this.cmCategory.Name = "cmCategory";
+            this.cmCategory.Size = new System.Drawing.Size(153, 70);
             // 
-            // Code
+            // btnAddCategory
             // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "货号";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnAddCategory.Text = "新增";
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
-            // NameCn
+            // btnDeleteCategory
             // 
-            this.NameCn.DataPropertyName = "Name";
-            this.NameCn.HeaderText = "品名";
-            this.NameCn.Name = "NameCn";
-            this.NameCn.ReadOnly = true;
-            // 
-            // NameEn
-            // 
-            this.NameEn.DataPropertyName = "EN";
-            this.NameEn.HeaderText = "英文名称";
-            this.NameEn.Name = "NameEn";
-            this.NameEn.ReadOnly = true;
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnDeleteCategory.Text = "删除";
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // MDIForm
             // 
@@ -250,6 +278,7 @@
             this.Name = "MDIForm";
             this.Text = "Camuse Home";
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
+            this.cmCategory.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,5 +304,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NameCn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.ContextMenuStrip cmCategory;
+        private System.Windows.Forms.ToolStripMenuItem btnAddCategory;
+        private System.Windows.Forms.ToolStripMenuItem btnDeleteCategory;
     }
 }

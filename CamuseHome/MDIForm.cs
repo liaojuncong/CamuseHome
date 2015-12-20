@@ -18,7 +18,9 @@ namespace CamuseHome
     {
         public MDIForm()
         {
-            InitializeComponent(); using (var db = new CamuseHomeContext())
+            InitializeComponent();
+
+            using (var db = new CamuseHomeContext())
             {
                 var categorys = new List<Category>() {
                     new Category() { Code = "DeskLamp", Name = "台灯" },
@@ -71,6 +73,16 @@ namespace CamuseHome
                     new Picture() { Path = "Chrysanthemum.jpg" }
                 }
                 });
+                db.Product.Add(new Product()
+                {
+                    Code = "code2",
+                    Name = "cn2",
+                    EN = "en2",
+                    Category = "FloorLamp",
+                    Pictures = new List<Picture>() {
+                    new Picture() { Path = "Chrysanthemum.jpg" }
+                }
+                });
                 db.SaveChanges();
             }
 
@@ -107,13 +119,15 @@ namespace CamuseHome
                 BindTvCategory(categorys, tn.Nodes, item.Id);
             }
         }
-
+        private bool bindFlag = true;
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             using (var db = new CamuseHomeContext())
             {
                 var products = db.Product.Include("Pictures").Where(i => i.Category == e.Node.Name).ToList();
-
+                if (gvProduct.CurrentRow != null)
+                    bindFlag = false;
+                pnPictures.Controls.Clear();
                 gvProduct.DataSource = products.ToDataTable<Product>();
             }
         }
@@ -166,6 +180,8 @@ namespace CamuseHome
 
         private void gvProduct_SelectionChanged(object sender, EventArgs e)
         {
+            if (!bindFlag)
+            { bindFlag = true; return; }
             if (this.gvProduct.CurrentRow == null)
                 return;
             using (var db = new CamuseHomeContext())
@@ -206,6 +222,33 @@ namespace CamuseHome
                 }
                 #endregion
             }
+        }
+
+        private void tvCategory_MouseDown(object sender, MouseEventArgs e)
+        {
+            Point ClickPoint = new Point(e.X, e.Y);
+            TreeNode CurrentNode = tvCategory.GetNodeAt(ClickPoint);
+            if (CurrentNode != null && CurrentNode.Name != "0")//判断你点的是不是一个节点
+                CurrentNode.ContextMenuStrip = cmCategory;
+            tvCategory.SelectedNode = CurrentNode;//选中这个节点
+        }
+
+        private void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            using (var db = new CamuseHomeContext())
+            {
+                var pid = db.Category.FirstOrDefault(c => c.Code == tvCategory.SelectedNode.Name).Id;
+                var category = new Category() { ParentId = pid, Code = "new", Name = "新增" };
+                db.Category.Add(category);
+                db.SaveChanges();
+                tvCategory.SelectedNode.Nodes.Add("new", category.Name);
+                tvCategory.SelectedNode.ExpandAll();
+            }
+        }
+
+        private void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
