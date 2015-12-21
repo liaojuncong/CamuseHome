@@ -51,6 +51,7 @@
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModifyCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             this.cmCategory.SuspendLayout();
@@ -246,9 +247,10 @@
             // 
             this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddCategory,
+            this.btnModifyCategory,
             this.btnDeleteCategory});
             this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(153, 70);
+            this.cmCategory.Size = new System.Drawing.Size(153, 92);
             // 
             // btnAddCategory
             // 
@@ -256,6 +258,13 @@
             this.btnAddCategory.Size = new System.Drawing.Size(152, 22);
             this.btnAddCategory.Text = "新增";
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnModifyCategory
+            // 
+            this.btnModifyCategory.Name = "btnModifyCategory";
+            this.btnModifyCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnModifyCategory.Text = "编辑";
+            this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
             // 
             // btnDeleteCategory
             // 
@@ -306,6 +315,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.ContextMenuStrip cmCategory;
         private System.Windows.Forms.ToolStripMenuItem btnAddCategory;
+        private System.Windows.Forms.ToolStripMenuItem btnModifyCategory;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteCategory;
     }
 }

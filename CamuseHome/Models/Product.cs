@@ -12,7 +12,7 @@ namespace CamuseHome.Models
         {
             Pictures = new List<Picture>();
         }
-        public long Id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// 货号
         /// </summary>
@@ -50,9 +50,9 @@ namespace CamuseHome.Models
         /// </summary>
         public float Capacity { get; set; }
         /// <summary>
-        /// 类别
+        /// 类别ID
         /// </summary>
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
         /// <summary>
         /// 颜色
         /// </summary>

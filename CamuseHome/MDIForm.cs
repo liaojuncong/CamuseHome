@@ -20,6 +20,7 @@ namespace CamuseHome
         {
             InitializeComponent();
 
+            #region 模拟一些数据
             using (var db = new CamuseHomeContext())
             {
                 var categorys = new List<Category>() {
@@ -39,7 +40,7 @@ namespace CamuseHome
                     Code = "code1",
                     Name = "cn1",
                     EN = "en1",
-                    Category = "DeskLamp",
+                    CategoryId = 1,
                     Pictures = new List<Picture>() {
                     new Picture() { Name="菊花",Path = "Chrysanthemum.jpg" },
                     new Picture() { Path = "Chrysanthemum.jpg" },
@@ -68,7 +69,7 @@ namespace CamuseHome
                     Code = "code2",
                     Name = "cn2",
                     EN = "en2",
-                    Category = "DeskLamp",
+                    CategoryId = 1,
                     Pictures = new List<Picture>() {
                     new Picture() { Path = "Chrysanthemum.jpg" }
                 }
@@ -78,13 +79,14 @@ namespace CamuseHome
                     Code = "code2",
                     Name = "cn2",
                     EN = "en2",
-                    Category = "FloorLamp",
+                    CategoryId = 2,
                     Pictures = new List<Picture>() {
                     new Picture() { Path = "Chrysanthemum.jpg" }
                 }
                 });
                 db.SaveChanges();
             }
+            #endregion
 
             using (var db = new CamuseHomeContext())
             {
@@ -94,9 +96,7 @@ namespace CamuseHome
                 tvCategory.Nodes.Add(tn);
                 var categoryList = db.Category.ToList();
                 BindTvCategory(categoryList, tn.Nodes, 0);
-
             }
-
             tvCategory.ExpandAll();
 
             gvProduct.ReadOnly = true;
@@ -113,7 +113,7 @@ namespace CamuseHome
             foreach (var item in subCategorys)
             {
                 tn = new TreeNode();
-                tn.Name = item.Code.ToString();
+                tn.Name = item.Id.ToString();
                 tn.Text = item.Name.ToString();
                 tnc.Add(tn);
                 BindTvCategory(categorys, tn.Nodes, item.Id);
@@ -124,7 +124,8 @@ namespace CamuseHome
         {
             using (var db = new CamuseHomeContext())
             {
-                var products = db.Product.Include("Pictures").Where(i => i.Category == e.Node.Name).ToList();
+                var categoryId = int.Parse(e.Node.Name);
+                var products = db.Product.Include("Pictures").Where(i => i.CategoryId == categoryId).ToList();
                 if (gvProduct.CurrentRow != null)
                     bindFlag = false;
                 pnPictures.Controls.Clear();
@@ -208,8 +209,11 @@ namespace CamuseHome
                         {
                             var p = c.Tag.ToString();
                             var img = c.Image;
-                            var frm = new PictureView(img);
-                            frm.Show();
+                            if (img != null)
+                            {
+                                var frm = new PictureView(img);
+                                frm.Show();
+                            }
                         }
                     };
                     pb.SizeMode = PictureBoxSizeMode.Zoom;
@@ -235,20 +239,43 @@ namespace CamuseHome
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            using (var db = new CamuseHomeContext())
-            {
-                var pid = db.Category.FirstOrDefault(c => c.Code == tvCategory.SelectedNode.Name).Id;
-                var category = new Category() { ParentId = pid, Code = "new", Name = "新增" };
-                db.Category.Add(category);
-                db.SaveChanges();
-                tvCategory.SelectedNode.Nodes.Add("new", category.Name);
-                tvCategory.SelectedNode.ExpandAll();
-            }
+            var pid = int.Parse(tvCategory.SelectedNode.Name);
+            OpenCategoryForm(pid, 0);
+        }
+
+        private void btnModifyCategory_Click(object sender, EventArgs e)
+        {
+            var id = int.Parse(tvCategory.SelectedNode.Name);
+            var pid = int.Parse(tvCategory.SelectedNode.Parent.Name);
+            OpenCategoryForm(pid, id);
         }
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
-
+            var id = int.Parse(tvCategory.SelectedNode.Name);
+            using (var db = new CamuseHomeContext())
+            {
+                var exits = db.Product.Any(i => i.CategoryId == id);
+                if (exits)
+                {
+                    MessageBox.Show("此类别已经有产品存在，不允许删除！");
+                }
+                else
+                {
+                    db.Category.Remove(db.Category.Find(id));
+                    tvCategory.SelectedNode.Remove();
+                }
+            }
+        }
+        private void OpenCategoryForm(int pid, int id)
+        {
+            var frm = new CategoryForm(pid, 0);
+            frm.Action = (key, text) =>
+            {
+                tvCategory.SelectedNode.Nodes.Add(key, text);
+                tvCategory.SelectedNode.ExpandAll();
+            };
+            frm.Show();
         }
     }
 }
