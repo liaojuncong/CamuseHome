@@ -16,7 +16,13 @@ namespace CamuseHome
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MDIForm());
+
+            var frm = new LoginForm();
+            DialogResult dir = frm.ShowDialog();
+            if (dir == DialogResult.OK)
+            {
+                Application.Run(new MDIForm());
+            }
         }
     }
 }

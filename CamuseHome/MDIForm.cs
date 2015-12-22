@@ -42,26 +42,26 @@ namespace CamuseHome
                     EN = "en1",
                     CategoryId = 1,
                     Pictures = new List<Picture>() {
-                    new Picture() { Name="菊花",Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
-                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Name="菊花", Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" },
-                    new Picture() { Path = "Chrysanthemum.jpg" }
+                    new Picture() { Name="Angelababy",Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
+                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" },
+                    new Picture() { Path = "Angelababy.jpg" }
                 }
                 });
                 db.Product.Add(new Product()
@@ -71,7 +71,7 @@ namespace CamuseHome
                     EN = "en2",
                     CategoryId = 1,
                     Pictures = new List<Picture>() {
-                    new Picture() { Path = "Chrysanthemum.jpg" }
+                    new Picture() { Path = "Angelababy.jpg" }
                 }
                 });
                 db.Product.Add(new Product()
@@ -81,7 +81,7 @@ namespace CamuseHome
                     EN = "en2",
                     CategoryId = 2,
                     Pictures = new List<Picture>() {
-                    new Picture() { Path = "Chrysanthemum.jpg" }
+                    new Picture() { Path = "Angelababy.jpg" }
                 }
                 });
                 db.SaveChanges();
@@ -168,15 +168,14 @@ namespace CamuseHome
         }
         public System.Drawing.Image GetImage(string path)
         {
-            if (string.IsNullOrWhiteSpace(path) || !File.Exists(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, path)))
+            if (string.IsNullOrWhiteSpace(path) || !File.Exists(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Pictures", path)))
                 return null;
-            System.IO.FileStream fs = new System.IO.FileStream(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, path), System.IO.FileMode.Open);
+            System.IO.FileStream fs = new System.IO.FileStream(Path.Combine(System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase, "Pictures", path), System.IO.FileMode.Open);
             System.Drawing.Image result = System.Drawing.Image.FromStream(fs);
 
             fs.Close();
 
             return result;
-
         }
 
         private void gvProduct_SelectionChanged(object sender, EventArgs e)
@@ -200,7 +199,7 @@ namespace CamuseHome
                     {
                         Graphics g = e1.Graphics;
                         g.SmoothingMode = SmoothingMode.HighQuality;
-                        g.DrawString(pic.Name, new Font("Arial ", 10, FontStyle.Bold), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
+                        g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
                     };
                     pb.DoubleClick += (s, e1) =>
                     {
