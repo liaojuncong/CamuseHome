@@ -255,7 +255,7 @@ namespace CamuseHome
 
         private void tvCategory_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
-            if (e.Node.Text == "新增类别")
+            if (e.Node.Text == "新增类别" && e.Label == null)
                 e.Node.Remove();
             else if (!string.IsNullOrWhiteSpace(e.Label))
             {
