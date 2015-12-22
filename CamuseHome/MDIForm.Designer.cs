@@ -119,6 +119,7 @@
             this.tvCategory.Name = "tvCategory";
             this.tvCategory.Size = new System.Drawing.Size(141, 437);
             this.tvCategory.TabIndex = 4;
+            this.tvCategory.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvCategory_AfterLabelEdit);
             this.tvCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvCategory_AfterSelect);
             this.tvCategory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvCategory_MouseDown);
             // 
@@ -250,26 +251,26 @@
             this.btnModifyCategory,
             this.btnDeleteCategory});
             this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(153, 92);
+            this.cmCategory.Size = new System.Drawing.Size(101, 70);
             // 
             // btnAddCategory
             // 
             this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnAddCategory.Size = new System.Drawing.Size(100, 22);
             this.btnAddCategory.Text = "新增";
             this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
             // 
             // btnModifyCategory
             // 
             this.btnModifyCategory.Name = "btnModifyCategory";
-            this.btnModifyCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnModifyCategory.Size = new System.Drawing.Size(100, 22);
             this.btnModifyCategory.Text = "编辑";
             this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
             // 
             // btnDeleteCategory
             // 
             this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(152, 22);
+            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 22);
             this.btnDeleteCategory.Text = "删除";
             this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
@@ -278,10 +279,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.pnPictures);
-            this.Controls.Add(this.gvProduct);
-            this.Controls.Add(this.tvCategory);
             this.Controls.Add(this.ribbon1);
+            this.Controls.Add(this.gvProduct);
+            this.Controls.Add(this.pnPictures);
+            this.Controls.Add(this.tvCategory);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "MDIForm";

@@ -122,6 +122,7 @@ namespace CamuseHome
         private bool bindFlag = true;
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(e.Node.Name)) return;
             using (var db = new CamuseHomeContext())
             {
                 var categoryId = int.Parse(e.Node.Name);
@@ -238,19 +239,67 @@ namespace CamuseHome
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
-            var pid = int.Parse(tvCategory.SelectedNode.Name);
-            OpenCategoryForm(pid, 0);
+            tvCategory.LabelEdit = true;
+            var node = new TreeNode("新增类别");
+            tvCategory.SelectedNode.Nodes.Add(node);
+            tvCategory.ExpandAll();
+            node.BeginEdit();
+            tvCategory.SelectedNode = node;
         }
 
         private void btnModifyCategory_Click(object sender, EventArgs e)
         {
-            var id = int.Parse(tvCategory.SelectedNode.Name);
-            var pid = int.Parse(tvCategory.SelectedNode.Parent.Name);
-            OpenCategoryForm(pid, id);
+            tvCategory.LabelEdit = true;
+            tvCategory.SelectedNode.BeginEdit();
+        }
+
+        private void tvCategory_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            if (e.Node.Text == "新增类别")
+                e.Node.Remove();
+            else if (!string.IsNullOrWhiteSpace(e.Label))
+            {
+                using (var db = new CamuseHomeContext())
+                {
+                    Category cur = null;
+
+                    if (string.IsNullOrWhiteSpace(e.Node.Name))
+                    {
+                        var pid = int.Parse(e.Node.Parent.Name);
+                        cur = new Category() { ParentId = pid, Name = e.Label };
+                        db.Category.Add(cur);
+                    }
+                    else
+                    {
+                        var id = int.Parse(e.Node.Name);
+                        cur = db.Category.Find(id);
+                        cur.Name = e.Label;
+                    }
+                    db.SaveChanges();
+                    e.Node.Name = cur.Id.ToString();
+                }
+                e.Node.EndEdit(false);
+            }
+            else
+            {
+                e.Node.EndEdit(true);
+            }
+            tvCategory.LabelEdit = false;
         }
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(tvCategory.SelectedNode.Name))
+            {
+                tvCategory.SelectedNode.Remove();
+                return;
+            }
+            if (tvCategory.SelectedNode.Nodes != null && tvCategory.SelectedNode.Nodes.Count > 0)
+            {
+                MessageBox.Show("此类别存在子类别，不允许删除！");
+                return;
+            }
+
             var id = int.Parse(tvCategory.SelectedNode.Name);
             using (var db = new CamuseHomeContext())
             {
@@ -265,16 +314,6 @@ namespace CamuseHome
                     tvCategory.SelectedNode.Remove();
                 }
             }
-        }
-        private void OpenCategoryForm(int pid, int id)
-        {
-            var frm = new CategoryForm(pid, 0);
-            frm.Action = (key, text) =>
-            {
-                tvCategory.SelectedNode.Nodes.Add(key, text);
-                tvCategory.SelectedNode.ExpandAll();
-            };
-            frm.Show();
         }
     }
 }
