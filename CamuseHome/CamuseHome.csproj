@@ -153,6 +153,10 @@
     </Content>
     <Content Include="Images\Lamp.ico" />
     <Content Include="Lib\System.Windows.Forms.Ribbon35.dll" />
+    <None Include="Resources\Keys_16.png" />
+    <None Include="Resources\setting_24.png" />
+    <None Include="Resources\Logout_24.png" />
+    <None Include="Resources\setting_16.png" />
     <None Include="Resources\search_file_32.png" />
     <None Include="Resources\Printer_blue_32.png" />
     <None Include="Resources\Download_32.png" />

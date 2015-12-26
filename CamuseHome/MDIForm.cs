@@ -335,5 +335,25 @@ namespace CamuseHome
         {
             MessageBox.Show("查询");
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnChangePasswd_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("修改密码");
+        }
+
+        private void btnMember_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("操作员管理");
+        }
+
+        private void btnSystemP_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("系统参数");
+        }
     }
 }

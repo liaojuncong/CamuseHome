@@ -93,6 +93,16 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Keys_16 {
+            get {
+                object obj = ResourceManager.GetObject("Keys_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Lamp_22 {
             get {
                 object obj = ResourceManager.GetObject("Lamp_22", resourceCulture);
@@ -106,6 +116,16 @@ namespace CamuseHome.Properties {
         internal static System.Drawing.Bitmap Lamp_32 {
             get {
                 object obj = ResourceManager.GetObject("Lamp_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Logout_24 {
+            get {
+                object obj = ResourceManager.GetObject("Logout_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -136,6 +156,26 @@ namespace CamuseHome.Properties {
         internal static System.Drawing.Bitmap search_file_32 {
             get {
                 object obj = ResourceManager.GetObject("search_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_16 {
+            get {
+                object obj = ResourceManager.GetObject("setting_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_24 {
+            get {
+                object obj = ResourceManager.GetObject("setting_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
