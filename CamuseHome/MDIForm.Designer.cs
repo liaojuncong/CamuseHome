@@ -37,6 +37,13 @@
             this.btnDelete = new System.Windows.Forms.RibbonButton();
             this.btnApprove = new System.Windows.Forms.RibbonButton();
             this.btnUndoApprove = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
+            this.btnImport = new System.Windows.Forms.RibbonButton();
+            this.btnExport = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator2 = new System.Windows.Forms.RibbonSeparator();
+            this.btnPrint = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator3 = new System.Windows.Forms.RibbonSeparator();
+            this.btnSearch = new System.Windows.Forms.RibbonButton();
             this.tvCategory = new System.Windows.Forms.TreeView();
             this.ribbonItemGroup1 = new System.Windows.Forms.RibbonItemGroup();
             this.ribbonItemGroup2 = new System.Windows.Forms.RibbonItemGroup();
@@ -47,12 +54,12 @@
             this.NameCn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnPictures = new System.Windows.Forms.Panel();
-            this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.btnModifyCategory = new System.Windows.Forms.ToolStripMenuItem();
             this.btnDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             this.cmCategory.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +77,13 @@
             this.ribbonPanel1.Items.Add(this.btnModify);
             this.ribbonPanel1.Items.Add(this.btnDelete);
             this.ribbonPanel1.Items.Add(this.btnApprove);
+            this.ribbonPanel1.Items.Add(this.ribbonSeparator1);
+            this.ribbonPanel1.Items.Add(this.btnImport);
+            this.ribbonPanel1.Items.Add(this.btnExport);
+            this.ribbonPanel1.Items.Add(this.ribbonSeparator2);
+            this.ribbonPanel1.Items.Add(this.btnPrint);
+            this.ribbonPanel1.Items.Add(this.ribbonSeparator3);
+            this.ribbonPanel1.Items.Add(this.btnSearch);
             this.ribbonPanel1.Text = "";
             // 
             // btnNew
@@ -110,6 +124,34 @@
             this.btnUndoApprove.Text = "弃审";
             this.btnUndoApprove.Value = "";
             this.btnUndoApprove.Click += new System.EventHandler(this.btnUndoApprove_Click);
+            // 
+            // btnImport
+            // 
+            this.btnImport.Image = global::CamuseHome.Properties.Resources.Upload_32;
+            this.btnImport.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnImport.SmallImage")));
+            this.btnImport.Text = "导入";
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
+            // 
+            // btnExport
+            // 
+            this.btnExport.Image = global::CamuseHome.Properties.Resources.Download_32;
+            this.btnExport.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnExport.SmallImage")));
+            this.btnExport.Text = "导出";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = global::CamuseHome.Properties.Resources.Printer_blue_32;
+            this.btnPrint.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnPrint.SmallImage")));
+            this.btnPrint.Text = "打印";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Image = global::CamuseHome.Properties.Resources.search_file_32;
+            this.btnSearch.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnSearch.SmallImage")));
+            this.btnSearch.Text = "查询";
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // tvCategory
             // 
@@ -202,6 +244,36 @@
             this.pnPictures.Size = new System.Drawing.Size(625, 116);
             this.pnPictures.TabIndex = 9;
             // 
+            // cmCategory
+            // 
+            this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddCategory,
+            this.btnModifyCategory,
+            this.btnDeleteCategory});
+            this.cmCategory.Name = "cmCategory";
+            this.cmCategory.Size = new System.Drawing.Size(101, 70);
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnAddCategory.Text = "新增";
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnModifyCategory
+            // 
+            this.btnModifyCategory.Name = "btnModifyCategory";
+            this.btnModifyCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnModifyCategory.Text = "编辑";
+            this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnDeleteCategory.Text = "删除";
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            // 
             // ribbon1
             // 
             this.ribbon1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -243,36 +315,6 @@
             this.ribbonOrbMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.Image")));
             this.ribbonOrbMenuItem1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonOrbMenuItem1.SmallImage")));
             this.ribbonOrbMenuItem1.Text = "会员管理";
-            // 
-            // cmCategory
-            // 
-            this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddCategory,
-            this.btnModifyCategory,
-            this.btnDeleteCategory});
-            this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(101, 70);
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnAddCategory.Text = "新增";
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
-            // btnModifyCategory
-            // 
-            this.btnModifyCategory.Name = "btnModifyCategory";
-            this.btnModifyCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnModifyCategory.Text = "编辑";
-            this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
-            // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnDeleteCategory.Text = "删除";
-            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
             // 
             // MDIForm
             // 
@@ -318,5 +360,12 @@
         private System.Windows.Forms.ToolStripMenuItem btnAddCategory;
         private System.Windows.Forms.ToolStripMenuItem btnModifyCategory;
         private System.Windows.Forms.ToolStripMenuItem btnDeleteCategory;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
+        private System.Windows.Forms.RibbonButton btnImport;
+        private System.Windows.Forms.RibbonButton btnExport;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator2;
+        private System.Windows.Forms.RibbonButton btnPrint;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator3;
+        private System.Windows.Forms.RibbonButton btnSearch;
     }
 }

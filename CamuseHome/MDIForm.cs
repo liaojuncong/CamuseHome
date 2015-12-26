@@ -315,5 +315,25 @@ namespace CamuseHome
                 }
             }
         }
+
+        private void btnImport_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("导入");
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("导出");
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("打印");
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("查询");
+        }
     }
 }

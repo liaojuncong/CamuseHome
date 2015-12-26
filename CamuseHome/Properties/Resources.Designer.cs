@@ -73,6 +73,16 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Download_32 {
+            get {
+                object obj = ResourceManager.GetObject("Download_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap file_complete_32 {
             get {
                 object obj = ResourceManager.GetObject("file_complete_32", resourceCulture);
@@ -113,6 +123,26 @@ namespace CamuseHome.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap Printer_blue_32 {
+            get {
+                object obj = ResourceManager.GetObject("Printer_blue_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap search_file_32 {
+            get {
+                object obj = ResourceManager.GetObject("search_file_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap Tests_32 {
             get {
                 object obj = ResourceManager.GetObject("Tests_32", resourceCulture);
@@ -136,6 +166,16 @@ namespace CamuseHome.Properties {
         internal static System.Drawing.Bitmap undo_32 {
             get {
                 object obj = ResourceManager.GetObject("undo_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap Upload_32 {
+            get {
+                object obj = ResourceManager.GetObject("Upload_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
