@@ -1,5 +1,4 @@
-﻿using CamuseHome.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CamuseHome.Uilities;
 using System.IO;
 using System.Drawing.Drawing2D;
 
@@ -20,82 +18,18 @@ namespace CamuseHome
         {
             InitializeComponent();
 
-            #region 模拟一些数据
-            using (var db = new CamuseHomeContext())
-            {
-                var categorys = new List<Category>() {
-                    new Category() { Code = "DeskLamp", Name = "台灯" },
-                    new Category() { Code = "FloorLamp", Name = "落地灯" },
-                    new Category() { Code = "HomeDecoration", Name = "家饰" }
-                };
-                db.Category.AddRange(categorys);
-                //db.SaveChanges();
-                //var subCategorys = new List<Category>() {
-                //    new Category() { Code = "SmallDeskLamp", Name = "小台灯", ParentId = categorys.FirstOrDefault(i => i.Code == "DeskLamp").Id },
-                //    new Category() { Code = "BigDeskLamp", Name = "大台灯", ParentId = categorys.FirstOrDefault(i => i.Code == "DeskLamp").Id }
-                //};
-                //db.Category.AddRange(subCategorys);
-                var pictures = db.Product.Add(new Product()
-                {
-                    Code = "code1",
-                    Name = "cn1",
-                    EN = "en1",
-                    CategoryId = 1,
-                    Pictures = new List<Picture>() {
-                    new Picture() { Name="Angelababy",Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
-                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Name="Angelababy", Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" },
-                    new Picture() { Path = "Angelababy.jpg" }
-                }
-                });
-                db.Product.Add(new Product()
-                {
-                    Code = "code2",
-                    Name = "cn2",
-                    EN = "en2",
-                    CategoryId = 1,
-                    Pictures = new List<Picture>() {
-                    new Picture() { Path = "Angelababy.jpg" }
-                }
-                });
-                db.Product.Add(new Product()
-                {
-                    Code = "code2",
-                    Name = "cn2",
-                    EN = "en2",
-                    CategoryId = 2,
-                    Pictures = new List<Picture>() {
-                    new Picture() { Path = "Angelababy.jpg" }
-                }
-                });
-                db.SaveChanges();
-            }
-            #endregion
-
             using (var db = new CamuseHomeContext())
             {
                 var tn = new TreeNode();
                 tn.Name = "0";
                 tn.Text = "类别";
                 tvCategory.Nodes.Add(tn);
-                var categoryList = db.Category.ToList();
-                BindTvCategory(categoryList, tn.Nodes, 0);
+                try
+                {
+                    var categoryList = db.Category.ToList();
+                    BindTvCategory(categoryList, tn.Nodes, 0);
+                }
+                catch { }
             }
             tvCategory.ExpandAll();
 
@@ -106,7 +40,7 @@ namespace CamuseHome
         /// <summary>
         /// 绑定TreeView（利用TreeNodeCollection）
         /// </summary>
-        private void BindTvCategory(List<Category> categorys, TreeNodeCollection tnc, long pid)
+        private void BindTvCategory(List<modCategory> categorys, TreeNodeCollection tnc, long pid)
         {
             TreeNode tn;
             var subCategorys = categorys.Where(i => i.ParentId == pid);
@@ -126,11 +60,15 @@ namespace CamuseHome
             using (var db = new CamuseHomeContext())
             {
                 var categoryId = int.Parse(e.Node.Name);
-                var products = db.Product.Include("Pictures").Where(i => i.CategoryId == categoryId).ToList();
-                if (gvProduct.CurrentRow != null)
-                    bindFlag = false;
-                pnPictures.Controls.Clear();
-                gvProduct.DataSource = products.ToDataTable<Product>();
+                try
+                {
+                    var products = db.Product.Include("Pictures").Where(i => i.CategoryId == categoryId).ToList();
+                    if (gvProduct.CurrentRow != null)
+                        bindFlag = false;
+                    pnPictures.Controls.Clear();
+                    gvProduct.DataSource = products.ToDataTable<modProduct>();
+                }
+                catch { }
             }
         }
 
@@ -161,7 +99,7 @@ namespace CamuseHome
 
         private void gvProduct_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (gvProduct.Columns[e.ColumnIndex].Name.Equals("Picture"))
+            if (gvProduct.Columns[e.ColumnIndex].Name.Equals("modPicture"))
             {
                 string path = e.Value.ToString();
                 e.Value = GetImage(path);
@@ -261,12 +199,12 @@ namespace CamuseHome
             {
                 using (var db = new CamuseHomeContext())
                 {
-                    Category cur = null;
+                    modCategory cur = null;
 
                     if (string.IsNullOrWhiteSpace(e.Node.Name))
                     {
                         var pid = int.Parse(e.Node.Parent.Name);
-                        cur = new Category() { ParentId = pid, Name = e.Label };
+                        cur = new modCategory() { ParentId = pid, Name = e.Label };
                         db.Category.Add(cur);
                     }
                     else
@@ -343,12 +281,14 @@ namespace CamuseHome
 
         private void btnChangePasswd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("修改密码");
+            UpdatePwdForm updatePwdForm = new UpdatePwdForm();
+            updatePwdForm.ShowDialog();
         }
 
         private void btnMember_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("操作员管理");
+            UserForm userForm = new UserForm();
+            userForm.ShowDialog();
         }
 
         private void btnSystemP_Click(object sender, EventArgs e)

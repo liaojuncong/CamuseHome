@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CamuseHome.Models
+namespace CamuseHome
 {
     public class CamuseHomeContext : DbContext
     {
@@ -16,9 +11,9 @@ namespace CamuseHome.Models
             // Turn off the Migrations, (NOT a code first Db)
             Database.SetInitializer<CamuseHomeContext>(null);
         }
-        public DbSet<Category> Category { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Picture> Picture { get; set; }
+        public DbSet<modCategory> Category { get; set; }
+        public DbSet<modProduct> Product { get; set; }
+        public DbSet<modPicture> Picture { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

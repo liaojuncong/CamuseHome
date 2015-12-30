@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CamuseHome.Uilities
+namespace CamuseHome
 {
     /// <summary>
     /// 加解密

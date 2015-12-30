@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CamuseHome.Uilities
+namespace CamuseHome
 {
     public static class DataTableExtensions
     {

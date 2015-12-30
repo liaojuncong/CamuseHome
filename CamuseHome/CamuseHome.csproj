@@ -40,11 +40,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -78,6 +78,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dal\dalCategory.cs" />
+    <Compile Include="Dal\dalPicture.cs" />
+    <Compile Include="Dal\dalProduct.cs" />
+    <Compile Include="Dal\dalUserInfo.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,15 +100,11 @@
     <Compile Include="MDIForm.Designer.cs">
       <DependentUpon>MDIForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\modCategory.cs" />
     <Compile Include="Models\CamuseHomeContext.cs" />
-    <Compile Include="Models\Cost.cs" />
-    <Compile Include="Models\Picture.cs" />
-    <Compile Include="Models\Popuplst.cs" />
-    <Compile Include="Models\PopuplstElement.cs" />
-    <Compile Include="Models\Price.cs" />
-    <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Specification.cs" />
+    <Compile Include="Models\modPicture.cs" />
+    <Compile Include="Models\modProduct.cs" />
+    <Compile Include="Models\modUserInfo.cs" />
     <Compile Include="PictureView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,8 +113,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Uilities\AesHelper.cs" />
     <Compile Include="Uilities\DataTableExtensions.cs" />
     <Compile Include="Uilities\DESCode.cs" />
+    <Compile Include="Uilities\SQLite.cs" />
+    <Compile Include="UpdatePwdForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdatePwdForm.Designer.cs">
+      <DependentUpon>UpdatePwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +151,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UpdatePwdForm.resx">
+      <DependentUpon>UpdatePwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Database\CamuseHome.sqlite">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
-using System.IO;
 using System.Configuration;
-using CamuseHome.Uilities;
 
 namespace CamuseHome
 {
     public partial class LoginForm : Form
     {
-
         string path = Application.StartupPath;
         
         public LoginForm()
@@ -33,8 +24,8 @@ namespace CamuseHome
 
         private void Login()
         {
-            string userCode = this.txtUserCode.Text;
-            string password = this.txtPwd.Text;
+            string userCode = this.txtUserCode.Text.Trim();
+            string password = this.txtPwd.Text.Trim();
 
             if (userCode == "" || Regex.IsMatch(userCode, @"\W"))
             {
@@ -48,17 +39,32 @@ namespace CamuseHome
             }
             else
             {
-                if (true)
+                try
                 {
-                    this.RememberLoginInfo(this.checkBox1.Checked);
-                    //MessageBox.Show(resultModel.message);
-                    this.DialogResult = DialogResult.OK;
+                    modUserInfo modUserInfo = new dalUserInfo().getUserInfo(Convert.ToInt32(this.txtUserCode.Text.Trim()), AesHelper.AESEncrypt(this.txtPwd.Text.Trim(), "LiaoJunWu526"));
+                    if (modUserInfo.Id == 0)
+                    {
+                        this.lblMsg.Text = "帐号或密码错误";
+                    }
+                    else
+                    {
+                        this.lblMsg.Text = "";
+                        dalUserInfo.modUserInfo = modUserInfo;
+                        this.ShowMessage("登录成功...");
+                        this.RememberLoginInfo(this.checkBox1.Checked);
+                        this.DialogResult = DialogResult.OK;
+                    }
                 }
-                else
+                catch
                 {
-                    MessageBox.Show("123");
+                    this.lblMsg.Text = "帐号或密码错误";
                 }
             }
+        }
+
+        private void ShowMessage(string message)
+        {
+            MessageBox.Show(message, "提示信息");
         }
 
         private void LoginFrm_Load(object sender, EventArgs e)
@@ -76,7 +82,11 @@ namespace CamuseHome
                 this.txtUserCode.Text = GetAppConfig("userCode");
                 if(GetAppConfig("passWord") != "")
                 {
-                    this.txtPwd.Text = DESCode.DecryptDES(GetAppConfig("passWord"));
+                    try
+                    {
+                        this.txtPwd.Text = AesHelper.AESDecrypt(GetAppConfig("passWord"), "LiaoJunWu526");
+                    }
+                    catch { }
                 }
                 
                 this.checkBox1.Checked = true;                
@@ -117,12 +127,7 @@ namespace CamuseHome
             {
                 UpdateAppConfig("signUserPwd", "Y");
                 UpdateAppConfig("userCode", this.txtUserCode.Text );
-                UpdateAppConfig("passWord", DESCode.EncryptDES(this.txtPwd.Text)); 
-                ////写入数据到配置文件
-                //System.IO.StreamWriter sw= new System.IO.StreamWriter(path);
-                //sw.WriteLine(this.txtUserCode.Text);
-                //sw.WriteLine(SiBu.DecryptFrm.DESCode.EncryptDES(this.txtPwd.Text));
-                //sw.Close();
+                UpdateAppConfig("passWord", AesHelper.AESEncrypt(this.txtPwd.Text.Trim(), "LiaoJunWu526"));
             }
             else
             {

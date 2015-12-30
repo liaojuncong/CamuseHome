@@ -35,8 +35,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 562);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PictureView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "图片预览";
             this.ResumeLayout(false);
 

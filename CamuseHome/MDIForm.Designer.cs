@@ -163,7 +163,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tvCategory.Location = new System.Drawing.Point(0, 125);
             this.tvCategory.Name = "tvCategory";
-            this.tvCategory.Size = new System.Drawing.Size(141, 437);
+            this.tvCategory.Size = new System.Drawing.Size(141, 433);
             this.tvCategory.TabIndex = 4;
             this.tvCategory.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvCategory_AfterLabelEdit);
             this.tvCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvCategory_AfterSelect);
@@ -202,7 +202,7 @@
             this.gvProduct.ReadOnly = true;
             this.gvProduct.RowTemplate.Height = 23;
             this.gvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvProduct.Size = new System.Drawing.Size(625, 295);
+            this.gvProduct.Size = new System.Drawing.Size(621, 291);
             this.gvProduct.TabIndex = 7;
             this.gvProduct.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvProduct_CellFormatting);
             this.gvProduct.SelectionChanged += new System.EventHandler(this.gvProduct_SelectionChanged);
@@ -243,9 +243,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnPictures.AutoScroll = true;
             this.pnPictures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnPictures.Location = new System.Drawing.Point(147, 433);
+            this.pnPictures.Location = new System.Drawing.Point(147, 429);
             this.pnPictures.Name = "pnPictures";
-            this.pnPictures.Size = new System.Drawing.Size(625, 116);
+            this.pnPictures.Size = new System.Drawing.Size(621, 116);
             this.pnPictures.TabIndex = 9;
             // 
             // cmCategory
@@ -307,7 +307,7 @@
             this.ribbon1.QuickAcessToolbar.Value = "";
             this.ribbon1.QuickAcessToolbar.Visible = false;
             this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(784, 126);
+            this.ribbon1.Size = new System.Drawing.Size(780, 126);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab1);
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
@@ -328,6 +328,7 @@
             // btnChangePasswd
             // 
             this.btnChangePasswd.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnChangePasswd.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.Image")));
             this.btnChangePasswd.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.SmallImage")));
             this.btnChangePasswd.Text = "修改密码";
             this.btnChangePasswd.Click += new System.EventHandler(this.btnChangePasswd_Click);
@@ -360,14 +361,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(780, 557);
             this.Controls.Add(this.ribbon1);
             this.Controls.Add(this.gvProduct);
             this.Controls.Add(this.pnPictures);
             this.Controls.Add(this.tvCategory);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
             this.Name = "MDIForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Camuse Home";
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
             this.cmCategory.ResumeLayout(false);
