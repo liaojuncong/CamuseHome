@@ -293,7 +293,8 @@ namespace CamuseHome
 
         private void btnSystemP_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("系统参数");
+            SetParamForm setParamForm = new SetParamForm();
+            setParamForm.ShowDialog();
         }
     }
 }

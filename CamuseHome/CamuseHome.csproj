@@ -85,6 +85,7 @@
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Dal\dalCategory.cs" />
+    <Compile Include="Dal\dalEnterpriseInfo.cs" />
     <Compile Include="Dal\dalPicture.cs" />
     <Compile Include="Dal\dalProduct.cs" />
     <Compile Include="Dal\dalUserInfo.cs" />
@@ -102,6 +103,7 @@
     </Compile>
     <Compile Include="Models\modCategory.cs" />
     <Compile Include="Models\CamuseHomeContext.cs" />
+    <Compile Include="Models\modEnterpriseInfo.cs" />
     <Compile Include="Models\modPicture.cs" />
     <Compile Include="Models\modProduct.cs" />
     <Compile Include="Models\modUserInfo.cs" />
@@ -113,6 +115,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetParamForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetParamForm.Designer.cs">
+      <DependentUpon>SetParamForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uilities\AesHelper.cs" />
     <Compile Include="Uilities\DataTableExtensions.cs" />
     <Compile Include="Uilities\DESCode.cs" />
@@ -151,6 +159,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SetParamForm.resx">
+      <DependentUpon>SetParamForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdatePwdForm.resx">
       <DependentUpon>UpdatePwdForm.cs</DependentUpon>
     </EmbeddedResource>

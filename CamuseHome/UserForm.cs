@@ -40,7 +40,7 @@ namespace CamuseHome
             dataGridView1.Columns["InputData"].HeaderText = "录入资料";
             dataGridView1.Columns["InputData"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridView1.Columns["InputData"].Width = 40;
-            dataGridView1.Columns["InputData"].ValueType = typeof(System.Boolean);//DataGridViewColumn.ValueType
+            //dataGridView1.Columns["InputData"].ValueType = typeof(System.Boolean);//DataGridViewColumn.ValueType
             //dataGridView1.Columns["InputData"].DefaultHeaderCellType = typeof(System.Windows.Forms.DataGridViewCheckBoxCell);
             //{Name = "DataGridViewColumnHeaderCell" FullName = "System.Windows.Forms.DataGridViewColumnHeaderCell"}
             dataGridView1.Columns["ModifyData"].HeaderText = "修改资料";
@@ -88,16 +88,16 @@ namespace CamuseHome
                 modUserInfo.Code = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells[1].Value.ToString());
                 modUserInfo.Name = dgv.Rows[e.RowIndex].Cells[2].Value.ToString();
                 modUserInfo.Pwd = dgv.Rows[e.RowIndex].Cells[3].Value.ToString();
-                modUserInfo.InputData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[3].Value.ToString());
-                modUserInfo.ModifyData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[4].Value.ToString());
-                modUserInfo.DeleteData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[5].Value.ToString());
-                modUserInfo.AuditData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[6].Value.ToString());
-                modUserInfo.AbandonData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[7].Value.ToString());
-                modUserInfo.SetParam = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[8].Value.ToString());
-                modUserInfo.ExportData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[9].Value.ToString());
-                modUserInfo.Print = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[10].Value.ToString());
-                modUserInfo.LookCost = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[11].Value.ToString());
-                modUserInfo.LookPrice = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[12].Value.ToString());
+                modUserInfo.InputData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[4].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.ModifyData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[5].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.DeleteData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[6].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.AuditData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[7].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.AbandonData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[8].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.SetParam = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[9].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.ExportData = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[10].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.Print = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[11].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.LookCost = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[12].Value.ToString() == "0" ? "False" : "True");
+                modUserInfo.LookPrice = Convert.ToBoolean(dgv.Rows[e.RowIndex].Cells[13].Value.ToString() == "0" ? "False" : "True");
                 int i = new dalUserInfo().updateUserInfo(modUserInfo);
             }
         }
