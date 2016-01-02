@@ -17,30 +17,33 @@ namespace CamuseHome
         public MDIForm()
         {
             InitializeComponent();
+        }
 
-            using (var db = new CamuseHomeContext())
-            {
-                var tn = new TreeNode();
-                tn.Name = "0";
-                tn.Text = "类别";
-                tvCategory.Nodes.Add(tn);
-                try
-                {
-                    var categoryList = db.Category.ToList();
-                    BindTvCategory(categoryList, tn.Nodes, 0);
-                }
-                catch { }
-            }
-            tvCategory.ExpandAll();
+        private void MDIForm_Load(object sender, EventArgs e)
+        {
+            this.Text = this.Text + " V" + Application.ProductVersion;
+
+            this.loadtvCategory();
 
             gvProduct.ReadOnly = true;
             gvProduct.AutoGenerateColumns = false;
         }
 
+        public void loadtvCategory()
+        {
+            this.tvCategory.Nodes.Clear();
+            var tn = new TreeNode();
+            tn.Name = "0";
+            tn.Text = "类别";
+            tvCategory.Nodes.Add(tn);
+            BindTvCategory(new dalCategory().getCategoryList(), tn.Nodes, 0);
+            tvCategory.ExpandAll();
+        }
+
         /// <summary>
         /// 绑定TreeView（利用TreeNodeCollection）
         /// </summary>
-        private void BindTvCategory(List<modCategory> categorys, TreeNodeCollection tnc, long pid)
+        public void BindTvCategory(List<modCategory> categorys, TreeNodeCollection tnc, long pid)
         {
             TreeNode tn;
             var subCategorys = categorys.Where(i => i.ParentId == pid);
@@ -53,6 +56,7 @@ namespace CamuseHome
                 BindTvCategory(categorys, tn.Nodes, item.Id);
             }
         }
+
         private bool bindFlag = true;
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
@@ -166,13 +170,13 @@ namespace CamuseHome
             }
         }
 
-        private void tvCategory_MouseDown(object sender, MouseEventArgs e)
+        private void tvCategory_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            Point ClickPoint = new Point(e.X, e.Y);
-            TreeNode CurrentNode = tvCategory.GetNodeAt(ClickPoint);
-            if (CurrentNode != null && CurrentNode.Name != "0")//判断你点的是不是一个节点
-                CurrentNode.ContextMenuStrip = cmCategory;
-            tvCategory.SelectedNode = CurrentNode;//选中这个节点
+            if (e.Button == MouseButtons.Right)
+            {
+                this.tvCategory.SelectedNode = e.Node;
+                this.cmCategory.Show(new Point(MousePosition.X, MousePosition.Y));
+            }
         }
 
         private void btnAddCategory_Click(object sender, EventArgs e)
@@ -197,25 +201,21 @@ namespace CamuseHome
                 e.Node.Remove();
             else if (!string.IsNullOrWhiteSpace(e.Label))
             {
-                using (var db = new CamuseHomeContext())
+                modCategory cur = null;
+                if (string.IsNullOrWhiteSpace(e.Node.Name))
                 {
-                    modCategory cur = null;
-
-                    if (string.IsNullOrWhiteSpace(e.Node.Name))
-                    {
-                        var pid = int.Parse(e.Node.Parent.Name);
-                        cur = new modCategory() { ParentId = pid, Name = e.Label };
-                        db.Category.Add(cur);
-                    }
-                    else
-                    {
-                        var id = int.Parse(e.Node.Name);
-                        cur = db.Category.Find(id);
-                        cur.Name = e.Label;
-                    }
-                    db.SaveChanges();
-                    e.Node.Name = cur.Id.ToString();
+                    var pid = int.Parse(e.Node.Parent.Name);
+                    cur = new modCategory() { ParentId = pid, Name = e.Label };
+                    int i = new dalCategory().addCategory(cur);
                 }
+                else
+                {
+                    var id = int.Parse(e.Node.Name);
+                    cur = new dalCategory().getCategory(id);
+                    cur.Name = e.Label;
+                    int i = new dalCategory().updateCategory(cur);
+                }
+                this.loadtvCategory();
                 e.Node.EndEdit(false);
             }
             else

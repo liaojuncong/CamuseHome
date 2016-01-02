@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CamuseHome.Dal
+namespace CamuseHome
 {
-    class dalPicture
+    public class dalPicture
     {
     }
 }

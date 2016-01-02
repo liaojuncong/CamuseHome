@@ -167,7 +167,7 @@
             this.tvCategory.TabIndex = 4;
             this.tvCategory.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.tvCategory_AfterLabelEdit);
             this.tvCategory.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvCategory_AfterSelect);
-            this.tvCategory.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tvCategory_MouseDown);
+            this.tvCategory.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvCategory_NodeMouseClick);
             // 
             // ribbonItemGroup1
             // 
@@ -373,6 +373,7 @@
             this.Name = "MDIForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Camuse Home";
+            this.Load += new System.EventHandler(this.MDIForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).EndInit();
             this.cmCategory.ResumeLayout(false);
             this.ResumeLayout(false);
