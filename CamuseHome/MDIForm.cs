@@ -61,24 +61,23 @@ namespace CamuseHome
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(e.Node.Name)) return;
-            using (var db = new CamuseHomeContext())
-            {
                 var categoryId = int.Parse(e.Node.Name);
                 try
                 {
-                    var products = db.Product.Include("Pictures").Where(i => i.CategoryId == categoryId).ToList();
+                    var products = new dalProduct().getProductList().Where(i => i.CategoryId == categoryId).ToList();
                     if (gvProduct.CurrentRow != null)
                         bindFlag = false;
                     pnPictures.Controls.Clear();
                     gvProduct.DataSource = products.ToDataTable<modProduct>();
                 }
                 catch { }
-            }
         }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("New");
+            AddProductForm addProductForm = new AddProductForm();
+            addProductForm.Owner = this;
+            addProductForm.ShowDialog();
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -234,7 +233,7 @@ namespace CamuseHome
         {
             if (tvCategory.SelectedNode.Name == "0")
             {
-                MessageBox.Show("该类别不能删除","提示信息");
+                MessageBox.Show("该类别不能删除", "提示信息");
                 return;
             }
             if (string.IsNullOrWhiteSpace(tvCategory.SelectedNode.Name))

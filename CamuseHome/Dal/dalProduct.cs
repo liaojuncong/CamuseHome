@@ -30,6 +30,7 @@ namespace CamuseHome
                     modProduct.Craft = dr["Craft"].ToString();
                     modProduct.LampBodyMaterial = dr["LampBodyMaterial"].ToString();
                     modProduct.ClothPlateCode = dr["ClothPlateCode"].ToString();
+                    modProduct.ColorPlateCode = dr["ColorPlateCode"].ToString();
                     modProduct.CategoryId = Convert.ToInt32(dr["CategoryId"]);
                     modProduct.Style = dr["Style"].ToString();
                     modProduct.PackingWay = dr["PackingWay"].ToString();
@@ -74,6 +75,7 @@ namespace CamuseHome
                     modProduct.Craft = dr["Craft"].ToString();
                     modProduct.LampBodyMaterial = dr["LampBodyMaterial"].ToString();
                     modProduct.ClothPlateCode = dr["ClothPlateCode"].ToString();
+                    modProduct.ColorPlateCode = dr["ColorPlateCode"].ToString();
                     modProduct.CategoryId = Convert.ToInt32(dr["CategoryId"]);
                     modProduct.Style = dr["Style"].ToString();
                     modProduct.PackingWay = dr["PackingWay"].ToString();
@@ -90,12 +92,12 @@ namespace CamuseHome
         {
             StringBuilder strsql = new StringBuilder();
             strsql.Append(" insert into Product(Code,Name,LampShadeSize,LampBodySize,LampSize,Price,Cost,LampShadeColor,LampBodyColor,Craft,");
-            strsql.Append("LampBodyMaterial,ClothPlateCode,CategoryId,Style,PackingWay,CartonPackingSize,Inventory,Remark,AuditState)values('");
+            strsql.Append("LampBodyMaterial,ClothPlateCode,ColorPlateCode,CategoryId,Style,PackingWay,CartonPackingSize,Inventory,Remark,AuditState)values('");
             strsql.Append(modProduct.Code + "','" + modProduct.Name + "','" + modProduct.LampShadeSize + "','" + modProduct.LampBodySize + "','");
-            strsql.Append(modProduct.LampSize + "'," + modProduct.Price + "," + modProduct.Cost + ",'" + modProduct.LampShadeColor + "',");
-            strsql.Append(modProduct.LampBodyColor + "','" + modProduct.Craft + "','" + modProduct.LampBodyMaterial + "','" + modProduct.ClothPlateCode + "','");
+            strsql.Append(modProduct.LampSize + "'," + modProduct.Price + "," + modProduct.Cost + ",'" + modProduct.LampShadeColor + "','");
+            strsql.Append(modProduct.LampBodyColor + "','" + modProduct.Craft + "','" + modProduct.LampBodyMaterial + "','" + modProduct.ClothPlateCode + "','" + modProduct.ColorPlateCode + "',");
             strsql.Append(modProduct.CategoryId + ",'" + modProduct.Style + "','" + modProduct.PackingWay + "','" + modProduct.CartonPackingSize + "','");
-            strsql.Append(modProduct.Inventory + "','" + modProduct.Remark + "'," + modProduct.AuditState + ") ");
+            strsql.Append(modProduct.Inventory + "','" + modProduct.Remark + "'," + (modProduct.AuditState ? "1" : "0") + ") ");
             return Sqlite.ExecuteNonQuery(strsql.ToString());
         }
 
@@ -114,12 +116,13 @@ namespace CamuseHome
                 + "',Craft='" + modProduct.Craft
                 + "',LampBodyMaterial='" + modProduct.LampBodyMaterial
                 + "',ClothPlateCode='" + modProduct.ClothPlateCode
+                + "',ColorPlateCode='" + modProduct.ColorPlateCode
                 + "',CategoryId=" + modProduct.CategoryId
                 + ",Style='" + modProduct.Style
                 + "',PackingWay='" + modProduct.PackingWay
                 + "',CartonPackingSize='" + modProduct.CartonPackingSize
                 + "',Remark='" + modProduct.Remark
-                + "',AuditState=" + modProduct.AuditState);
+                + "',AuditState=" + (modProduct.AuditState ? "1" : "0"));
             strsql.Append(" where Id=" + modProduct.Id);
             return Sqlite.ExecuteNonQuery(strsql.ToString());
         }

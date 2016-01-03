@@ -61,6 +61,10 @@ namespace CamuseHome
         /// </summary>
         public string ClothPlateCode { get; set; }
         /// <summary>
+        /// 色板编号
+        /// </summary>
+        public string ColorPlateCode { get; set; }
+        /// <summary>
         /// 分类
         /// </summary>
         public int CategoryId { get; set; }
