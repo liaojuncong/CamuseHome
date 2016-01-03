@@ -27,6 +27,7 @@ namespace CamuseHome
 
             gvProduct.ReadOnly = true;
             gvProduct.AutoGenerateColumns = false;
+            this.loadgvProduct(0);
         }
 
         public void loadtvCategory()
@@ -61,16 +62,28 @@ namespace CamuseHome
         private void tvCategory_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(e.Node.Name)) return;
-                var categoryId = int.Parse(e.Node.Name);
-                try
+            var categoryId = int.Parse(e.Node.Name);
+            this.loadgvProduct(categoryId);
+        }
+
+        public void loadgvProduct(int CategoryId)
+        {
+            try
+            {
+                if (CategoryId == 0)
                 {
-                    var products = new dalProduct().getProductList().Where(i => i.CategoryId == categoryId).ToList();
+                    gvProduct.DataSource = new dalProduct().getProductDataTable();
+                }
+                else
+                {
+                    var products = new dalProduct().getProductList().Where(i => i.CategoryId == CategoryId).ToList();
                     if (gvProduct.CurrentRow != null)
                         bindFlag = false;
                     pnPictures.Controls.Clear();
                     gvProduct.DataSource = products.ToDataTable<modProduct>();
                 }
-                catch { }
+            }
+            catch { }
         }
 
         private void btnNew_Click(object sender, EventArgs e)

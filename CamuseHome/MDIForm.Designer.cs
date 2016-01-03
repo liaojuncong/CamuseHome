@@ -49,10 +49,6 @@
             this.ribbonItemGroup2 = new System.Windows.Forms.RibbonItemGroup();
             this.ribbonUpDown1 = new System.Windows.Forms.RibbonUpDown();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameCn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameEn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnPictures = new System.Windows.Forms.Panel();
             this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +60,27 @@
             this.btnMember = new System.Windows.Forms.RibbonButton();
             this.btnSystemP = new System.Windows.Forms.RibbonButton();
             this.btnExit = new System.Windows.Forms.RibbonOrbMenuItem();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameCn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampShadeSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampBodySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampShadeColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampBodyColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Craft = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LampBodyMaterial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClothPlateCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColorPlateCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Style = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PackingWay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CartonPackingSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inventory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AuditState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             this.cmCategory.SuspendLayout();
             this.SuspendLayout();
@@ -196,7 +213,24 @@
             this.Id,
             this.Code,
             this.NameCn,
-            this.NameEn});
+            this.LampShadeSize,
+            this.LampBodySize,
+            this.LampSize,
+            this.Price,
+            this.Cost,
+            this.LampShadeColor,
+            this.LampBodyColor,
+            this.Craft,
+            this.LampBodyMaterial,
+            this.ClothPlateCode,
+            this.ColorPlateCode,
+            this.CategoryId,
+            this.Style,
+            this.PackingWay,
+            this.CartonPackingSize,
+            this.Inventory,
+            this.Remark,
+            this.AuditState});
             this.gvProduct.Location = new System.Drawing.Point(147, 132);
             this.gvProduct.Name = "gvProduct";
             this.gvProduct.ReadOnly = true;
@@ -206,36 +240,6 @@
             this.gvProduct.TabIndex = 7;
             this.gvProduct.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvProduct_CellFormatting);
             this.gvProduct.SelectionChanged += new System.EventHandler(this.gvProduct_SelectionChanged);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 5;
-            // 
-            // Code
-            // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "货号";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            // 
-            // NameCn
-            // 
-            this.NameCn.DataPropertyName = "Name";
-            this.NameCn.HeaderText = "品名";
-            this.NameCn.Name = "NameCn";
-            this.NameCn.ReadOnly = true;
-            // 
-            // NameEn
-            // 
-            this.NameEn.DataPropertyName = "EN";
-            this.NameEn.HeaderText = "英文名称";
-            this.NameEn.Name = "NameEn";
-            this.NameEn.ReadOnly = true;
             // 
             // pnPictures
             // 
@@ -357,6 +361,156 @@
             this.btnExit.Text = "退出";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 5;
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "货号";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            // 
+            // NameCn
+            // 
+            this.NameCn.DataPropertyName = "Name";
+            this.NameCn.HeaderText = "品名";
+            this.NameCn.Name = "NameCn";
+            this.NameCn.ReadOnly = true;
+            // 
+            // LampShadeSize
+            // 
+            this.LampShadeSize.DataPropertyName = "LampShadeSize";
+            this.LampShadeSize.HeaderText = "灯罩大小";
+            this.LampShadeSize.Name = "LampShadeSize";
+            this.LampShadeSize.ReadOnly = true;
+            // 
+            // LampBodySize
+            // 
+            this.LampBodySize.DataPropertyName = "LampBodySize";
+            this.LampBodySize.HeaderText = "灯体大小";
+            this.LampBodySize.Name = "LampBodySize";
+            this.LampBodySize.ReadOnly = true;
+            // 
+            // LampSize
+            // 
+            this.LampSize.DataPropertyName = "LampSize";
+            this.LampSize.HeaderText = "灯总高";
+            this.LampSize.Name = "LampSize";
+            this.LampSize.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "价格";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.DataPropertyName = "Cost";
+            this.Cost.HeaderText = "成本";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // LampShadeColor
+            // 
+            this.LampShadeColor.DataPropertyName = "LampShadeColor";
+            this.LampShadeColor.HeaderText = "灯罩颜色";
+            this.LampShadeColor.Name = "LampShadeColor";
+            this.LampShadeColor.ReadOnly = true;
+            // 
+            // LampBodyColor
+            // 
+            this.LampBodyColor.DataPropertyName = "LampBodyColor";
+            this.LampBodyColor.HeaderText = "灯体颜色";
+            this.LampBodyColor.Name = "LampBodyColor";
+            this.LampBodyColor.ReadOnly = true;
+            // 
+            // Craft
+            // 
+            this.Craft.DataPropertyName = "Craft";
+            this.Craft.HeaderText = "工艺";
+            this.Craft.Name = "Craft";
+            this.Craft.ReadOnly = true;
+            // 
+            // LampBodyMaterial
+            // 
+            this.LampBodyMaterial.DataPropertyName = "LampBodyMaterial";
+            this.LampBodyMaterial.HeaderText = "灯体材质";
+            this.LampBodyMaterial.Name = "LampBodyMaterial";
+            this.LampBodyMaterial.ReadOnly = true;
+            // 
+            // ClothPlateCode
+            // 
+            this.ClothPlateCode.DataPropertyName = "ClothPlateCode";
+            this.ClothPlateCode.HeaderText = "布板编号";
+            this.ClothPlateCode.Name = "ClothPlateCode";
+            this.ClothPlateCode.ReadOnly = true;
+            // 
+            // ColorPlateCode
+            // 
+            this.ColorPlateCode.DataPropertyName = "ColorPlateCode";
+            this.ColorPlateCode.HeaderText = "色板编号";
+            this.ColorPlateCode.Name = "ColorPlateCode";
+            this.ColorPlateCode.ReadOnly = true;
+            // 
+            // CategoryId
+            // 
+            this.CategoryId.DataPropertyName = "CategoryId";
+            this.CategoryId.HeaderText = "类别";
+            this.CategoryId.Name = "CategoryId";
+            this.CategoryId.ReadOnly = true;
+            // 
+            // Style
+            // 
+            this.Style.DataPropertyName = "Style";
+            this.Style.HeaderText = "风格";
+            this.Style.Name = "Style";
+            this.Style.ReadOnly = true;
+            // 
+            // PackingWay
+            // 
+            this.PackingWay.DataPropertyName = "PackingWay";
+            this.PackingWay.HeaderText = "包装方式";
+            this.PackingWay.Name = "PackingWay";
+            this.PackingWay.ReadOnly = true;
+            // 
+            // CartonPackingSize
+            // 
+            this.CartonPackingSize.DataPropertyName = "CartonPackingSize";
+            this.CartonPackingSize.HeaderText = "外箱包装尺寸";
+            this.CartonPackingSize.Name = "CartonPackingSize";
+            this.CartonPackingSize.ReadOnly = true;
+            // 
+            // Inventory
+            // 
+            this.Inventory.DataPropertyName = "Inventory";
+            this.Inventory.HeaderText = "库存情况";
+            this.Inventory.Name = "Inventory";
+            this.Inventory.ReadOnly = true;
+            // 
+            // Remark
+            // 
+            this.Remark.DataPropertyName = "Remark";
+            this.Remark.HeaderText = "备注";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            // 
+            // AuditState
+            // 
+            this.AuditState.DataPropertyName = "AuditState";
+            this.AuditState.HeaderText = "AuditState";
+            this.AuditState.Name = "AuditState";
+            this.AuditState.ReadOnly = true;
+            this.AuditState.Visible = false;
+            // 
             // MDIForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -397,10 +551,6 @@
         private System.Windows.Forms.RibbonButton btnUndoApprove;
         private System.Windows.Forms.DataGridView gvProduct;
         private System.Windows.Forms.Panel pnPictures;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameEn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.ContextMenuStrip cmCategory;
         private System.Windows.Forms.ToolStripMenuItem btnAddCategory;
         private System.Windows.Forms.ToolStripMenuItem btnModifyCategory;
@@ -416,5 +566,26 @@
         private System.Windows.Forms.RibbonButton btnMember;
         private System.Windows.Forms.RibbonButton btnChangePasswd;
         private System.Windows.Forms.RibbonOrbMenuItem btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameCn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampShadeSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampBodySize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampShadeColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampBodyColor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Craft;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LampBodyMaterial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClothPlateCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColorPlateCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Style;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PackingWay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CartonPackingSize;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inventory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AuditState;
     }
 }

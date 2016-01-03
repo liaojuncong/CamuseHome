@@ -41,6 +41,7 @@ namespace CamuseHome
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            int i = 0;
             modProduct modProduct = new modProduct();
             modProduct.Id = Id;
             modProduct.Code = this.txtbCode.Text.Trim();
@@ -64,11 +65,42 @@ namespace CamuseHome
             modProduct.Remark = this.txtbRemark.Text.Trim();
             if (modProduct.Id == 0)
             {
-                int i = new dalProduct().addProduct(modProduct);
+                i = new dalProduct().addProduct(modProduct);
             }
             else
             {
-                int i = new dalProduct().updateProduct(modProduct);
+                i = new dalProduct().updateProduct(modProduct);
+            }
+            if (i > 0)
+            {
+                MDIForm mDIForm = (MDIForm)this.Owner;
+                mDIForm.loadgvProduct(0);
+                if (Id == 0)
+                {
+                    this.txtbCode.Text = "";
+                    this.txtbName.Text = "";
+                    this.txtbLampShadeSize.Text = "";
+                    this.txtbLampBodySize.Text = "";
+                    this.txtbLampSize.Text = "";
+                    this.txtbPrice.Text = "0";
+                    this.txtbCost.Text = "0";
+                    this.txtbLampShadeColor.Text = "";
+                    this.txtbLampBodyColor.Text = "";
+                    this.txtbCraft.Text = "";
+                    this.txtbLampBodyMaterial.Text = "";
+                    this.txtbClothPlateCode.Text = "";
+                    this.txtbColorPlateCode.Text = "";
+                    this.txtbCategoryId.Text = "0";
+                    this.txtbStyle.Text = "";
+                    this.txtbPackingWay.Text = "";
+                    this.txtbCartonPackingSize.Text = "";
+                    this.txtbInventory.Text = "";
+                    this.txtbRemark.Text = "";
+                }
+            }
+            else
+            {
+                MessageBox.Show("操作失败...", "提示信息");
             }
         }
 
