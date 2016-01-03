@@ -191,6 +191,11 @@ namespace CamuseHome
 
         private void btnModifyCategory_Click(object sender, EventArgs e)
         {
+            if (tvCategory.SelectedNode.Name == "0")
+            {
+                MessageBox.Show("该类别不能编辑", "提示信息");
+                return;
+            }
             tvCategory.LabelEdit = true;
             tvCategory.SelectedNode.BeginEdit();
         }
@@ -227,6 +232,11 @@ namespace CamuseHome
 
         private void btnDeleteCategory_Click(object sender, EventArgs e)
         {
+            if (tvCategory.SelectedNode.Name == "0")
+            {
+                MessageBox.Show("该类别不能删除","提示信息");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(tvCategory.SelectedNode.Name))
             {
                 tvCategory.SelectedNode.Remove();
@@ -239,18 +249,15 @@ namespace CamuseHome
             }
 
             var id = int.Parse(tvCategory.SelectedNode.Name);
-            using (var db = new CamuseHomeContext())
+            var exits = new dalProduct().getProductList().Any(i => i.CategoryId == id);
+            if (exits)
             {
-                var exits = db.Product.Any(i => i.CategoryId == id);
-                if (exits)
-                {
-                    MessageBox.Show("此类别已经有产品存在，不允许删除！");
-                }
-                else
-                {
-                    db.Category.Remove(db.Category.Find(id));
-                    tvCategory.SelectedNode.Remove();
-                }
+                MessageBox.Show("此类别已经有产品存在，不允许删除！");
+            }
+            else
+            {
+                int i = new dalCategory().deleteCategory(id);
+                tvCategory.SelectedNode.Remove();
             }
         }
 

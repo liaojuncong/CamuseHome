@@ -35,11 +35,11 @@ namespace CamuseHome
         /// <summary>
         /// 售价
         /// </summary>
-        public float Price { get; set; }
+        public double Price { get; set; }
         /// <summary>
         /// 成本
         /// </summary>
-        public float Cost { get; set; }
+        public double Cost { get; set; }
         /// <summary>
         /// 灯罩颜色
         /// </summary>
