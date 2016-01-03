@@ -47,6 +47,10 @@
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="FastReport, Version=2013.2.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Lib\FastReport.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -113,6 +117,12 @@
     <Compile Include="PictureView.Designer.cs">
       <DependentUpon>PictureView.cs</DependentUpon>
     </Compile>
+    <Compile Include="PrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintForm.Designer.cs">
+      <DependentUpon>PrintForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetParamForm.cs">
@@ -148,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PictureView.resx">
       <DependentUpon>PictureView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm.resx">
+      <DependentUpon>PrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -188,11 +201,29 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Lib\FastReport.Bars.dll" />
+    <Content Include="Lib\FastReport.dll" />
+    <Content Include="Lib\FastReport.xml" />
     <Content Include="Pictures\Angelababy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\Lamp.ico" />
     <Content Include="Lib\System.Windows.Forms.Ribbon35.dll" />
+    <None Include="Reports\10幅横向简单画册.frx" />
+    <None Include="Reports\12A4中文画册.frx" />
+    <None Include="Reports\12A4英文画册.frx" />
+    <None Include="Reports\吊牌1.frx" />
+    <None Include="Reports\小标签1.frx" />
+    <None Include="Reports\报价单1幅图.frx" />
+    <None Include="Reports\报价单2幅图.frx" />
+    <None Include="Reports\报价单无图片.frx" />
+    <None Include="Reports\条形码小标签1.frx" />
+    <None Include="Reports\条形码小标签2.frx" />
+    <None Include="Reports\条形码小标签＿带价格密码1.frx" />
+    <None Include="Reports\条形码小标签＿带价格密码2.frx" />
+    <None Include="Reports\条形码小标签＿带价格密码3.frx" />
+    <None Include="Reports\标准3X5报价单.frx" />
+    <None Include="Reports\样品大标签.frx" />
     <None Include="Resources\Keys_16.png" />
     <None Include="Resources\setting_24.png" />
     <None Include="Resources\Logout_24.png" />

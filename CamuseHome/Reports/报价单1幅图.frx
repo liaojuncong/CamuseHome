@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
+  <Dictionary>
+    <Parameter Name="Company_CName" Expression="'路路通软件技术有限公司'"/>
+    <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
+    <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
+    <Parameter Name="Company_EAddress" Expression="'Chaozhou City Chaofeng Road'"/>
+    <Parameter Name="Company_Tel" Expression="'0768-2262263'"/>
+    <Parameter Name="Company_Fax" Expression="'0768-2207891'"/>
+    <Parameter Name="Company_Email" Expression="'info@freewaysoft.com'"/>
+    <Parameter Name="UserNo" Expression="'1'"/>
+    <Parameter Name="UserName" Expression="'路路通'"/>
+  </Dictionary>
+  <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" Columns.Count="0" Columns.Width="0" TitleBeforeHeader="true">
+    <PageHeaderBand Name="PageHeader1" Height="90.71">
+      <TextObject Name="Memo8" Left="884.41" Top="71.81" Width="162.52" Height="18.90" Font="宋体, 11pt" Text="Total Pages:[&#60;Page&#62;]/[TotalPages#]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo1" Left="0" Top="0.00" Width="1046.93" Height="26.46" Font="宋体, 18pt, style=Bold" Text="[Company_EName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo2" Left="0" Top="45.35" Width="1046.93" Height="18.90" Font="宋体, 11pt" Text="电话：[Company_Tel]   传真：[Company_Fax]   E-MAIL:[Company_Email]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo6" Left="0" Top="26.46" Width="1046.93" Height="18.90" Font="宋体, 11pt" Text="[Company_EAddress]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo7" Left="0" Top="68.03" Width="1046.93" Height="22.68" Font="宋体, 16pt, style=Bold" Text="QUOTATION SHEET" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+    </PageHeaderBand>
+    <DataBand Name="MasterData2" Height="68.03">
+      <DataHeaderBand Name="Header1" Height="52.91">
+        <ShapeObject Name="Shape1" Left="585.83" Top="26.46" Width="56.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape2" Left="585.83" Top="0.00" Width="56.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape3" Left="0" Top="26.46" Width="117.17" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape4" Left="0" Top="0.00" Width="117.17" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo9" Left="0" Top="4.41" Width="117.17" Height="22.05" Font="宋体, 10pt" Text="图片" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape5" Left="117.17" Top="0.00" Width="132.28" Height="26.46" Fill.Color="200, 200, 200" ShiftMode="WhenOverlapped" Shape="Rectangle"/>
+        <ShapeObject Name="Shape6" Left="249.45" Top="0.00" Width="117.17" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape7" Left="366.61" Top="0.00" Width="41.57" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape9" Left="472.44" Top="0.00" Width="113.39" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo10" Left="117.17" Top="4.41" Width="132.28" Height="22.05" Font="宋体, 10pt" Text="货号" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo11" Left="366.61" Top="4.41" Width="41.57" Height="22.05" Font="宋体, 10pt" Text="单位" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo13" Left="585.83" Top="33.07" Width="56.69" Height="16.54" Font="宋体, 10pt" Text="PCS/BOX" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo14" Left="585.83" Top="4.41" Width="56.69" Height="22.05" Font="宋体, 10pt" Text="只/内盒" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo15" Left="249.45" Top="4.41" Width="117.17" Height="22.05" Font="宋体, 10pt" Text="品名" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo16" Left="0" Top="33.07" Width="120.94" Height="19.84" Font="宋体, 10pt" Text="PHOTO" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape10" Left="117.17" Top="26.46" Width="132.28" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape11" Left="249.45" Top="26.46" Width="117.17" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape12" Left="366.61" Top="26.46" Width="41.57" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape14" Left="472.44" Top="26.46" Width="113.39" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape15" Left="408.19" Top="0.00" Width="64.25" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo17" Left="117.17" Top="33.07" Width="132.28" Height="19.84" Font="宋体, 10pt" Text="ITEM NO." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo18" Left="249.45" Top="33.07" Width="117.17" Height="19.84" Font="宋体, 10pt" Text="DESCRIPTION" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo19" Left="366.61" Top="33.07" Width="41.57" Height="19.84" Font="宋体, 10pt" Text="UNIT" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo20" Left="408.19" Top="4.41" Width="64.25" Height="22.05" Font="宋体, 10pt" Text="单价" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape16" Left="408.19" Top="26.46" Width="64.25" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo21" Left="408.19" Top="33.07" Width="64.25" Height="19.84" Font="宋体, 10pt" Text="PRICE/USD" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo23" Left="472.44" Top="4.41" Width="113.39" Height="22.05" Font="宋体, 10pt" Text="产品规格" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo24" Left="472.44" Top="33.07" Width="113.39" Height="16.54" Font="宋体, 10pt" Text="ITEM SIZE" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape17" Left="642.52" Top="0.00" Width="52.91" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape18" Left="642.52" Top="26.46" Width="52.91" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo25" Left="642.52" Top="4.41" Width="52.91" Height="22.05" Font="宋体, 10pt" Text="只/箱" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo26" Left="642.52" Top="33.07" Width="52.91" Height="16.54" Font="宋体, 10pt" Text="PCS/CTN" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape19" Left="695.43" Top="0.00" Width="120.94" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape20" Left="695.43" Top="26.46" Width="120.94" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape21" Left="816.38" Top="26.46" Width="52.91" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape22" Left="869.29" Top="26.46" Width="39.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape23" Left="816.38" Top="0.00" Width="52.91" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape24" Left="948.66" Top="0.00" Width="98.27" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo27" Left="695.43" Top="4.41" Width="120.94" Height="22.05" Font="宋体, 10pt" Text="外箱规格" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo28" Left="695.43" Top="33.07" Width="120.94" Height="16.54" Font="宋体, 10pt" Text="CTN SIZE" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape25" Left="869.29" Top="0.00" Width="39.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape26" Left="948.66" Top="26.46" Width="98.27" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo29" Left="816.38" Top="4.41" Width="52.91" Height="22.05" Font="宋体, 10pt" Text="箱体积" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo30" Left="816.38" Top="33.07" Width="52.91" Height="16.54" Font="宋体, 10pt" Text="CBM/CTN" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo31" Left="869.29" Top="4.41" Width="39.69" Height="22.05" Font="宋体, 10pt" Text="毛重" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo32" Left="869.29" Top="33.07" Width="39.69" Height="16.54" Font="宋体, 10pt" Text="G.W." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <ShapeObject Name="Shape27" Left="908.98" Top="0.00" Width="39.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <ShapeObject Name="Shape28" Left="908.98" Top="26.46" Width="39.69" Height="26.46" Fill.Color="200, 200, 200" Shape="Rectangle"/>
+        <TextObject Name="Memo33" Left="908.98" Top="4.41" Width="39.69" Height="22.05" Font="宋体, 10pt" Text="净重" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo34" Left="908.98" Top="33.07" Width="39.69" Height="16.54" Font="宋体, 10pt" Text="N.W." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo35" Left="948.66" Top="4.41" Width="98.27" Height="22.05" Font="宋体, 10pt" Text="包装方式" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+        <TextObject Name="Memo36" Left="948.66" Top="33.07" Width="98.27" Height="16.54" Font="宋体, 10pt" Text="PACKING" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      </DataHeaderBand>
+      <ShapeObject Name="Shape29" Left="695.43" Top="0" Width="120.94" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape30" Left="642.52" Top="0" Width="52.91" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape31" Left="472.44" Top="0" Width="113.39" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape32" Left="408.19" Top="0" Width="64.25" Height="68.03" Shape="Rectangle"/>
+      <TextObject Name="Memo37" Left="472.44" Top="0" Width="113.39" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_GG]CM" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <ShapeObject Name="Shape33" Left="0" Top="0" Width="117.17" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape34" Left="117.17" Top="0" Width="132.28" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape35" Left="585.83" Top="0" Width="56.69" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape36" Left="366.61" Top="0" Width="41.57" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape37" Left="249.45" Top="0" Width="117.17" Height="68.03" Shape="Rectangle"/>
+      <TextObject Name="Memo38" Left="249.45" Top="0" Width="117.17" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_EName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo39" Left="585.83" Top="0" Width="56.69" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_Inner]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo40" Left="642.52" Top="0" Width="52.91" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.prd_ctn]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo41" Left="117.17" Top="0" Width="132.28" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo42" Left="366.61" Top="0" Width="41.57" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_EUnit]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo43" Left="408.19" Top="0" Width="64.25" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Price1]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo45" Left="695.43" Top="0" Width="120.94" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.prd_l]*[DstRpt.prd_w]*[DstRpt.prd_h]CM" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <ShapeObject Name="Shape39" Left="816.38" Top="0" Width="52.91" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape40" Left="869.29" Top="0" Width="39.69" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape41" Left="908.98" Top="0" Width="39.69" Height="68.03" Shape="Rectangle"/>
+      <ShapeObject Name="Shape42" Left="948.66" Top="0" Width="98.27" Height="68.03" Shape="Rectangle"/>
+      <TextObject Name="Memo46" Left="869.29" Top="0" Width="39.69" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_GW]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo47" Left="816.38" Top="0" Width="52.91" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.prd_vol]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo48" Left="908.98" Top="0" Width="39.69" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.Prd_NW]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo49" Left="952.93" Top="0" Width="89.72" Height="68.03" Font="Times New Roman, 10pt" Text="[DstRpt.PackingtypeE]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
+      <PictureObject Name="Picture2" Left="3.78" Top="2.83" Width="109.61" Height="65.20" Fill.Color="255, 255, 255" DataColumn="DstRpt.Prd_Pic1" SizeMode="Zoom"/>
+    </DataBand>
+  </ReportPage>
+</Report>
