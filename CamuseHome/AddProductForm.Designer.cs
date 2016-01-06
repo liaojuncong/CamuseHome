@@ -66,9 +66,11 @@
             this.txtbColorPlateCode = new System.Windows.Forms.TextBox();
             this.txtbInventory = new System.Windows.Forms.TextBox();
             this.txtbRemark = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnUpload = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.pnPictures = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -376,16 +378,9 @@
             this.txtbRemark.Size = new System.Drawing.Size(395, 50);
             this.txtbRemark.TabIndex = 37;
             // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 384);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(485, 116);
-            this.flowLayoutPanel1.TabIndex = 38;
-            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(120, 520);
+            this.btnSave.Location = new System.Drawing.Point(190, 520);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(60, 23);
             this.btnSave.TabIndex = 39;
@@ -403,14 +398,36 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnUpload
+            // 
+            this.btnUpload.Location = new System.Drawing.Point(85, 520);
+            this.btnUpload.Name = "btnUpload";
+            this.btnUpload.Size = new System.Drawing.Size(60, 23);
+            this.btnUpload.TabIndex = 41;
+            this.btnUpload.Text = "上传";
+            this.btnUpload.UseVisualStyleBackColor = true;
+            this.btnUpload.Click += new System.EventHandler(this.btnUpload_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.Filter = "图片文件|*.jpg;*.png";
+            // 
+            // pnPictures
+            // 
+            this.pnPictures.Location = new System.Drawing.Point(10, 385);
+            this.pnPictures.Name = "pnPictures";
+            this.pnPictures.Size = new System.Drawing.Size(485, 116);
+            this.pnPictures.TabIndex = 42;
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 557);
+            this.Controls.Add(this.pnPictures);
+            this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.txtbRemark);
             this.Controls.Add(this.txtbInventory);
             this.Controls.Add(this.txtbColorPlateCode);
@@ -500,8 +517,10 @@
         private System.Windows.Forms.TextBox txtbColorPlateCode;
         private System.Windows.Forms.TextBox txtbInventory;
         private System.Windows.Forms.TextBox txtbRemark;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnUpload;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel pnPictures;
     }
 }

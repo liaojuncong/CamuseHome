@@ -60,9 +60,10 @@
             this.btnMember = new System.Windows.Forms.RibbonButton();
             this.btnSystemP = new System.Windows.Forms.RibbonButton();
             this.btnExit = new System.Windows.Forms.RibbonOrbMenuItem();
+            this.selectBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NameCn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LampShadeSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LampBodySize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LampSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -210,9 +211,10 @@
             this.gvProduct.BackgroundColor = System.Drawing.SystemColors.Control;
             this.gvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gvProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selectBox,
             this.Id,
             this.Code,
-            this.NameCn,
+            this.ProductName,
             this.LampShadeSize,
             this.LampBodySize,
             this.LampSize,
@@ -232,12 +234,14 @@
             this.Remark,
             this.AuditState});
             this.gvProduct.Location = new System.Drawing.Point(147, 132);
+            this.gvProduct.MultiSelect = false;
             this.gvProduct.Name = "gvProduct";
             this.gvProduct.ReadOnly = true;
             this.gvProduct.RowTemplate.Height = 23;
             this.gvProduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gvProduct.Size = new System.Drawing.Size(621, 291);
             this.gvProduct.TabIndex = 7;
+            this.gvProduct.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvProduct_CellClick);
             this.gvProduct.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvProduct_CellFormatting);
             this.gvProduct.SelectionChanged += new System.EventHandler(this.gvProduct_SelectionChanged);
             // 
@@ -361,6 +365,14 @@
             this.btnExit.Text = "退出";
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // selectBox
+            // 
+            this.selectBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.selectBox.HeaderText = "";
+            this.selectBox.Name = "selectBox";
+            this.selectBox.ReadOnly = true;
+            this.selectBox.Width = 5;
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -377,12 +389,12 @@
             this.Code.Name = "Code";
             this.Code.ReadOnly = true;
             // 
-            // NameCn
+            // ProductName
             // 
-            this.NameCn.DataPropertyName = "Name";
-            this.NameCn.HeaderText = "品名";
-            this.NameCn.Name = "NameCn";
-            this.NameCn.ReadOnly = true;
+            this.ProductName.DataPropertyName = "Name";
+            this.ProductName.HeaderText = "品名";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             // 
             // LampShadeSize
             // 
@@ -566,9 +578,10 @@
         private System.Windows.Forms.RibbonButton btnMember;
         private System.Windows.Forms.RibbonButton btnChangePasswd;
         private System.Windows.Forms.RibbonOrbMenuItem btnExit;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn selectBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameCn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LampShadeSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn LampBodySize;
         private System.Windows.Forms.DataGridViewTextBoxColumn LampSize;

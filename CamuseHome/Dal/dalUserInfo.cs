@@ -80,8 +80,8 @@ namespace CamuseHome
         public int addUserInfo(modUserInfo modUserInfo)
         {
             StringBuilder strsql = new StringBuilder();
-            strsql.Append(" insert into UserInfo(Id,Code,Name,Pwd,InputData,ModifyData,DeleteData,AuditData,AbandonData,SetParam,");
-            strsql.Append("ExportData,Print,LookCost,LookPrice)values(" + modUserInfo.Id + "," + modUserInfo.Code + ",'" + modUserInfo.Name);
+            strsql.Append(" insert into UserInfo(Code,Name,Pwd,InputData,ModifyData,DeleteData,AuditData,AbandonData,SetParam,");
+            strsql.Append("ExportData,Print,LookCost,LookPrice)values(" + modUserInfo.Code + ",'" + modUserInfo.Name);
             strsql.Append("','" + modUserInfo.Pwd + "'," + (modUserInfo.InputData ? 1 : 0) + "," + (modUserInfo.ModifyData ? 1 : 0));
             strsql.Append("," + (modUserInfo.DeleteData ? 1 : 0) + "," + (modUserInfo.AuditData ? 1 : 0) + "," + (modUserInfo.AbandonData ? 1 : 0));
             strsql.Append("," + (modUserInfo.SetParam ? 1 : 0) + "," + (modUserInfo.ExportData ? 1 : 0) + "," + (modUserInfo.Print ? 1 : 0));

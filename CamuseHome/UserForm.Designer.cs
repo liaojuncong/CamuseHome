@@ -34,7 +34,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pwd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InputData = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ModifyData = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -57,7 +57,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Code,
-            this.Name,
+            this.UserName,
             this.Pwd,
             this.InputData,
             this.ModifyData,
@@ -70,6 +70,7 @@
             this.LookCost,
             this.LookPrice});
             this.dataGridView1.Location = new System.Drawing.Point(0, 45);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 10;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -79,7 +80,6 @@
             this.dataGridView1.TabIndex = 7;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
-            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // ResetButton
             // 
@@ -128,13 +128,13 @@
             this.Code.Name = "Code";
             this.Code.Width = 54;
             // 
-            // Name
+            // UserName
             // 
-            this.Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Name.DataPropertyName = "Name";
-            this.Name.HeaderText = "姓名";
-            this.Name.Name = "Name";
-            this.Name.Width = 54;
+            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UserName.DataPropertyName = "Name";
+            this.UserName.HeaderText = "姓名";
+            this.UserName.Name = "UserName";
+            this.UserName.Width = 54;
             // 
             // Pwd
             // 
@@ -247,6 +247,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Name = "UserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "操作员管理";
             this.Load += new System.EventHandler(this.UserForm_Load);
@@ -263,7 +264,7 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pwd;
         private System.Windows.Forms.DataGridViewCheckBoxColumn InputData;
         private System.Windows.Forms.DataGridViewCheckBoxColumn ModifyData;

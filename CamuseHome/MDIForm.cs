@@ -95,22 +95,89 @@ namespace CamuseHome
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Modify");
+            foreach (DataGridViewRow dgvr in this.gvProduct.SelectedRows)
+            {
+                if (dgvr.Cells["AuditState"].Value.ToString() == "1")
+                {
+                    MessageBox.Show("当前记录" + dgvr.Cells["ProductName"].Value.ToString() + "已经审核，不能编辑...", "提示信息");
+                }
+                else
+                {
+                    int id = Convert.ToInt32(dgvr.Cells[1].Value.ToString());
+                    AddProductForm.Id = id;
+                    AddProductForm addProductForm = new AddProductForm();
+                    addProductForm.Owner = this;
+                    addProductForm.ShowDialog();
+                }
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Delete");
+            if (MessageBox.Show(this, "确定删除所选记录吗？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = 0; i < this.gvProduct.Rows.Count; i++)
+                {
+                    if (this.gvProduct.Rows[i].Cells["AuditState"].Value.ToString() == "1")
+                    {
+                        MessageBox.Show("当前记录" + this.gvProduct.Rows[i].Cells["ProductName"].Value.ToString() + "已经审核，不能删除...", "提示信息");
+                    }
+                    else
+                    {
+                        //判断当前行是否被选中
+                        if ((bool)this.gvProduct.Rows[i].Cells[0].EditedFormattedValue == true)
+                        {
+                            int id = Convert.ToInt32(this.gvProduct.Rows[i].Cells[1].Value.ToString());
+                            new dalProduct().deleteProduct(id);
+                        }
+                    }
+                }
+                this.loadgvProduct(0);
+            }
         }
 
         private void btnApprove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Approve");
+            if (MessageBox.Show(this, "确定审核所选记录吗？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = 0; i < this.gvProduct.Rows.Count; i++)
+                {
+                    //判断当前行是否被选中
+                    if ((bool)this.gvProduct.Rows[i].Cells[0].EditedFormattedValue == true)
+                    {
+                        int id = Convert.ToInt32(this.gvProduct.Rows[i].Cells[1].Value.ToString());
+                        modProduct modProduct = new dalProduct().getProduct(id);
+                        if (!modProduct.AuditState)
+                        {
+                            modProduct.AuditState = true;
+                            int j = new dalProduct().updateProduct(modProduct);
+                        }
+                    }
+                }
+                this.loadgvProduct(0);
+            }
         }
 
         private void btnUndoApprove_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("UnApprove");
+            if (MessageBox.Show(this, "确定弃审所选记录吗？", "提示信息", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                for (int i = 0; i < this.gvProduct.Rows.Count; i++)
+                {
+                    //判断当前行是否被选中
+                    if ((bool)this.gvProduct.Rows[i].Cells[0].EditedFormattedValue == true)
+                    {
+                        int id = Convert.ToInt32(this.gvProduct.Rows[i].Cells[1].Value.ToString());
+                        modProduct modProduct = new dalProduct().getProduct(id);
+                        if (modProduct.AuditState)
+                        {
+                            modProduct.AuditState = false;
+                            int j = new dalProduct().updateProduct(modProduct);
+                        }
+                    }
+                }
+                this.loadgvProduct(0);
+            }
         }
 
         private void gvProduct_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -118,7 +185,11 @@ namespace CamuseHome
             if (gvProduct.Columns[e.ColumnIndex].Name.Equals("modPicture"))
             {
                 string path = e.Value.ToString();
-                e.Value = GetImage(path);
+                e.Value = GetImage(Application.StartupPath + path);
+            }
+            if (gvProduct.Rows[e.RowIndex].Cells["AuditState"].Value.ToString() == "1")
+            {
+                this.gvProduct.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.BlueViolet;
             }
         }
         public System.Drawing.Image GetImage(string path)
@@ -139,47 +210,45 @@ namespace CamuseHome
             { bindFlag = true; return; }
             if (this.gvProduct.CurrentRow == null)
                 return;
-            using (var db = new CamuseHomeContext())
-            {
-                var id = int.Parse(this.gvProduct.CurrentRow.Cells["Id"].Value.ToString());
-                var pictures = db.Picture.Where(p => p.ProductId == id).Select(p => new { p.Name, p.Path });
 
-                #region 显示图片
-                this.pnPictures.Controls.Clear();
-                int leftX = 10;
-                foreach (var pic in pictures)
+            var id = int.Parse(this.gvProduct.CurrentRow.Cells["Id"].Value.ToString());
+            var pictures = new dalPicture().getPictureList(id);
+
+            #region 显示图片
+            this.pnPictures.Controls.Clear();
+            int leftX = 10;
+            foreach (var pic in pictures)
+            {
+                PictureBox pb = new PictureBox();
+                pb.Paint += (s, e1) =>
                 {
-                    PictureBox pb = new PictureBox();
-                    pb.Paint += (s, e1) =>
+                    Graphics g = e1.Graphics;
+                    g.SmoothingMode = SmoothingMode.HighQuality;
+                    g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
+                };
+                pb.DoubleClick += (s, e1) =>
+                {
+                    var c = s as PictureBox;
+                    if (c != null)
                     {
-                        Graphics g = e1.Graphics;
-                        g.SmoothingMode = SmoothingMode.HighQuality;
-                        g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
-                    };
-                    pb.DoubleClick += (s, e1) =>
-                    {
-                        var c = s as PictureBox;
-                        if (c != null)
+                        var p = c.Tag.ToString();
+                        var img = c.Image;
+                        if (img != null)
                         {
-                            var p = c.Tag.ToString();
-                            var img = c.Image;
-                            if (img != null)
-                            {
-                                var frm = new PictureView(img);
-                                frm.Show();
-                            }
+                            var frm = new PictureView(img);
+                            frm.Show();
                         }
-                    };
-                    pb.SizeMode = PictureBoxSizeMode.Zoom;
-                    pb.Image = GetImage(pic.Path);
-                    pb.Tag = pic;
-                    pb.Size = new System.Drawing.Size(80, 80);
-                    pb.Location = new System.Drawing.Point(leftX, 10);
-                    leftX += 100;
-                    this.pnPictures.Controls.Add(pb);
-                }
-                #endregion
+                    }
+                };
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pb.Image = GetImage(pic.Path);
+                pb.Tag = pic;
+                pb.Size = new System.Drawing.Size(80, 80);
+                pb.Location = new System.Drawing.Point(leftX, 10);
+                leftX += 100;
+                this.pnPictures.Controls.Add(pb);
             }
+            #endregion
         }
 
         private void tvCategory_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -291,6 +360,9 @@ namespace CamuseHome
         private void btnSearch_Click(object sender, EventArgs e)
         {
             MessageBox.Show("查询");
+            SelectForm selectForm = new SelectForm();
+            selectForm.Owner = this;
+            selectForm.ShowDialog();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -314,6 +386,21 @@ namespace CamuseHome
         {
             SetParamForm setParamForm = new SetParamForm();
             setParamForm.ShowDialog();
+        }
+
+        private void gvProduct_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                if ((bool)this.gvProduct.Rows[e.RowIndex].Cells[0].EditedFormattedValue == true)
+                {
+                    this.gvProduct.Rows[e.RowIndex].Cells[0].Value = false;
+                }
+                else
+                {
+                    this.gvProduct.Rows[e.RowIndex].Cells[0].Value = true;
+                }
+            }
         }
     }
 }
