@@ -49,17 +49,6 @@
             this.ribbonItemGroup2 = new System.Windows.Forms.RibbonItemGroup();
             this.ribbonUpDown1 = new System.Windows.Forms.RibbonUpDown();
             this.gvProduct = new System.Windows.Forms.DataGridView();
-            this.pnPictures = new System.Windows.Forms.Panel();
-            this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnModifyCategory = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
-            this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
-            this.btnChangePasswd = new System.Windows.Forms.RibbonButton();
-            this.btnMember = new System.Windows.Forms.RibbonButton();
-            this.btnSystemP = new System.Windows.Forms.RibbonButton();
-            this.btnExit = new System.Windows.Forms.RibbonOrbMenuItem();
             this.selectBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,6 +71,17 @@
             this.Inventory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AuditState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnPictures = new System.Windows.Forms.Panel();
+            this.cmCategory = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnAddCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnModifyCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDeleteCategory = new System.Windows.Forms.ToolStripMenuItem();
+            this.ribbon1 = new System.Windows.Forms.Ribbon();
+            this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
+            this.btnChangePasswd = new System.Windows.Forms.RibbonButton();
+            this.btnMember = new System.Windows.Forms.RibbonButton();
+            this.btnSystemP = new System.Windows.Forms.RibbonButton();
+            this.btnExit = new System.Windows.Forms.RibbonOrbMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gvProduct)).BeginInit();
             this.cmCategory.SuspendLayout();
             this.SuspendLayout();
@@ -245,126 +245,6 @@
             this.gvProduct.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.gvProduct_CellFormatting);
             this.gvProduct.SelectionChanged += new System.EventHandler(this.gvProduct_SelectionChanged);
             // 
-            // pnPictures
-            // 
-            this.pnPictures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnPictures.AutoScroll = true;
-            this.pnPictures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnPictures.Location = new System.Drawing.Point(147, 429);
-            this.pnPictures.Name = "pnPictures";
-            this.pnPictures.Size = new System.Drawing.Size(621, 116);
-            this.pnPictures.TabIndex = 9;
-            // 
-            // cmCategory
-            // 
-            this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnAddCategory,
-            this.btnModifyCategory,
-            this.btnDeleteCategory});
-            this.cmCategory.Name = "cmCategory";
-            this.cmCategory.Size = new System.Drawing.Size(101, 70);
-            // 
-            // btnAddCategory
-            // 
-            this.btnAddCategory.Name = "btnAddCategory";
-            this.btnAddCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnAddCategory.Text = "新增";
-            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
-            // 
-            // btnModifyCategory
-            // 
-            this.btnModifyCategory.Name = "btnModifyCategory";
-            this.btnModifyCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnModifyCategory.Text = "编辑";
-            this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
-            // 
-            // btnDeleteCategory
-            // 
-            this.btnDeleteCategory.Name = "btnDeleteCategory";
-            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 22);
-            this.btnDeleteCategory.Text = "删除";
-            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
-            // 
-            // ribbon1
-            // 
-            this.ribbon1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ribbon1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.ribbon1.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.Minimized = false;
-            this.ribbon1.Name = "ribbon1";
-            // 
-            // 
-            // 
-            this.ribbon1.OrbDropDown.BorderRoundness = 8;
-            this.ribbon1.OrbDropDown.Location = new System.Drawing.Point(0, 0);
-            this.ribbon1.OrbDropDown.MenuItems.Add(this.ribbonOrbMenuItem1);
-            this.ribbon1.OrbDropDown.MenuItems.Add(this.btnExit);
-            this.ribbon1.OrbDropDown.Name = "";
-            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 160);
-            this.ribbon1.OrbDropDown.TabIndex = 0;
-            this.ribbon1.OrbImage = global::CamuseHome.Properties.Resources.Lamp_22;
-            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
-            // 
-            // 
-            // 
-            this.ribbon1.QuickAcessToolbar.DropDownButtonVisible = false;
-            this.ribbon1.QuickAcessToolbar.Text = "";
-            this.ribbon1.QuickAcessToolbar.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
-            this.ribbon1.QuickAcessToolbar.Value = "";
-            this.ribbon1.QuickAcessToolbar.Visible = false;
-            this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
-            this.ribbon1.Size = new System.Drawing.Size(780, 126);
-            this.ribbon1.TabIndex = 0;
-            this.ribbon1.Tabs.Add(this.ribbonTab1);
-            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
-            this.ribbon1.Text = "ribbon1";
-            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
-            // 
-            // ribbonOrbMenuItem1
-            // 
-            this.ribbonOrbMenuItem1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnChangePasswd);
-            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnMember);
-            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnSystemP);
-            this.ribbonOrbMenuItem1.Image = global::CamuseHome.Properties.Resources.setting_24;
-            this.ribbonOrbMenuItem1.SmallImage = global::CamuseHome.Properties.Resources.setting_24;
-            this.ribbonOrbMenuItem1.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
-            this.ribbonOrbMenuItem1.Text = "系统设置";
-            // 
-            // btnChangePasswd
-            // 
-            this.btnChangePasswd.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.btnChangePasswd.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.Image")));
-            this.btnChangePasswd.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.SmallImage")));
-            this.btnChangePasswd.Text = "修改密码";
-            this.btnChangePasswd.Click += new System.EventHandler(this.btnChangePasswd_Click);
-            // 
-            // btnMember
-            // 
-            this.btnMember.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.btnMember.Image = ((System.Drawing.Image)(resources.GetObject("btnMember.Image")));
-            this.btnMember.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnMember.SmallImage")));
-            this.btnMember.Text = "操作员管理";
-            this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
-            // 
-            // btnSystemP
-            // 
-            this.btnSystemP.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.btnSystemP.Image = ((System.Drawing.Image)(resources.GetObject("btnSystemP.Image")));
-            this.btnSystemP.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnSystemP.SmallImage")));
-            this.btnSystemP.Text = "系统参数";
-            this.btnSystemP.Click += new System.EventHandler(this.btnSystemP_Click);
-            // 
-            // btnExit
-            // 
-            this.btnExit.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
-            this.btnExit.Image = global::CamuseHome.Properties.Resources.Logout_24;
-            this.btnExit.SmallImage = global::CamuseHome.Properties.Resources.Logout_24;
-            this.btnExit.Text = "退出";
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // selectBox
             // 
             this.selectBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -522,6 +402,126 @@
             this.AuditState.Name = "AuditState";
             this.AuditState.ReadOnly = true;
             this.AuditState.Visible = false;
+            // 
+            // pnPictures
+            // 
+            this.pnPictures.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnPictures.AutoScroll = true;
+            this.pnPictures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnPictures.Location = new System.Drawing.Point(147, 429);
+            this.pnPictures.Name = "pnPictures";
+            this.pnPictures.Size = new System.Drawing.Size(621, 116);
+            this.pnPictures.TabIndex = 9;
+            // 
+            // cmCategory
+            // 
+            this.cmCategory.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnAddCategory,
+            this.btnModifyCategory,
+            this.btnDeleteCategory});
+            this.cmCategory.Name = "cmCategory";
+            this.cmCategory.Size = new System.Drawing.Size(101, 70);
+            // 
+            // btnAddCategory
+            // 
+            this.btnAddCategory.Name = "btnAddCategory";
+            this.btnAddCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnAddCategory.Text = "新增";
+            this.btnAddCategory.Click += new System.EventHandler(this.btnAddCategory_Click);
+            // 
+            // btnModifyCategory
+            // 
+            this.btnModifyCategory.Name = "btnModifyCategory";
+            this.btnModifyCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnModifyCategory.Text = "编辑";
+            this.btnModifyCategory.Click += new System.EventHandler(this.btnModifyCategory_Click);
+            // 
+            // btnDeleteCategory
+            // 
+            this.btnDeleteCategory.Name = "btnDeleteCategory";
+            this.btnDeleteCategory.Size = new System.Drawing.Size(100, 22);
+            this.btnDeleteCategory.Text = "删除";
+            this.btnDeleteCategory.Click += new System.EventHandler(this.btnDeleteCategory_Click);
+            // 
+            // ribbon1
+            // 
+            this.ribbon1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ribbon1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.ribbon1.Location = new System.Drawing.Point(0, 0);
+            this.ribbon1.Minimized = false;
+            this.ribbon1.Name = "ribbon1";
+            // 
+            // 
+            // 
+            this.ribbon1.OrbDropDown.BorderRoundness = 8;
+            this.ribbon1.OrbDropDown.Location = new System.Drawing.Point(0, 0);
+            this.ribbon1.OrbDropDown.MenuItems.Add(this.ribbonOrbMenuItem1);
+            this.ribbon1.OrbDropDown.MenuItems.Add(this.btnExit);
+            this.ribbon1.OrbDropDown.Name = "";
+            this.ribbon1.OrbDropDown.Size = new System.Drawing.Size(527, 160);
+            this.ribbon1.OrbDropDown.TabIndex = 0;
+            this.ribbon1.OrbImage = global::CamuseHome.Properties.Resources.Lamp_22;
+            this.ribbon1.OrbStyle = System.Windows.Forms.RibbonOrbStyle.Office_2013;
+            // 
+            // 
+            // 
+            this.ribbon1.QuickAcessToolbar.DropDownButtonVisible = false;
+            this.ribbon1.QuickAcessToolbar.Text = "";
+            this.ribbon1.QuickAcessToolbar.TextAlignment = System.Windows.Forms.RibbonItem.RibbonItemTextAlignment.Center;
+            this.ribbon1.QuickAcessToolbar.Value = "";
+            this.ribbon1.QuickAcessToolbar.Visible = false;
+            this.ribbon1.RibbonTabFont = new System.Drawing.Font("Trebuchet MS", 9F);
+            this.ribbon1.Size = new System.Drawing.Size(780, 126);
+            this.ribbon1.TabIndex = 0;
+            this.ribbon1.Tabs.Add(this.ribbonTab1);
+            this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
+            this.ribbon1.Text = "ribbon1";
+            this.ribbon1.ThemeColor = System.Windows.Forms.RibbonTheme.Blue;
+            // 
+            // ribbonOrbMenuItem1
+            // 
+            this.ribbonOrbMenuItem1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnChangePasswd);
+            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnMember);
+            this.ribbonOrbMenuItem1.DropDownItems.Add(this.btnSystemP);
+            this.ribbonOrbMenuItem1.Image = global::CamuseHome.Properties.Resources.setting_24;
+            this.ribbonOrbMenuItem1.SmallImage = global::CamuseHome.Properties.Resources.setting_24;
+            this.ribbonOrbMenuItem1.Style = System.Windows.Forms.RibbonButtonStyle.SplitDropDown;
+            this.ribbonOrbMenuItem1.Text = "系统设置";
+            // 
+            // btnChangePasswd
+            // 
+            this.btnChangePasswd.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnChangePasswd.Image = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.Image")));
+            this.btnChangePasswd.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnChangePasswd.SmallImage")));
+            this.btnChangePasswd.Text = "修改密码";
+            this.btnChangePasswd.Click += new System.EventHandler(this.btnChangePasswd_Click);
+            // 
+            // btnMember
+            // 
+            this.btnMember.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnMember.Image = ((System.Drawing.Image)(resources.GetObject("btnMember.Image")));
+            this.btnMember.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnMember.SmallImage")));
+            this.btnMember.Text = "操作员管理";
+            this.btnMember.Click += new System.EventHandler(this.btnMember_Click);
+            // 
+            // btnSystemP
+            // 
+            this.btnSystemP.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnSystemP.Image = ((System.Drawing.Image)(resources.GetObject("btnSystemP.Image")));
+            this.btnSystemP.SmallImage = ((System.Drawing.Image)(resources.GetObject("btnSystemP.SmallImage")));
+            this.btnSystemP.Text = "系统参数";
+            this.btnSystemP.Click += new System.EventHandler(this.btnSystemP_Click);
+            // 
+            // btnExit
+            // 
+            this.btnExit.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Left;
+            this.btnExit.Image = global::CamuseHome.Properties.Resources.Logout_24;
+            this.btnExit.SmallImage = global::CamuseHome.Properties.Resources.Logout_24;
+            this.btnExit.Text = "退出";
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // MDIForm
             // 

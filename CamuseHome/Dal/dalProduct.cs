@@ -9,10 +9,10 @@ namespace CamuseHome
 {
     public class dalProduct
     {
-        public List<modProduct> getProductList()
+        public List<modProduct> getProductList(modProduct Product, string keyWord)
         {
             List<modProduct> list = new List<modProduct>();
-            using (DataTable dt = this.getProductDataTable())
+            using (DataTable dt = this.getProductDataTable(Product, keyWord))
             {
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -44,10 +44,60 @@ namespace CamuseHome
             return list;
         }
 
-        public DataTable getProductDataTable()
+        public DataTable getProductDataTable(modProduct modProduct, string keyWord)
         {
             StringBuilder strsql = new StringBuilder();
-            strsql.Append(" select * from Product ");
+            strsql.Append(" select * from Product where 1=1 ");
+            if (keyWord != null && keyWord != "")
+            {
+                strsql.Append(" and (Code like '%" + keyWord + "%' or Name like '%" + keyWord + "%' or LampShadeColor like '%" + keyWord + "%'");
+                strsql.Append(" or LampBodyColor like '%" + keyWord + "%' or LampBodyMaterial like '%" + keyWord + "%' or Craft like '%" + keyWord + "%'");
+                strsql.Append(" or ClothPlateCode like '%" + keyWord + "%' or ColorPlateCode like '%" + keyWord + "%' or Style like '%" + keyWord + "%' or Remark like '%" + keyWord + "%') ");
+            }
+            if (modProduct.Code != null && modProduct.Code != "")
+            {
+                strsql.Append(" and Code like '%" + modProduct.Code + "%' ");
+            }
+            if (modProduct.Name != null && modProduct.Name != "")
+            {
+                strsql.Append(" and Name like '%" + modProduct.Name + "%' ");
+            }
+            if (modProduct.LampShadeColor != null && modProduct.LampShadeColor != "")
+            {
+                strsql.Append(" and LampShadeColor like '%" + modProduct.LampShadeColor + "%' ");
+            }
+            if (modProduct.LampBodyColor != null && modProduct.LampBodyColor != "")
+            {
+                strsql.Append(" and LampBodyColor like '%" + modProduct.LampBodyColor + "%' ");
+            }
+            if (modProduct.LampBodyMaterial != null && modProduct.LampBodyMaterial != "")
+            {
+                strsql.Append(" and LampBodyMaterial like '%" + modProduct.LampBodyMaterial + "%' ");
+            }
+            if (modProduct.Craft != null && modProduct.Craft != "")
+            {
+                strsql.Append(" and Craft like '%" + modProduct.Craft + "%' ");
+            }
+            if (modProduct.ClothPlateCode != null && modProduct.ClothPlateCode != "")
+            {
+                strsql.Append(" and ClothPlateCode like '%" + modProduct.ClothPlateCode + "%' ");
+            }
+            if (modProduct.CategoryId != null && modProduct.CategoryId != 0)
+            {
+                strsql.Append(" and CategoryId = " + modProduct.CategoryId + " ");
+            }
+            if (modProduct.ColorPlateCode != null && modProduct.ColorPlateCode != "")
+            {
+                strsql.Append(" and ColorPlateCode like '%" + modProduct.ColorPlateCode + "%' ");
+            }
+            if (modProduct.Style != null && modProduct.Style != "")
+            {
+                strsql.Append(" and Style like '%" + modProduct.Style + "%' ");
+            }
+            if (modProduct.Remark != null && modProduct.Remark != "")
+            {
+                strsql.Append(" and Remark like '%" + modProduct.Remark + "%' ");
+            }
             strsql.Append(" order by Id ");
             return Sqlite.ExecuteDataTable(strsql.ToString());
         }

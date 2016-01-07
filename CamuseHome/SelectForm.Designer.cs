@@ -29,21 +29,17 @@
         private void InitializeComponent()
         {
             this.txtbRemark = new System.Windows.Forms.TextBox();
-            this.txtbInventory = new System.Windows.Forms.TextBox();
             this.txtbColorPlateCode = new System.Windows.Forms.TextBox();
             this.txtbClothPlateCode = new System.Windows.Forms.TextBox();
             this.txtbLampBodyMaterial = new System.Windows.Forms.TextBox();
             this.txtbStyle = new System.Windows.Forms.TextBox();
             this.txtbLampBodyColor = new System.Windows.Forms.TextBox();
-            this.txtbCategoryId = new System.Windows.Forms.TextBox();
+            this.txtbCategoryName = new System.Windows.Forms.TextBox();
             this.txtbLampShadeColor = new System.Windows.Forms.TextBox();
             this.txtbCraft = new System.Windows.Forms.TextBox();
-            this.txtbCost = new System.Windows.Forms.TextBox();
-            this.txtbPrice = new System.Windows.Forms.TextBox();
             this.txtbName = new System.Windows.Forms.TextBox();
             this.txtbCode = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -52,29 +48,21 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbKeyWord = new System.Windows.Forms.TextBox();
             this.btnQuery = new System.Windows.Forms.Button();
             this.btnDetail = new System.Windows.Forms.Button();
+            this.tvCategory = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // txtbRemark
             // 
-            this.txtbRemark.Location = new System.Drawing.Point(285, 254);
+            this.txtbRemark.Location = new System.Drawing.Point(285, 188);
             this.txtbRemark.Name = "txtbRemark";
             this.txtbRemark.Size = new System.Drawing.Size(150, 21);
             this.txtbRemark.TabIndex = 17;
-            // 
-            // txtbInventory
-            // 
-            this.txtbInventory.Location = new System.Drawing.Point(76, 254);
-            this.txtbInventory.Name = "txtbInventory";
-            this.txtbInventory.Size = new System.Drawing.Size(150, 21);
-            this.txtbInventory.TabIndex = 16;
             // 
             // txtbColorPlateCode
             // 
@@ -99,7 +87,7 @@
             // 
             // txtbStyle
             // 
-            this.txtbStyle.Location = new System.Drawing.Point(285, 221);
+            this.txtbStyle.Location = new System.Drawing.Point(285, 155);
             this.txtbStyle.Name = "txtbStyle";
             this.txtbStyle.Size = new System.Drawing.Size(150, 21);
             this.txtbStyle.TabIndex = 15;
@@ -111,12 +99,15 @@
             this.txtbLampBodyColor.Size = new System.Drawing.Size(150, 21);
             this.txtbLampBodyColor.TabIndex = 8;
             // 
-            // txtbCategoryId
+            // txtbCategoryName
             // 
-            this.txtbCategoryId.Location = new System.Drawing.Point(285, 188);
-            this.txtbCategoryId.Name = "txtbCategoryId";
-            this.txtbCategoryId.Size = new System.Drawing.Size(150, 21);
-            this.txtbCategoryId.TabIndex = 13;
+            this.txtbCategoryName.Location = new System.Drawing.Point(285, 89);
+            this.txtbCategoryName.Name = "txtbCategoryName";
+            this.txtbCategoryName.ReadOnly = true;
+            this.txtbCategoryName.Size = new System.Drawing.Size(150, 21);
+            this.txtbCategoryName.TabIndex = 13;
+            this.txtbCategoryName.Enter += new System.EventHandler(this.txtbCategoryId_Enter);
+            this.txtbCategoryName.Leave += new System.EventHandler(this.txtbCategoryId_Leave);
             // 
             // txtbLampShadeColor
             // 
@@ -127,24 +118,10 @@
             // 
             // txtbCraft
             // 
-            this.txtbCraft.Location = new System.Drawing.Point(285, 155);
+            this.txtbCraft.Location = new System.Drawing.Point(285, 122);
             this.txtbCraft.Name = "txtbCraft";
             this.txtbCraft.Size = new System.Drawing.Size(150, 21);
             this.txtbCraft.TabIndex = 11;
-            // 
-            // txtbCost
-            // 
-            this.txtbCost.Location = new System.Drawing.Point(285, 122);
-            this.txtbCost.Name = "txtbCost";
-            this.txtbCost.Size = new System.Drawing.Size(150, 21);
-            this.txtbCost.TabIndex = 9;
-            // 
-            // txtbPrice
-            // 
-            this.txtbPrice.Location = new System.Drawing.Point(285, 89);
-            this.txtbPrice.Name = "txtbPrice";
-            this.txtbPrice.Size = new System.Drawing.Size(150, 21);
-            this.txtbPrice.TabIndex = 7;
             // 
             // txtbName
             // 
@@ -163,25 +140,16 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(250, 254);
+            this.label19.Location = new System.Drawing.Point(250, 188);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(29, 12);
             this.label19.TabIndex = 56;
             this.label19.Text = "备注";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(17, 257);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(53, 12);
-            this.label18.TabIndex = 55;
-            this.label18.Text = "库存情况";
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(250, 224);
+            this.label15.Location = new System.Drawing.Point(250, 158);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(29, 12);
             this.label15.TabIndex = 52;
@@ -190,7 +158,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(250, 191);
+            this.label14.Location = new System.Drawing.Point(250, 92);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(29, 12);
             this.label14.TabIndex = 51;
@@ -226,7 +194,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(250, 158);
+            this.label10.Location = new System.Drawing.Point(250, 125);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(29, 12);
             this.label10.TabIndex = 47;
@@ -249,24 +217,6 @@
             this.label8.Size = new System.Drawing.Size(53, 12);
             this.label8.TabIndex = 45;
             this.label8.Text = "灯罩颜色";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(250, 125);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(29, 12);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "成本";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(250, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 12);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "售价";
             // 
             // label2
             // 
@@ -295,12 +245,12 @@
             this.label3.TabIndex = 76;
             this.label3.Text = "关键字";
             // 
-            // textBox1
+            // txtbKeyWord
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 21);
-            this.textBox1.TabIndex = 1;
+            this.txtbKeyWord.Location = new System.Drawing.Point(71, 17);
+            this.txtbKeyWord.Name = "txtbKeyWord";
+            this.txtbKeyWord.Size = new System.Drawing.Size(200, 21);
+            this.txtbKeyWord.TabIndex = 1;
             // 
             // btnQuery
             // 
@@ -322,31 +272,40 @@
             this.btnDetail.UseVisualStyleBackColor = true;
             this.btnDetail.Click += new System.EventHandler(this.btnDetail_Click);
             // 
+            // tvCategory
+            // 
+            this.tvCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tvCategory.Location = new System.Drawing.Point(285, 110);
+            this.tvCategory.Name = "tvCategory";
+            this.tvCategory.Size = new System.Drawing.Size(150, 0);
+            this.tvCategory.TabIndex = 77;
+            this.tvCategory.Visible = false;
+            this.tvCategory.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvCategory_BeforeSelect);
+            this.tvCategory.Leave += new System.EventHandler(this.tvCategory_Leave);
+            // 
             // SelectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 47);
+            this.Controls.Add(this.tvCategory);
             this.Controls.Add(this.btnDetail);
             this.Controls.Add(this.btnQuery);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtbKeyWord);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtbRemark);
-            this.Controls.Add(this.txtbInventory);
             this.Controls.Add(this.txtbColorPlateCode);
             this.Controls.Add(this.txtbClothPlateCode);
             this.Controls.Add(this.txtbLampBodyMaterial);
             this.Controls.Add(this.txtbStyle);
             this.Controls.Add(this.txtbLampBodyColor);
-            this.Controls.Add(this.txtbCategoryId);
+            this.Controls.Add(this.txtbCategoryName);
             this.Controls.Add(this.txtbLampShadeColor);
             this.Controls.Add(this.txtbCraft);
-            this.Controls.Add(this.txtbCost);
-            this.Controls.Add(this.txtbPrice);
             this.Controls.Add(this.txtbName);
             this.Controls.Add(this.txtbCode);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -355,15 +314,13 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SelectForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "样品查询";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -373,21 +330,17 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtbRemark;
-        private System.Windows.Forms.TextBox txtbInventory;
         private System.Windows.Forms.TextBox txtbColorPlateCode;
         private System.Windows.Forms.TextBox txtbClothPlateCode;
         private System.Windows.Forms.TextBox txtbLampBodyMaterial;
         private System.Windows.Forms.TextBox txtbStyle;
         private System.Windows.Forms.TextBox txtbLampBodyColor;
-        private System.Windows.Forms.TextBox txtbCategoryId;
+        private System.Windows.Forms.TextBox txtbCategoryName;
         private System.Windows.Forms.TextBox txtbLampShadeColor;
         private System.Windows.Forms.TextBox txtbCraft;
-        private System.Windows.Forms.TextBox txtbCost;
-        private System.Windows.Forms.TextBox txtbPrice;
         private System.Windows.Forms.TextBox txtbName;
         private System.Windows.Forms.TextBox txtbCode;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -396,13 +349,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbKeyWord;
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.Button btnDetail;
+        private System.Windows.Forms.TreeView tvCategory;
     }
 }

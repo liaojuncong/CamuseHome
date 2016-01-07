@@ -56,7 +56,7 @@
             this.txtbLampSize = new System.Windows.Forms.TextBox();
             this.txtbCraft = new System.Windows.Forms.TextBox();
             this.txtbLampShadeColor = new System.Windows.Forms.TextBox();
-            this.txtbCategoryId = new System.Windows.Forms.TextBox();
+            this.txtbCategoryName = new System.Windows.Forms.TextBox();
             this.txtbLampBodyColor = new System.Windows.Forms.TextBox();
             this.txtbStyle = new System.Windows.Forms.TextBox();
             this.txtbLampBodyMaterial = new System.Windows.Forms.TextBox();
@@ -71,6 +71,7 @@
             this.btnUpload = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.pnPictures = new System.Windows.Forms.Panel();
+            this.tvCategory = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // label1
@@ -307,12 +308,15 @@
             this.txtbLampShadeColor.Size = new System.Drawing.Size(150, 21);
             this.txtbLampShadeColor.TabIndex = 27;
             // 
-            // txtbCategoryId
+            // txtbCategoryName
             // 
-            this.txtbCategoryId.Location = new System.Drawing.Point(330, 154);
-            this.txtbCategoryId.Name = "txtbCategoryId";
-            this.txtbCategoryId.Size = new System.Drawing.Size(150, 21);
-            this.txtbCategoryId.TabIndex = 28;
+            this.txtbCategoryName.Location = new System.Drawing.Point(330, 154);
+            this.txtbCategoryName.Name = "txtbCategoryName";
+            this.txtbCategoryName.ReadOnly = true;
+            this.txtbCategoryName.Size = new System.Drawing.Size(150, 21);
+            this.txtbCategoryName.TabIndex = 28;
+            this.txtbCategoryName.Enter += new System.EventHandler(this.txtbCategoryId_Enter);
+            this.txtbCategoryName.Leave += new System.EventHandler(this.txtbCategoryId_Leave);
             // 
             // txtbLampBodyColor
             // 
@@ -414,16 +418,31 @@
             // 
             // pnPictures
             // 
+            this.pnPictures.AutoScroll = true;
+            this.pnPictures.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnPictures.Location = new System.Drawing.Point(10, 385);
             this.pnPictures.Name = "pnPictures";
             this.pnPictures.Size = new System.Drawing.Size(485, 116);
             this.pnPictures.TabIndex = 42;
+            // 
+            // tvCategory
+            // 
+            this.tvCategory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.tvCategory.Location = new System.Drawing.Point(330, 174);
+            this.tvCategory.Name = "tvCategory";
+            this.tvCategory.Size = new System.Drawing.Size(150, 200);
+            this.tvCategory.TabIndex = 43;
+            this.tvCategory.Visible = false;
+            this.tvCategory.BeforeSelect += new System.Windows.Forms.TreeViewCancelEventHandler(this.tvCategory_BeforeSelect);
+            this.tvCategory.Leave += new System.EventHandler(this.tvCategory_Leave);
             // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 557);
+            this.Controls.Add(this.tvCategory);
             this.Controls.Add(this.pnPictures);
             this.Controls.Add(this.btnUpload);
             this.Controls.Add(this.btnCancel);
@@ -437,7 +456,7 @@
             this.Controls.Add(this.txtbLampBodyMaterial);
             this.Controls.Add(this.txtbStyle);
             this.Controls.Add(this.txtbLampBodyColor);
-            this.Controls.Add(this.txtbCategoryId);
+            this.Controls.Add(this.txtbCategoryName);
             this.Controls.Add(this.txtbLampShadeColor);
             this.Controls.Add(this.txtbCraft);
             this.Controls.Add(this.txtbLampSize);
@@ -472,6 +491,7 @@
             this.Name = "AddProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "编辑样品";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddProductForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,7 +527,7 @@
         private System.Windows.Forms.TextBox txtbLampSize;
         private System.Windows.Forms.TextBox txtbCraft;
         private System.Windows.Forms.TextBox txtbLampShadeColor;
-        private System.Windows.Forms.TextBox txtbCategoryId;
+        private System.Windows.Forms.TextBox txtbCategoryName;
         private System.Windows.Forms.TextBox txtbLampBodyColor;
         private System.Windows.Forms.TextBox txtbStyle;
         private System.Windows.Forms.TextBox txtbLampBodyMaterial;
@@ -522,5 +542,6 @@
         private System.Windows.Forms.Button btnUpload;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Panel pnPictures;
+        private System.Windows.Forms.TreeView tvCategory;
     }
 }

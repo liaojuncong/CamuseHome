@@ -15,9 +15,12 @@ namespace CamuseHome
     public partial class AddProductForm : Form
     {
         public static int Id = 0;
+        public int CategoryId = 0;
         public AddProductForm()
         {
             InitializeComponent();
+
+            loadtvCategory();
 
             modProduct modProduct = new dalProduct().getProduct(Id);
             this.txtbCode.Text = modProduct.Code;
@@ -33,7 +36,9 @@ namespace CamuseHome
             this.txtbLampBodyMaterial.Text = modProduct.LampBodyMaterial;
             this.txtbClothPlateCode.Text = modProduct.ClothPlateCode;
             this.txtbColorPlateCode.Text = modProduct.ColorPlateCode;
-            this.txtbCategoryId.Text = modProduct.CategoryId.ToString();
+            this.CategoryId = modProduct.CategoryId;
+            modCategory modCategory = new dalCategory().getCategory(this.CategoryId);
+            this.txtbCategoryName.Text = modCategory.Name;
             this.txtbStyle.Text = modProduct.Style;
             this.txtbPackingWay.Text = modProduct.PackingWay;
             this.txtbCartonPackingSize.Text = modProduct.CartonPackingSize;
@@ -44,6 +49,16 @@ namespace CamuseHome
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (this.CategoryId == 0 && this.txtbCategoryName.Text.Trim() != "")
+            {
+                MessageBox.Show("请选择有效的类别...", "提示信息");
+                return;
+            }
+            if (this.CategoryId == 0)
+            {
+                MessageBox.Show("类别不能为空...", "提示信息");
+                return;
+            }
             int i = 0;
             modProduct modProduct = new modProduct();
             modProduct.Id = Id;
@@ -60,7 +75,7 @@ namespace CamuseHome
             modProduct.LampBodyMaterial = this.txtbLampBodyMaterial.Text.Trim();
             modProduct.ClothPlateCode = this.txtbClothPlateCode.Text.Trim();
             modProduct.ColorPlateCode = this.txtbColorPlateCode.Text.Trim();
-            modProduct.CategoryId = Convert.ToInt32(this.txtbCategoryId.Text.Trim());
+            modProduct.CategoryId = this.CategoryId;
             modProduct.Style = this.txtbStyle.Text.Trim();
             modProduct.PackingWay = this.txtbPackingWay.Text.Trim();
             modProduct.CartonPackingSize = this.txtbCartonPackingSize.Text.Trim();
@@ -69,7 +84,7 @@ namespace CamuseHome
             if (modProduct.Id == 0)
             {
                 i = new dalProduct().addProduct(modProduct);
-                using (DataTable dt = new dalProduct().getProductDataTable())
+                using (DataTable dt = new dalProduct().getProductDataTable(new modProduct(), ""))
                 {
                     if (i > 0 && dt.Rows.Count > 0)
                     {
@@ -85,7 +100,8 @@ namespace CamuseHome
             if (i > 0)
             {
                 MDIForm mDIForm = (MDIForm)this.Owner;
-                mDIForm.loadgvProduct(0);
+                mDIForm.loadgvProduct(new modProduct(), "", 0);
+                MessageBox.Show("操作失败...", "提示信息");
                 if (Id == 0)
                 {
                     this.txtbCode.Text = "";
@@ -101,7 +117,7 @@ namespace CamuseHome
                     this.txtbLampBodyMaterial.Text = "";
                     this.txtbClothPlateCode.Text = "";
                     this.txtbColorPlateCode.Text = "";
-                    this.txtbCategoryId.Text = "0";
+                    this.txtbCategoryName.Text = "0";
                     this.txtbStyle.Text = "";
                     this.txtbPackingWay.Text = "";
                     this.txtbCartonPackingSize.Text = "";
@@ -117,18 +133,6 @@ namespace CamuseHome
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (Id == 0)
-            {
-                using (DataTable dt = new dalPicture().getPictureDataTable(Id))
-                {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string path = dr["Path"].ToString();
-                        File.Delete(path);
-                        int i = new dalPicture().deletePicture(Convert.ToInt32(dr["Id"]));
-                    }
-                }
-            }
             this.Close();
         }
 
@@ -168,15 +172,16 @@ namespace CamuseHome
             #region 显示图片
             var pictures = new dalPicture().getPictureList(Id);
             this.pnPictures.Controls.Clear();
-            int leftX = 10;
+            int leftX = 8;
             foreach (var pic in pictures)
             {
                 PictureBox pb = new PictureBox();
+                pb.BorderStyle = BorderStyle.FixedSingle;
                 pb.Paint += (s, e1) =>
                 {
                     Graphics g = e1.Graphics;
                     g.SmoothingMode = SmoothingMode.HighQuality;
-                    g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
+                    //g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
                 };
                 pb.DoubleClick += (s, e1) =>
                 {
@@ -196,9 +201,17 @@ namespace CamuseHome
                 pb.Image = GetImage(Application.StartupPath + pic.Path);
                 pb.Tag = pic;
                 pb.Size = new System.Drawing.Size(80, 80);
-                pb.Location = new System.Drawing.Point(leftX, 10);
-                leftX += 100;
+                pb.Location = new System.Drawing.Point(leftX, 8);
+                leftX += 96;
                 this.pnPictures.Controls.Add(pb);
+
+                Button btn = new Button();
+                btn.Parent = this.pnPictures;
+                btn.Size = new System.Drawing.Size(30, 21);
+                btn.Location = new Point(pb.Location.X + 25, pb.Location.Y + 80);
+                btn.Name = "btn_" + pic.Id.ToString();
+                btn.Text = "删";
+                btn.Click += new EventHandler(btn_Click);
             }
             #endregion
         }
@@ -213,6 +226,94 @@ namespace CamuseHome
             fs.Close();
 
             return result;
+        }
+
+        public void btn_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            int Id = Convert.ToInt32(btn.Name.Substring(4));
+            modPicture modPicture = new dalPicture().getPicture(Id);
+            try
+            {
+                File.Delete(Application.StartupPath + modPicture.Path);
+                int i = new dalPicture().deletePicture(Id);
+            }
+            catch { }
+            this.showPicture();
+        }
+
+        public void loadtvCategory()
+        {
+            this.tvCategory.Nodes.Clear();
+            var tn = new TreeNode();
+            tn.Name = "0";
+            tn.Text = "类别";
+            tvCategory.Nodes.Add(tn);
+            BindTvCategory(new dalCategory().getCategoryList(), tn.Nodes, 0);
+            tvCategory.ExpandAll();
+        }
+
+        /// <summary>
+        /// 绑定TreeView（利用TreeNodeCollection）
+        /// </summary>
+        public void BindTvCategory(List<modCategory> categorys, TreeNodeCollection tnc, long pid)
+        {
+            TreeNode tn;
+            var subCategorys = categorys.Where(i => i.ParentId == pid);
+            foreach (var item in subCategorys)
+            {
+                tn = new TreeNode();
+                tn.Name = item.Id.ToString();
+                tn.Text = item.Name.ToString();
+                tnc.Add(tn);
+                BindTvCategory(categorys, tn.Nodes, item.Id);
+            }
+        }
+
+        private void txtbCategoryId_Enter(object sender, EventArgs e)
+        {
+            this.tvCategory.Visible = true;
+            this.tvCategory.Location = new Point(this.txtbCategoryName.Location.X, this.txtbCategoryName.Location.Y + this.txtbCategoryName.Height);
+        }
+
+        private void txtbCategoryId_Leave(object sender, EventArgs e)
+        {
+            if (!this.tvCategory.Focused)
+            {
+                this.tvCategory.Visible = false;
+            }
+        }
+
+        private void tvCategory_Leave(object sender, EventArgs e)
+        {
+            if (!this.txtbCategoryName.Focused)
+            {
+                this.tvCategory.Visible = false;
+            }
+        }
+
+        private void tvCategory_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            this.CategoryId = Convert.ToInt32(e.Node.Name);
+            this.txtbCategoryName.Text = e.Node.Text;
+        }
+
+        private void AddProductForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Id == 0)
+            {
+                using (DataTable dt = new dalPicture().getPictureDataTable(Id))
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string path = dr["Path"].ToString();
+                        File.Delete(path);
+                        int i = new dalPicture().deletePicture(Convert.ToInt32(dr["Id"]));
+                    }
+                }
+            }
+            MDIForm mdiForm = (MDIForm)this.Owner;
+            mdiForm.showPicture();
         }
     }
 }

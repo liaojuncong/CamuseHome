@@ -27,7 +27,7 @@ namespace CamuseHome
 
             gvProduct.ReadOnly = true;
             gvProduct.AutoGenerateColumns = false;
-            this.loadgvProduct(0);
+            this.loadgvProduct(new modProduct(), "", 0);
         }
 
         public void loadtvCategory()
@@ -63,20 +63,20 @@ namespace CamuseHome
         {
             if (string.IsNullOrWhiteSpace(e.Node.Name)) return;
             var categoryId = int.Parse(e.Node.Name);
-            this.loadgvProduct(categoryId);
+            this.loadgvProduct(new modProduct(), "", categoryId);
         }
 
-        public void loadgvProduct(int CategoryId)
+        public void loadgvProduct(modProduct modProduct, string keyWord, int CategoryId)
         {
             try
             {
                 if (CategoryId == 0)
                 {
-                    gvProduct.DataSource = new dalProduct().getProductDataTable();
+                    gvProduct.DataSource = new dalProduct().getProductDataTable(modProduct, keyWord);
                 }
                 else
                 {
-                    var products = new dalProduct().getProductList().Where(i => i.CategoryId == CategoryId).ToList();
+                    var products = new dalProduct().getProductList(modProduct, keyWord).Where(i => i.CategoryId == CategoryId).ToList();
                     if (gvProduct.CurrentRow != null)
                         bindFlag = false;
                     pnPictures.Controls.Clear();
@@ -132,7 +132,7 @@ namespace CamuseHome
                         }
                     }
                 }
-                this.loadgvProduct(0);
+                this.loadgvProduct(new modProduct(), "", 0);
             }
         }
 
@@ -154,7 +154,7 @@ namespace CamuseHome
                         }
                     }
                 }
-                this.loadgvProduct(0);
+                this.loadgvProduct(new modProduct(), "", 0);
             }
         }
 
@@ -176,7 +176,7 @@ namespace CamuseHome
                         }
                     }
                 }
-                this.loadgvProduct(0);
+                this.loadgvProduct(new modProduct(), "", 0);
             }
         }
 
@@ -206,8 +206,16 @@ namespace CamuseHome
 
         private void gvProduct_SelectionChanged(object sender, EventArgs e)
         {
+            this.showPicture();
+        }
+
+        public void showPicture()
+        {
             if (!bindFlag)
-            { bindFlag = true; return; }
+            {
+                bindFlag = true;
+                return;
+            }
             if (this.gvProduct.CurrentRow == null)
                 return;
 
@@ -216,15 +224,16 @@ namespace CamuseHome
 
             #region 显示图片
             this.pnPictures.Controls.Clear();
-            int leftX = 10;
+            int leftX = 8;
             foreach (var pic in pictures)
             {
                 PictureBox pb = new PictureBox();
+                pb.BorderStyle = BorderStyle.FixedSingle;
                 pb.Paint += (s, e1) =>
                 {
                     Graphics g = e1.Graphics;
                     g.SmoothingMode = SmoothingMode.HighQuality;
-                    g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
+                    //g.DrawString(pic.Name, new Font("Arial", 8), SystemBrushes.ActiveCaptionText, new PointF(10, 30));
                 };
                 pb.DoubleClick += (s, e1) =>
                 {
@@ -241,11 +250,11 @@ namespace CamuseHome
                     }
                 };
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
-                pb.Image = GetImage(pic.Path);
+                pb.Image = GetImage(Application.StartupPath + pic.Path);
                 pb.Tag = pic;
-                pb.Size = new System.Drawing.Size(80, 80);
-                pb.Location = new System.Drawing.Point(leftX, 10);
-                leftX += 100;
+                pb.Size = new System.Drawing.Size(100, 100);
+                pb.Location = new System.Drawing.Point(leftX, 8);
+                leftX += 116;
                 this.pnPictures.Controls.Add(pb);
             }
             #endregion
@@ -330,7 +339,7 @@ namespace CamuseHome
             }
 
             var id = int.Parse(tvCategory.SelectedNode.Name);
-            var exits = new dalProduct().getProductList().Any(i => i.CategoryId == id);
+            var exits = new dalProduct().getProductList(new modProduct(), "").Any(i => i.CategoryId == id);
             if (exits)
             {
                 MessageBox.Show("此类别已经有产品存在，不允许删除！");
@@ -359,10 +368,9 @@ namespace CamuseHome
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("查询");
             SelectForm selectForm = new SelectForm();
             selectForm.Owner = this;
-            selectForm.ShowDialog();
+            selectForm.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
