@@ -44,38 +44,38 @@ namespace CamuseHome
         {
             if (cbReport.SelectedItem == null) return;
             var reportFile = cbReport.SelectedItem.ToString();
-            switch (reportFile)
+            var reportPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Reports", reportFile);
+            report.Load(reportPath);
+
+            using (var db = new CamuseHomeContext())
             {
-                case "10幅横向简单画册.frx":
-                    var reportPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Reports", reportFile);
-                    report.Load(reportPath);
+                var enterpriseInfo = db.EnterpriseInfo.FirstOrDefault();
+                if (enterpriseInfo != null)
+                {
+                    report.SetParameterValue("Company_CName", enterpriseInfo.CnName);
+                    report.SetParameterValue("Company_EName", enterpriseInfo.EnName);
+                    report.SetParameterValue("Company_CAddress", enterpriseInfo.CnAddress);
+                    report.SetParameterValue("Company_EAddress", enterpriseInfo.EnAddress);
+                    report.SetParameterValue("Company_Tel", enterpriseInfo.Telephone);
+                    report.SetParameterValue("Company_Fax", enterpriseInfo.Fax);
+                    report.SetParameterValue("Company_Email", enterpriseInfo.Email);
+                }
+                else
+                {
+                    report.SetParameterValue("Company_CName", "卡慕斯家居");
+                    report.SetParameterValue("Company_EName", "CamuseHome");
+                    report.SetParameterValue("Company_CAddress", "");
+                    report.SetParameterValue("Company_EAddress", "");
+                    report.SetParameterValue("Company_Tel", "");
+                    report.SetParameterValue("Company_Fax", "");
+                    report.SetParameterValue("Company_Email", "");
+                }
+                report.SetParameterValue("UserNo", Global.UserCode);
+                report.SetParameterValue("UserName", Global.UserName);
 
-                    using (var db = new CamuseHomeContext())
-                    {
-                        var enterpriseInfo = db.EnterpriseInfo.FirstOrDefault();
-                        if (enterpriseInfo != null)
-                        {
-                            report.SetParameterValue("Company_CName", enterpriseInfo.CnName);
-                            report.SetParameterValue("Company_EName", enterpriseInfo.EnName);
-                            report.SetParameterValue("Company_CAddress", enterpriseInfo.CnAddress);
-                            report.SetParameterValue("Company_EAddress", enterpriseInfo.EnAddress);
-                            report.SetParameterValue("Company_Tel", enterpriseInfo.Telephone);
-                            report.SetParameterValue("Company_Fax", enterpriseInfo.Fax);
-                            report.SetParameterValue("Company_Email", enterpriseInfo.Email);
-                        }
-                        else
-                        {
-                            report.SetParameterValue("Company_CName", "卡慕斯家居");
-                            report.SetParameterValue("Company_EName", "CamuseHome");
-                            report.SetParameterValue("Company_CAddress", "");
-                            report.SetParameterValue("Company_EAddress", "");
-                            report.SetParameterValue("Company_Tel", "");
-                            report.SetParameterValue("Company_Fax", "");
-                            report.SetParameterValue("Company_Email", "");
-                        }
-                        report.SetParameterValue("UserNo", "88");
-                        report.SetParameterValue("UserName", "99");
-
+                switch (reportFile)
+                {
+                    case "10幅横向简单画册.frx":
                         var productList = db.Product.Include("Pictures").Where(p => productIds.Contains(p.Id)).ToList();
                         var ds = new List<dynamic>();
                         productList.ForEach(i =>
@@ -84,10 +84,10 @@ namespace CamuseHome
                             ds.Add(new { Prd_Pic1 = Common.GetPicture(path), Prd_CName = i.Name, Prd_GG = i.LampShadeSize, Prd_Note = i.Remark, Prd_ItemNo = i.Code });
                         });
                         report.RegisterData(ds, "DataSource");
-                    }
-                    break;
-                default:
-                    return;
+                        break;
+                    default:
+                        return;
+                }
             }
         }
     }

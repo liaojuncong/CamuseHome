@@ -48,6 +48,8 @@ namespace CamuseHome
                     }
                     else
                     {
+                        Global.UserCode = userCode;
+                        Global.UserName = modUserInfo.Name;
                         this.lblMsg.Text = "";
                         dalUserInfo.modUserInfo = modUserInfo;
                         this.RememberLoginInfo(this.checkBox1.Checked);
@@ -85,7 +87,7 @@ namespace CamuseHome
                     {
                         this.txtPwd.Text = AesHelper.AESDecrypt(GetAppConfig("passWord"), "LiaoJunWu526");
                     }
-                    catch { }
+                    catch (Exception ex){ }
                 }
                 
                 this.checkBox1.Checked = true;                

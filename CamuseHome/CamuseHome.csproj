@@ -168,6 +168,7 @@
     <Compile Include="Uilities\Common.cs" />
     <Compile Include="Uilities\DataTableExtensions.cs" />
     <Compile Include="Uilities\DESCode.cs" />
+    <Compile Include="Uilities\Global.cs" />
     <Compile Include="Uilities\SQLite.cs" />
     <Compile Include="UpdatePwdForm.cs">
       <SubType>Form</SubType>
