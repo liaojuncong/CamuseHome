@@ -83,7 +83,7 @@ namespace CamuseHome
                             var path = Path.Combine(Application.StartupPath, "Pictures", "Angelababy.jpg");
                             ds.Add(new { Prd_Pic1 = Common.GetPicture(path), Prd_CName = i.Name, Prd_GG = i.LampShadeSize, Prd_Note = i.Remark, Prd_ItemNo = i.Code });
                         });
-                        report.RegisterData(ds, "DataSource");
+                        report.RegisterData(ds, "DstRpt");
                         break;
                     default:
                         return;
