@@ -11,6 +11,8 @@ namespace CamuseHome
             // Turn off the Migrations, (NOT a code first Db)
             Database.SetInitializer<CamuseHomeContext>(null);
         }
+        public DbSet<modEnterpriseInfo> EnterpriseInfo { get; set; }
+        public DbSet<modUserInfo> UserInfo { get; set; }
         public DbSet<modCategory> Category { get; set; }
         public DbSet<modProduct> Product { get; set; }
         public DbSet<modPicture> Picture { get; set; }

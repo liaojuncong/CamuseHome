@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
-    <Parameter Name="Company_CName" Expression="'路路通软件技术有限公司'"/>
+    <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
     <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
     <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
     <Parameter Name="Company_EAddress" Expression="'Chaozhou City Chaofeng Road'"/>
@@ -9,7 +9,7 @@
     <Parameter Name="Company_Fax" Expression="'0768-2207891'"/>
     <Parameter Name="Company_Email" Expression="'info@freewaysoft.com'"/>
     <Parameter Name="UserNo" Expression="'1'"/>
-    <Parameter Name="UserName" Expression="'路路通'"/>
+    <Parameter Name="UserName" Expression="'卡慕斯'"/>
   </Dictionary>
   <ReportPage Name="Page1" PaperWidth="210" PaperHeight="297" LeftMargin="5" RightMargin="5" TopMargin="10" BottomMargin="10" Columns.Count="5" Columns.Width="40" TitleBeforeHeader="true">
     <DataBand Name="MasterData1" Height="103.94">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
-    <Parameter Name="Company_CName" Expression="'潮州市路路通软件技术有限公司'"/>
+    <Parameter Name="Company_CName" Expression="'潮州市卡慕斯家居'"/>
     <Parameter Name="Company_EName" Expression="'freewaysoft soft'"/>
     <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园2梯2楼'"/>
     <Parameter Name="Company_EAddress" Expression="''"/>

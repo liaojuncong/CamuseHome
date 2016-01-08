@@ -1,6 +1,10 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CamuseHome
 {
+
+    [Table("Picture")]
     public class modPicture
     {
         public int Id { get; set; }

@@ -363,7 +363,9 @@ namespace CamuseHome
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("打印");
+            PrintForm printForm = new PrintForm();
+            printForm.Owner = this;
+            printForm.Show();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

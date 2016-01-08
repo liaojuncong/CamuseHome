@@ -1,6 +1,9 @@
 ﻿
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace CamuseHome
 {
+    [Table("UserInfo")]
     public class modUserInfo
     {
         public int Id { set; get; }

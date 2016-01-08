@@ -159,6 +159,7 @@
       <DependentUpon>SetParamForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Uilities\AesHelper.cs" />
+    <Compile Include="Uilities\Common.cs" />
     <Compile Include="Uilities\DataTableExtensions.cs" />
     <Compile Include="Uilities\DESCode.cs" />
     <Compile Include="Uilities\SQLite.cs" />
@@ -242,21 +243,51 @@
     </Content>
     <Content Include="Images\Lamp.ico" />
     <Content Include="Lib\System.Windows.Forms.Ribbon35.dll" />
-    <None Include="Reports\10幅横向简单画册.frx" />
-    <None Include="Reports\12A4中文画册.frx" />
-    <None Include="Reports\12A4英文画册.frx" />
-    <None Include="Reports\吊牌1.frx" />
-    <None Include="Reports\小标签1.frx" />
-    <None Include="Reports\报价单1幅图.frx" />
-    <None Include="Reports\报价单2幅图.frx" />
-    <None Include="Reports\报价单无图片.frx" />
-    <None Include="Reports\条形码小标签1.frx" />
-    <None Include="Reports\条形码小标签2.frx" />
-    <None Include="Reports\条形码小标签＿带价格密码1.frx" />
-    <None Include="Reports\条形码小标签＿带价格密码2.frx" />
-    <None Include="Reports\条形码小标签＿带价格密码3.frx" />
-    <None Include="Reports\标准3X5报价单.frx" />
-    <None Include="Reports\样品大标签.frx" />
+    <None Include="Reports\10幅横向简单画册.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\12A4中文画册.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\12A4英文画册.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\吊牌1.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\小标签1.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\报价单1幅图.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\报价单2幅图.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\报价单无图片.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\条形码小标签1.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\条形码小标签2.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\条形码小标签＿带价格密码1.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\条形码小标签＿带价格密码2.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\条形码小标签＿带价格密码3.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\标准3X5报价单.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\样品大标签.frx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\Keys_16.png" />
     <None Include="Resources\setting_24.png" />
     <None Include="Resources\Logout_24.png" />

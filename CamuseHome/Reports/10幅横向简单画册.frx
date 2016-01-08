@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="01/03/2016 16:02:07" ReportInfo.Modified="01/03/2016 16:02:38" ReportInfo.CreatorVersion="2013.2.5.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/03/2016 16:02:07" ReportInfo.Modified="01/08/2016 10:24:50" ReportInfo.CreatorVersion="2013.2.5.0">
   <Dictionary>
-    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+    <BusinessObjectDataSource Name="DataSource" ReferenceName="DataSource" DataType="System.Int32[]" Enabled="true">
       <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
       <Column Name="Prd_CName" DataType="System.String"/>
       <Column Name="Prd_GG" DataType="System.String"/>
       <Column Name="Prd_Note" DataType="System.String"/>
       <Column Name="Prd_ItemNo" DataType="System.String"/>
     </BusinessObjectDataSource>
-    <Parameter Name="Company_CName" DataType="System.String" Expression="'路路通软件技术有限公司'"/>
+    <Parameter Name="Company_CName" DataType="System.String" Expression="'卡慕斯家居'"/>
     <Parameter Name="Company_EName" DataType="System.String" Expression="'FreewaySoft'"/>
     <Parameter Name="Company_CAddress" DataType="System.String" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
     <Parameter Name="Company_EAddress" DataType="System.String" Expression="'Chaozhou City Chaofeng Road'"/>
@@ -16,27 +16,27 @@
     <Parameter Name="Company_Fax" DataType="System.String" Expression="'0768-2207891'"/>
     <Parameter Name="Company_Email" DataType="System.String" Expression="'info@freewaysoft.com'"/>
     <Parameter Name="UserNo" DataType="System.String" Expression="'1'"/>
-    <Parameter Name="UserName" DataType="System.String" Expression="'路路通'"/>
+    <Parameter Name="UserName" DataType="System.String" Expression="'卡慕斯'"/>
   </Dictionary>
   <ReportPage Name="Page1">
     <PageHeaderBand Name="PageHeader1" Width="718.2" Height="86.93">
       <TextObject Name="Memo1" Top="3.78" Width="718.11" Height="26.46" Text="[Company_CName]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Microsoft Sans Serif, 18pt, style=Bold"/>
-      <TextObject Name="Memo2" Left="117.17" Top="64.25" Width="124.72" Height="22.68" Border.Lines="All" Text="产品编号" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
-      <TextObject Name="Memo3" Left="355.28" Top="64.25" Width="128.5" Height="22.68" Border.Lines="All" Text="产品规格" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
-      <TextObject Name="Memo4" Left="483.78" Top="64.25" Width="234.33" Height="22.68" Border.Lines="All" Text="产品备注" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
-      <TextObject Name="Memo5" Left="241.89" Top="64.25" Width="113.39" Height="22.68" Border.Lines="All" Text="品名" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
-      <TextObject Name="Memo6" Top="64.25" Width="117.17" Height="22.68" Border.Lines="All" Text="图片参考" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt, style=Bold"/>
-      <TextObject Name="Memo7" Left="574.49" Top="41.57" Width="143.62" Height="15.12" Text="日期：[Date]" Padding="2, 1, 2, 1" Font="宋体, 10pt"/>
+      <TextObject Name="Memo2" Left="117.17" Top="64.25" Width="124.72" Height="22.68" Border.Lines="All" Text="产品编号" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt, style=Bold"/>
+      <TextObject Name="Memo3" Left="355.28" Top="64.25" Width="128.5" Height="22.68" Border.Lines="All" Text="产品规格" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt, style=Bold"/>
+      <TextObject Name="Memo4" Left="483.78" Top="64.25" Width="234.33" Height="22.68" Border.Lines="All" Text="产品备注" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt, style=Bold"/>
+      <TextObject Name="Memo5" Left="241.89" Top="64.25" Width="113.39" Height="22.68" Border.Lines="All" Text="品名" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt, style=Bold"/>
+      <TextObject Name="Memo6" Top="64.25" Width="117.17" Height="22.68" Border.Lines="All" Text="图片参考" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt, style=Bold"/>
+      <TextObject Name="Memo7" Left="574.49" Top="41.57" Width="143.62" Height="15.12" Text="日期：[Date]" Padding="2, 1, 2, 1" Font="SimSun, 10pt"/>
     </PageHeaderBand>
-    <DataBand Name="MasterData1" Top="90.93" Width="718.2" Height="86.93" DataSource="DstRpt">
-      <PictureObject Name="Picture1" Width="117.17" Height="86.93" Border.Lines="All" Fill.Color="White" DataColumn="DstRpt.Prd_Pic1"/>
-      <TextObject Name="Memo8" Left="241.89" Width="113.39" Height="86.93" Border.Lines="All" Text="[DstRpt.Prd_CName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt"/>
-      <TextObject Name="Memo9" Left="355.28" Width="128.5" Height="86.93" Border.Lines="All" Text="[DstRpt.Prd_GG]CM" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt"/>
-      <TextObject Name="Memo10" Left="483.78" Width="234.33" Height="86.93" Border.Lines="All" Text="[DstRpt.Prd_Note]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt"/>
-      <TextObject Name="Memo11" Left="117.17" Width="124.72" Height="86.93" Border.Lines="All" Text="[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="宋体, 11pt"/>
+    <DataBand Name="MasterData1" Top="90.93" Width="718.2" Height="86.93" DataSource="DataSource">
+      <PictureObject Name="Picture1" Width="117.17" Height="86.93" Border.Lines="All" Fill.Color="White" DataColumn="DataSource.Prd_Pic1"/>
+      <TextObject Name="Memo8" Left="241.89" Width="113.39" Height="86.93" Border.Lines="All" Text="[DataSource.Prd_CName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt"/>
+      <TextObject Name="Memo9" Left="355.28" Width="128.5" Height="86.93" Border.Lines="All" Text="[DataSource.Prd_GG]CM" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt"/>
+      <TextObject Name="Memo10" Left="483.78" Width="234.33" Height="86.93" Border.Lines="All" Text="[DataSource.Prd_Note]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt"/>
+      <TextObject Name="Memo11" Left="117.17" Width="124.72" Height="86.93" Border.Lines="All" Text="[DataSource.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" Font="SimSun, 11pt"/>
     </DataBand>
     <PageFooterBand Name="PageFooter1" Top="181.86" Width="718.2" Height="22.68">
-      <TextObject Name="Memo12" Top="3.78" Width="718.11" Height="18.9" Text="第[Page#]页/共[TotalPages#]页" Padding="2, 1, 2, 1" HorzAlign="Center" Font="宋体, 9pt"/>
+      <TextObject Name="Memo12" Top="3.78" Width="718.11" Height="18.9" Text="第[Page#]页/共[TotalPages#]页" Padding="2, 1, 2, 1" HorzAlign="Center" Font="SimSun, 9pt"/>
     </PageFooterBand>
   </ReportPage>
 </Report>

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CamuseHome
 {
+    [Table("Product")]
     public class modProduct
     {
         public modProduct()

@@ -1,4 +1,5 @@
-﻿using FastReport;
+﻿using CamuseHome.Uilities;
+using FastReport;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,35 +18,60 @@ namespace CamuseHome
         public PrintForm()
         {
             InitializeComponent();
+
+            cbReport.Items.Add("10幅横向简单画册.frx");
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Report report = new Report();
-            var reportPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Reports", "10幅横向简单画册.frx");
-            report.Load(reportPath);
-            report.SetParameterValue("Company_CName", "11");
-            report.SetParameterValue("Company_EName", "22");
-            report.SetParameterValue("Company_CAddress", "33");
-            report.SetParameterValue("Company_EAddress", "44");
-            report.SetParameterValue("Company_Tel", "55");
-            report.SetParameterValue("Company_Fax", "66");
-            report.SetParameterValue("Company_Email", "77");
-            report.SetParameterValue("UserNo", "88");
-            report.SetParameterValue("UserName", "99");
+            var reportFile = cbReport.SelectedItem.ToString();
 
-            var FArray = new List<dynamic>();
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            FArray.Add(new { Prd_Pic1 = "", Prd_CName = "Prd_CName", Prd_GG = "Prd_GG", Prd_Note = "Prd_Note", Prd_ItemNo = "Prd_ItemNo" });
-            report.RegisterData(FArray, "DstRpt");
+            Report report = new Report();
+            switch (reportFile)
+            {
+                case "10幅横向简单画册.frx":
+                    var reportPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Reports", reportFile);
+                    report.Load(reportPath);
+
+                    using (var db = new CamuseHomeContext())
+                    {
+                        var enterpriseInfo = db.EnterpriseInfo.FirstOrDefault();
+                        if (enterpriseInfo != null)
+                        {
+                            report.SetParameterValue("Company_CName", enterpriseInfo.CnName);
+                            report.SetParameterValue("Company_EName", enterpriseInfo.EnName);
+                            report.SetParameterValue("Company_CAddress", enterpriseInfo.CnAddress);
+                            report.SetParameterValue("Company_EAddress", enterpriseInfo.EnAddress);
+                            report.SetParameterValue("Company_Tel", enterpriseInfo.Telephone);
+                            report.SetParameterValue("Company_Fax", enterpriseInfo.Fax);
+                            report.SetParameterValue("Company_Email", enterpriseInfo.Email);
+                        }
+                        else
+                        {
+                            report.SetParameterValue("Company_CName", "卡慕斯家居");
+                            report.SetParameterValue("Company_EName", "CamuseHome");
+                            report.SetParameterValue("Company_CAddress", "");
+                            report.SetParameterValue("Company_EAddress", "");
+                            report.SetParameterValue("Company_Tel", "");
+                            report.SetParameterValue("Company_Fax", "");
+                            report.SetParameterValue("Company_Email", "");
+                        }
+                        report.SetParameterValue("UserNo", "88");
+                        report.SetParameterValue("UserName", "99");
+
+                        var productList = db.Product.Include("Pictures").ToList();
+                        var ds = new List<dynamic>();
+                        productList.ForEach(i =>
+                        {
+                            var path = Path.Combine(Application.StartupPath, "Pictures", "Angelababy.jpg");
+                            ds.Add(new { Prd_Pic1 = Common.GetPicture(path), Prd_CName = i.Name, Prd_GG = i.LampShadeSize, Prd_Note = i.Remark, Prd_ItemNo = i.Code });
+                        });
+                        report.RegisterData(ds, "DataSource");
+                    }
+                    break;
+                default:
+                    return;
+            }
 
             report.Show();
         }
