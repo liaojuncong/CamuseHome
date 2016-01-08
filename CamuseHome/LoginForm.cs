@@ -50,7 +50,6 @@ namespace CamuseHome
                     {
                         this.lblMsg.Text = "";
                         dalUserInfo.modUserInfo = modUserInfo;
-                        this.ShowMessage("登录成功...");
                         this.RememberLoginInfo(this.checkBox1.Checked);
                         this.DialogResult = DialogResult.OK;
                     }

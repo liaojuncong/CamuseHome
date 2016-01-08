@@ -114,6 +114,12 @@
     <Compile Include="Dal\dalPicture.cs" />
     <Compile Include="Dal\dalProduct.cs" />
     <Compile Include="Dal\dalUserInfo.cs" />
+    <Compile Include="CustomDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomDesigner.designer.cs">
+      <DependentUpon>CustomDesigner.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     <EmbeddedResource Include="AddUserForm.resx">
       <DependentUpon>AddUserForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomDesigner.resx">
+      <DependentUpon>CustomDesigner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +246,9 @@
   <ItemGroup>
     <Content Include="Lib\FastReport.Bars.dll" />
     <Content Include="Lib\FastReport.dll" />
+    <Content Include="Lib\FastReport.Editor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Lib\FastReport.xml" />
     <Content Include="Pictures\Angelababy.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

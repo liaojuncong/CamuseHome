@@ -15,18 +15,35 @@ namespace CamuseHome
 {
     public partial class PrintForm : Form
     {
-        public PrintForm()
+        List<int> productIds;
+        public PrintForm(List<int> productIds)
         {
             InitializeComponent();
-
+            this.productIds = productIds;
             cbReport.Items.Add("10幅横向简单画册.frx");
+            cbReport.SelectedIndex = 0;
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            var reportFile = cbReport.SelectedItem.ToString();
-
             Report report = new Report();
+            InitReport(report);
+            report.Show();
+        }
+
+        private void btnDesign_Click(object sender, EventArgs e)
+        {
+            Report report = new Report();
+            var reportFile = cbReport.SelectedItem.ToString();
+            var reportPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Reports", reportFile);
+            report.Load(reportPath);
+            report.Design();
+        }
+
+        private void InitReport(Report report)
+        {
+            if (cbReport.SelectedItem == null) return;
+            var reportFile = cbReport.SelectedItem.ToString();
             switch (reportFile)
             {
                 case "10幅横向简单画册.frx":
@@ -59,7 +76,7 @@ namespace CamuseHome
                         report.SetParameterValue("UserNo", "88");
                         report.SetParameterValue("UserName", "99");
 
-                        var productList = db.Product.Include("Pictures").ToList();
+                        var productList = db.Product.Include("Pictures").Where(p => productIds.Contains(p.Id)).ToList();
                         var ds = new List<dynamic>();
                         productList.ForEach(i =>
                         {
@@ -72,8 +89,6 @@ namespace CamuseHome
                 default:
                     return;
             }
-
-            report.Show();
         }
     }
 }

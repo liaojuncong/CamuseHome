@@ -30,6 +30,7 @@
         {
             this.cbReport = new System.Windows.Forms.ComboBox();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnDesign = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbReport
@@ -37,12 +38,12 @@
             this.cbReport.FormattingEnabled = true;
             this.cbReport.Location = new System.Drawing.Point(12, 12);
             this.cbReport.Name = "cbReport";
-            this.cbReport.Size = new System.Drawing.Size(241, 20);
+            this.cbReport.Size = new System.Drawing.Size(267, 20);
             this.cbReport.TabIndex = 0;
             // 
             // btnPrint
             // 
-            this.btnPrint.Location = new System.Drawing.Point(259, 10);
+            this.btnPrint.Location = new System.Drawing.Point(366, 10);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(75, 23);
             this.btnPrint.TabIndex = 1;
@@ -50,16 +51,28 @@
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
+            // btnDesign
+            // 
+            this.btnDesign.Location = new System.Drawing.Point(285, 10);
+            this.btnDesign.Name = "btnDesign";
+            this.btnDesign.Size = new System.Drawing.Size(75, 23);
+            this.btnDesign.TabIndex = 2;
+            this.btnDesign.Text = "设计";
+            this.btnDesign.UseVisualStyleBackColor = true;
+            this.btnDesign.Click += new System.EventHandler(this.btnDesign_Click);
+            // 
             // PrintForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 50);
+            this.ClientSize = new System.Drawing.Size(453, 50);
+            this.Controls.Add(this.btnDesign);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.cbReport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "PrintForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "打印";
             this.ResumeLayout(false);
 
@@ -69,5 +82,6 @@
 
         private System.Windows.Forms.ComboBox cbReport;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnDesign;
     }
 }

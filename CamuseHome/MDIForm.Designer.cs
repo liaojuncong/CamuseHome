@@ -532,10 +532,8 @@
             this.Controls.Add(this.gvProduct);
             this.Controls.Add(this.pnPictures);
             this.Controls.Add(this.tvCategory);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
-            this.MaximizeBox = false;
             this.Name = "MDIForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Camuse Home";

@@ -306,7 +306,7 @@ namespace CamuseHome
                 {
                     foreach (DataRow dr in dt.Rows)
                     {
-                        string path = dr["Path"].ToString();
+                        string path = Application.StartupPath + dr["Path"].ToString();
                         File.Delete(path);
                         int i = new dalPicture().deletePicture(Convert.ToInt32(dr["Id"]));
                     }

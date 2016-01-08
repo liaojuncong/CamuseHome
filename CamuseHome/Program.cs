@@ -16,7 +16,7 @@ namespace CamuseHome
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
+            
             var frm = new LoginForm();
             DialogResult dir = frm.ShowDialog();
             if (dir == DialogResult.OK)

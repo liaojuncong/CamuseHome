@@ -363,7 +363,18 @@ namespace CamuseHome
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            PrintForm printForm = new PrintForm();
+            var ids = new List<int>();
+            for (int i = 0; i < this.gvProduct.Rows.Count; i++)
+            {
+                //判断当前行是否被选中
+                if ((bool)this.gvProduct.Rows[i].Cells[0].EditedFormattedValue == true)
+                {
+                    int id = Convert.ToInt32(this.gvProduct.Rows[i].Cells[1].Value.ToString());
+                    ids.Add(id);
+                }
+            }
+
+            PrintForm printForm = new PrintForm(ids);
             printForm.Owner = this;
             printForm.Show();
         }
