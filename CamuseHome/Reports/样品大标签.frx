@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
+    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Prd_ItemNo" DataType="System.String"/>
+      <Column Name="Prd_ItemNo1" DataType="System.String"/>
+      <Column Name="Prd_ItemNo2" DataType="System.String"/>
+      <Column Name="Prd_CName" DataType="System.String"/>
+      <Column Name="Prd_EName" DataType="System.String"/>
+      <Column Name="Prd_BarCode" DataType="System.String"/>
+      <Column Name="Prd_GG" DataType="System.String"/>
+      <Column Name="Prd_GW" DataType="System.String"/>
+      <Column Name="Prd_NW" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.Decimal"/>
+      <Column Name="Price1100" DataType="System.Decimal"/>
+      <Column Name="Prd_L" DataType="System.Decimal"/>
+      <Column Name="Prd_W" DataType="System.Decimal"/>
+      <Column Name="Prd_H" DataType="System.Decimal"/>
+      <Column Name="Prd_Inner" DataType="System.String"/>
+      <Column Name="Prd_Ctn" DataType="System.String"/>
+      <Column Name="Prd_Vol" DataType="System.String"/>
+      <Column Name="Prd_EUnit" DataType="System.String"/>
+      <Column Name="MPackingTypeE" DataType="System.String"/>
+      <Column Name="PackingtypeE" DataType="System.String"/>
+      <Column Name="Prd_Note" DataType="System.String"/>
+      <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Prd_Pic2" DataType="System.Byte[]" BindableControl="Picture"/>
+    </BusinessObjectDataSource>
     <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
     <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
     <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
@@ -12,7 +37,7 @@
     <Parameter Name="UserName" Expression="'卡慕斯'"/>
   </Dictionary>
   <ReportPage Name="Page1" PaperWidth="210" PaperHeight="297" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" Columns.Count="3" Columns.Width="63.30" TitleBeforeHeader="true">
-    <DataBand Name="MasterData1" Height="173.86">
+    <DataBand Name="MasterData1" Height="173.86" DataSource="DstRpt">
       <TextObject Name="Memo1" Left="128.50" Top="3.78" Width="105.83" Height="45.35" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="宋体, 11pt" Text="" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo2" Left="128.50" Top="7.56" Width="94.49" Height="37.80" Font="C39HrP48DmTt, 26pt" Text="[DstRpt.Prd_BarCode]" Padding="2, 1, 2, 1" HorzAlign="Right" VertAlign="Center" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo3" Left="3.78" Top="49.13" Width="52.91" Height="22.68" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="Times New Roman, 9pt, style=Bold" Text="Item no." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>

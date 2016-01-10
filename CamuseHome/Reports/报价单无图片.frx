@@ -1,25 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
-    <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
-    <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
-    <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
-    <Parameter Name="Company_EAddress" Expression="'Chaozhou City Chaofeng Road'"/>
-    <Parameter Name="Company_Tel" Expression="'0768-2262263'"/>
-    <Parameter Name="Company_Fax" Expression="'0768-2207891'"/>
-    <Parameter Name="Company_Email" Expression="'info@freewaysoft.com'"/>
-    <Parameter Name="UserNo" Expression="'1'"/>
-    <Parameter Name="UserName" Expression="'卡慕斯'"/>
+    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Prd_ItemNo" DataType="System.String"/>
+      <Column Name="Prd_ItemNo1" DataType="System.String"/>
+      <Column Name="Prd_ItemNo2" DataType="System.String"/>
+      <Column Name="Prd_CName" DataType="System.String"/>
+      <Column Name="Prd_EName" DataType="System.String"/>
+      <Column Name="Prd_BarCode" DataType="System.String"/>
+      <Column Name="Prd_GG" DataType="System.String"/>
+      <Column Name="Prd_GW" DataType="System.String"/>
+      <Column Name="Prd_NW" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.Decimal"/>
+      <Column Name="Price1100" DataType="System.Decimal"/>
+      <Column Name="Prd_L" DataType="System.Decimal"/>
+      <Column Name="Prd_W" DataType="System.Decimal"/>
+      <Column Name="Prd_H" DataType="System.Decimal"/>
+      <Column Name="Prd_Inner" DataType="System.String"/>
+      <Column Name="Prd_Ctn" DataType="System.String"/>
+      <Column Name="Prd_Vol" DataType="System.String"/>
+      <Column Name="Prd_EUnit" DataType="System.String"/>
+      <Column Name="MPackingTypeE" DataType="System.String"/>
+      <Column Name="PackingtypeE" DataType="System.String"/>
+      <Column Name="Prd_Note" DataType="System.String"/>
+      <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Prd_Pic2" DataType="System.Byte[]" BindableControl="Picture"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="Company_CName" DataType="System.String" Expression="'卡慕斯家居'"/>
+    <Parameter Name="Company_EName" DataType="System.String" Expression="'FreewaySoft'"/>
+    <Parameter Name="Company_CAddress" DataType="System.String" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
+    <Parameter Name="Company_EAddress" DataType="System.String" Expression="'Chaozhou City Chaofeng Road'"/>
+    <Parameter Name="Company_Tel" DataType="System.String" Expression="'0768-2262263'"/>
+    <Parameter Name="Company_Fax" DataType="System.String" Expression="'0768-2207891'"/>
+    <Parameter Name="Company_Email" DataType="System.String" Expression="'info@freewaysoft.com'"/>
+    <Parameter Name="UserNo" DataType="System.String" Expression="'1'"/>
+    <Parameter Name="UserName" DataType="System.String" Expression="'卡慕斯'"/>
   </Dictionary>
   <ReportPage Name="Page1" Landscape="true" PaperWidth="297" PaperHeight="210" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="10" Columns.Count="0" Columns.Width="0" TitleBeforeHeader="true">
     <PageHeaderBand Name="PageHeader1" Height="90.71">
-      <TextObject Name="Memo8" Left="884.41" Top="71.81" Width="162.52" Height="18.90" Font="宋体, 11pt" Text="Total Pages:[&#60;Page&#62;]/[TotalPages#]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo8" Left="884.41" Top="71.81" Width="162.52" Height="18.90" Font="宋体, 11pt" Text="Total Pages:[Page]/[TotalPages#]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
       <TextObject Name="Memo1" Left="0" Top="0.00" Width="1046.93" Height="26.46" Font="宋体, 18pt, style=Bold" Text="[Company_EName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo2" Left="0" Top="45.35" Width="1046.93" Height="18.90" Font="宋体, 11pt" Text="电话：[Company_Tel]   传真：[Company_Fax]   E-MAIL:[Company_Email]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo6" Left="0" Top="26.46" Width="1046.93" Height="18.90" Font="宋体, 11pt" Text="[Company_EAddress]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo7" Left="0" Top="68.03" Width="1046.93" Height="22.68" Font="宋体, 16pt, style=Bold" Text="QUOTATION SHEET" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
     </PageHeaderBand>
-    <DataBand Name="MasterData1" Height="30.24">
+    <DataBand Name="MasterData1" Height="30.24" DataSource="DstRpt">
       <DataHeaderBand Name="Header1" Height="30.24">
         <TextObject Name="Memo3" Left="0" Top="0.00" Width="117.17" Height="30.24" Fill.Color="200, 200, 200" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="宋体, 10pt" Text="CUS ITEM NO." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
         <TextObject Name="Memo4" Left="105.83" Top="0.00" Width="136.06" Height="30.24" Fill.Color="200, 200, 200" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="宋体, 10pt" Text="ITEM NO." Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>

@@ -1,35 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="01/10/2016 23:51:31" ReportInfo.Modified="01/10/2016 23:51:45" ReportInfo.CreatorVersion="2013.2.5.0">
   <Dictionary>
-    <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
-    <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
-    <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
-    <Parameter Name="Company_EAddress" Expression="'Chaozhou City Chaofeng Road'"/>
-    <Parameter Name="Company_Tel" Expression="'0768-2262263'"/>
-    <Parameter Name="Company_Fax" Expression="'0768-2207891'"/>
-    <Parameter Name="Company_Email" Expression="'info@freewaysoft.com'"/>
-    <Parameter Name="UserNo" Expression="'1'"/>
-    <Parameter Name="UserName" Expression="'卡慕斯'"/>
+    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Prd_ItemNo" DataType="System.String"/>
+      <Column Name="Prd_ItemNo1" DataType="System.String"/>
+      <Column Name="Prd_ItemNo2" DataType="System.String"/>
+      <Column Name="Prd_CName" DataType="System.String"/>
+      <Column Name="Prd_EName" DataType="System.String"/>
+      <Column Name="Prd_BarCode" DataType="System.String"/>
+      <Column Name="Prd_GG" DataType="System.String"/>
+      <Column Name="Prd_GW" DataType="System.String"/>
+      <Column Name="Prd_NW" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.Decimal"/>
+      <Column Name="Price1100" DataType="System.Decimal"/>
+      <Column Name="Prd_L" DataType="System.Decimal"/>
+      <Column Name="Prd_W" DataType="System.Decimal"/>
+      <Column Name="Prd_H" DataType="System.Decimal"/>
+      <Column Name="Prd_Inner" DataType="System.String"/>
+      <Column Name="Prd_Ctn" DataType="System.String"/>
+      <Column Name="Prd_Vol" DataType="System.String"/>
+      <Column Name="Prd_EUnit" DataType="System.String"/>
+      <Column Name="MPackingTypeE" DataType="System.String"/>
+      <Column Name="PackingtypeE" DataType="System.String"/>
+      <Column Name="Prd_Note" DataType="System.String"/>
+      <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Prd_Pic2" DataType="System.Byte[]" BindableControl="Picture"/>
+    </BusinessObjectDataSource>
+    <Parameter Name="Company_CName" DataType="System.String" Expression="'卡慕斯家居'"/>
+    <Parameter Name="Company_EName" DataType="System.String" Expression="'FreewaySoft'"/>
+    <Parameter Name="Company_CAddress" DataType="System.String" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
+    <Parameter Name="Company_EAddress" DataType="System.String" Expression="'Chaozhou City Chaofeng Road'"/>
+    <Parameter Name="Company_Tel" DataType="System.String" Expression="'0768-2262263'"/>
+    <Parameter Name="Company_Fax" DataType="System.String" Expression="'0768-2207891'"/>
+    <Parameter Name="Company_Email" DataType="System.String" Expression="'info@freewaysoft.com'"/>
+    <Parameter Name="UserNo" DataType="System.String" Expression="'1'"/>
+    <Parameter Name="UserName" DataType="System.String" Expression="'卡慕斯'"/>
   </Dictionary>
-  <ReportPage Name="Page1" PaperWidth="210" PaperHeight="297" LeftMargin="10" RightMargin="10" TopMargin="10" BottomMargin="5" Columns.Count="2" Columns.Width="95" TitleBeforeHeader="true">
-    <PageHeaderBand Name="PageHeader1" Height="52.91">
-      <TextObject Name="Memo11" Left="0" Top="0" Width="718.11" Height="26.46" Font="楷体_GB2312, 18pt, style=Bold" Text="[Company_CName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo12" Left="0" Top="26.46" Width="718.11" Height="26.46" Font="楷体_GB2312, 16pt, style=Bold" Text="[Company_EName]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+  <ReportPage Name="Page1" BottomMargin="5" Columns.Count="2" Columns.Width="95" Columns.Positions="0,95">
+    <PageHeaderBand Name="PageHeader1" Width="718.2" Height="52.92">
+      <TextObject Name="Memo11" Width="718.11" Height="26.46" Text="[Company_CName]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Microsoft Sans Serif, 18pt, style=Bold"/>
+      <TextObject Name="Memo12" Top="26.46" Width="718.11" Height="26.46" Text="[Company_EName]" Padding="2, 1, 2, 1" HorzAlign="Center" Font="Microsoft Sans Serif, 16pt, style=Bold"/>
     </PageHeaderBand>
-    <PageFooterBand Name="PageFooter1" Height="22.68">
-      <TextObject Name="Memo10" Left="0" Top="3.78" Width="718.11" Height="18.90" Font="宋体, 9pt" Text="第[Page#]页/共[TotalPages#]页" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-    </PageFooterBand>
-    <DataBand Name="MasterData1" Height="162.52">
-      <ShapeObject Name="Shape1" Left="0" Top="0" Width="359.06" Height="162.52" Shape="Rectangle"/>
-      <PictureObject Name="Picture1" Left="7.56" Top="3.78" Width="139.84" Height="109.61" Fill.Color="255, 255, 255" DataColumn="DstRpt.Prd_Pic1" SizeMode="Zoom"/>
-      <TextObject Name="Memo2" Left="151.18" Top="3.78" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="ITEM NO.:[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo3" Left="151.18" Top="22.68" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="CUS NO.:[DstRpt.Prd_ItemNo1]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo4" Left="151.18" Top="79.37" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="SIZE:[DstRpt.Prd_GG]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
-      <TextObject Name="Memo5" Left="7.56" Top="117.17" Width="139.84" Height="37.80" Font="C39HrP48DmTt, 26pt" Text="[DstRpt.Prd_BarCode]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo6" Left="151.18" Top="41.57" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="DESC:[DstRpt.Prd_EName]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo7" Left="151.18" Top="60.47" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="PRICE:[DstRpt.Price1]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
-      <TextObject Name="Memo8" Left="151.18" Top="117.17" Width="204.09" Height="37.80" Font="宋体, 9pt" Text="MEMOS:[DstRpt.Prd_Note]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo9" Left="151.18" Top="98.27" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="PACKING:[DstRpt.Prd_Inner]/[DstRpt.Prd_Ctn]/C   [DstRpt.Prd_Vol]CBM" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
+    <DataBand Name="MasterData1" Top="56.92" Width="359.1" Height="162.52" DataSource="DstRpt">
+      <ShapeObject Name="Shape1" Width="359.06" Height="162.52"/>
+      <PictureObject Name="Picture1" Left="7.56" Top="3.78" Width="139.84" Height="109.61" Fill.Color="White" DataColumn="DstRpt.Prd_Pic1"/>
+      <TextObject Name="Memo2" Left="151.18" Top="3.78" Width="204.09" Height="15.12" Text="ITEM NO.:[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" Font="宋体, 9pt"/>
+      <TextObject Name="Memo3" Left="151.18" Top="22.68" Width="204.09" Height="15.12" Text="CUS NO.:[DstRpt.Prd_ItemNo1]" Padding="2, 1, 2, 1" Font="宋体, 9pt"/>
+      <TextObject Name="Memo4" Left="151.18" Top="79.37" Width="204.09" Height="15.12" Text="SIZE:[DstRpt.Prd_GG]" Padding="2, 1, 2, 1" Format="Number" Format.UseLocale="true" Font="宋体, 9pt"/>
+      <TextObject Name="Memo5" Left="7.56" Top="117.17" Width="139.84" Height="37.8" Text="[DstRpt.Prd_BarCode]" Padding="2, 1, 2, 1" Font="Microsoft Sans Serif, 26pt"/>
+      <TextObject Name="Memo6" Left="151.18" Top="41.57" Width="204.09" Height="15.12" Text="DESC:[DstRpt.Prd_EName]" Padding="2, 1, 2, 1" Font="宋体, 9pt"/>
+      <TextObject Name="Memo7" Left="151.18" Top="60.47" Width="204.09" Height="15.12" Text="PRICE:[DstRpt.Price1]" Padding="2, 1, 2, 1" Format="Number" Format.UseLocale="true" Font="宋体, 9pt"/>
+      <TextObject Name="Memo8" Left="151.18" Top="117.17" Width="204.09" Height="37.8" Text="MEMOS:[DstRpt.Prd_Note]" Padding="2, 1, 2, 1" Font="宋体, 9pt"/>
+      <TextObject Name="Memo9" Left="151.18" Top="98.27" Width="204.09" Height="15.12" Text="PACKING:[DstRpt.Prd_Inner]/[DstRpt.Prd_Ctn]/C   [DstRpt.Prd_Vol]CBM" Padding="2, 1, 2, 1" Format="Number" Format.UseLocale="true" Font="宋体, 9pt"/>
     </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="223.44" Width="718.2" Height="22.68">
+      <TextObject Name="Memo10" Top="3.78" Width="718.11" Height="18.9" Text="第[Page#]页/共[TotalPages#]页" Padding="2, 1, 2, 1" HorzAlign="Center" Font="宋体, 9pt"/>
+    </PageFooterBand>
   </ReportPage>
 </Report>

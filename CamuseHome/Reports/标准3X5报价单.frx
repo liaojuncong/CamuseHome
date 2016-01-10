@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
+    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Prd_ItemNo" DataType="System.String"/>
+      <Column Name="Prd_ItemNo1" DataType="System.String"/>
+      <Column Name="Prd_ItemNo2" DataType="System.String"/>
+      <Column Name="Prd_CName" DataType="System.String"/>
+      <Column Name="Prd_EName" DataType="System.String"/>
+      <Column Name="Prd_BarCode" DataType="System.String"/>
+      <Column Name="Prd_GG" DataType="System.String"/>
+      <Column Name="Prd_GW" DataType="System.String"/>
+      <Column Name="Prd_NW" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.Decimal"/>
+      <Column Name="Price1100" DataType="System.Decimal"/>
+      <Column Name="Prd_L" DataType="System.Decimal"/>
+      <Column Name="Prd_W" DataType="System.Decimal"/>
+      <Column Name="Prd_H" DataType="System.Decimal"/>
+      <Column Name="Prd_Inner" DataType="System.String"/>
+      <Column Name="Prd_Ctn" DataType="System.String"/>
+      <Column Name="Prd_Vol" DataType="System.String"/>
+      <Column Name="Prd_EUnit" DataType="System.String"/>
+      <Column Name="MPackingTypeE" DataType="System.String"/>
+      <Column Name="PackingtypeE" DataType="System.String"/>
+      <Column Name="Prd_Note" DataType="System.String"/>
+      <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Prd_Pic2" DataType="System.Byte[]" BindableControl="Picture"/>
+    </BusinessObjectDataSource>
     <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
     <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
     <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
@@ -21,7 +46,7 @@
     <PageFooterBand Name="PageFooter1" Height="26.46">
       <TextObject Name="Memo5" Left="0" Top="0.00" Width="718.11" Height="18.90" Font="Times New Roman, 9pt" Text="Total Pages:[Page#]/[TotalPages#]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
     </PageFooterBand>
-    <DataBand Name="MasterData1" Height="188.98" CanGrow="true" CanShrink="true">
+    <DataBand Name="MasterData1" Height="188.98" CanGrow="true" CanShrink="true" DataSource="DstRpt">
       <TextObject Name="Memo6" Left="7.56" Top="11.34" Width="68.03" Height="22.68" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="Times New Roman, 10pt" Text="编号" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo7" Left="75.59" Top="11.34" Width="158.74" Height="22.68" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="Times New Roman, 11pt" Text="[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo8" Left="7.56" Top="34.02" Width="68.03" Height="22.68" Border.Lines="Left, Right, Top, Bottom" Border.LeftLine.Color="0, 0, 0" Border.LeftLine.Style="Solid" Border.LeftLine.Width="1" Border.RightLine.Color="0, 0, 0" Border.RightLine.Style="Solid" Border.RightLine.Width="1" Border.TopLine.Color="0, 0, 0" Border.TopLine.Style="Solid" Border.TopLine.Width="1" Border.BottomLine.Color="0, 0, 0" Border.BottomLine.Style="Solid" Border.BottomLine.Width="1" Font="Times New Roman, 10pt" Text="品名规格" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Center" TextFill.Color="0, 0, 0"/>
