@@ -15,12 +15,8 @@ namespace CamuseHome
         public PictureView(Image image)
         {
             InitializeComponent();
-
-            PictureBox pb = new PictureBox();
-            pb.SizeMode = PictureBoxSizeMode.AutoSize;
-            pb.Image = image;
-            pb.Size = image.Size; ;
-            this.Controls.Add(pb);
+            
+            pictureBox1.Image = image;
         }
     }
 }
