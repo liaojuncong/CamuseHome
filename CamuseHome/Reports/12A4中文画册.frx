@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Report ReportInfo.Name="" ReportInfo.Author="" ReportInfo.Description="">
   <Dictionary>
+    <BusinessObjectDataSource Name="DstRpt" ReferenceName="DstRpt" DataType="System.Int32[]" Enabled="true">
+      <Column Name="Prd_ItemNo" DataType="System.String"/>
+      <Column Name="Prd_ItemNo1" DataType="System.String"/>
+      <Column Name="Prd_ItemNo2" DataType="System.String"/>
+      <Column Name="Prd_CName" DataType="System.String"/>
+      <Column Name="Prd_EName" DataType="System.String"/>
+      <Column Name="Prd_BarCode" DataType="System.String"/>
+      <Column Name="Prd_GG" DataType="System.String"/>
+      <Column Name="Prd_GW" DataType="System.String"/>
+      <Column Name="Prd_NW" DataType="System.String"/>
+      <Column Name="Price1" DataType="System.Decimal"/>
+      <Column Name="Price1100" DataType="System.Decimal"/>
+      <Column Name="Prd_L" DataType="System.Decimal"/>
+      <Column Name="Prd_W" DataType="System.Decimal"/>
+      <Column Name="Prd_H" DataType="System.Decimal"/>
+      <Column Name="Prd_Inner" DataType="System.String"/>
+      <Column Name="Prd_Ctn" DataType="System.String"/>
+      <Column Name="Prd_Vol" DataType="System.String"/>
+      <Column Name="Prd_EUnit" DataType="System.String"/>
+      <Column Name="MPackingTypeE" DataType="System.String"/>
+      <Column Name="PackingtypeE" DataType="System.String"/>
+      <Column Name="Prd_Note" DataType="System.String"/>
+      <Column Name="Prd_Pic1" DataType="System.Byte[]" BindableControl="Picture"/>
+      <Column Name="Prd_Pic2" DataType="System.Byte[]" BindableControl="Picture"/>
+    </BusinessObjectDataSource>
     <Parameter Name="Company_CName" Expression="'卡慕斯家居'"/>
     <Parameter Name="Company_EName" Expression="'FreewaySoft'"/>
     <Parameter Name="Company_CAddress" Expression="'潮州市潮枫路龙发园8-10号2F'"/>
@@ -22,17 +47,17 @@
     <ReportTitleBand Name="ReportTitle1" Height="0">
       <TextObject Name="Memo1" Left="445.98" Top="-177.64" Width="718.11" Height="26.46" Font="楷体_GB2312, 18pt, style=Bold" Text="样品资料中文画册" Padding="2, 1, 2, 1" HorzAlign="Center" VertAlign="Top" TextFill.Color="0, 0, 0"/>
     </ReportTitleBand>
-    <DataBand Name="MasterData1" Height="162.52">
+    <DataBand Name="MasterData1" Height="162.52" DataSource="DstRpt">
       <ShapeObject Name="Shape1" Left="0" Top="0.00" Width="359.06" Height="162.52" Shape="Rectangle"/>
       <PictureObject Name="Picture1" Left="7.56" Top="3.78" Width="139.84" Height="109.61" Fill.Color="255, 255, 255" DataColumn="DstRpt.Prd_Pic1" SizeMode="Zoom"/>
-      <TextObject Name="Memo3" Left="151.18" Top="3.78" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品编号:[DstRpt.&#34;Prd_ItemNo&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo4" Left="151.18" Top="22.68" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="旧货号:[DstRpt.&#34;Prd_ItemNo1&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo5" Left="151.18" Top="79.37" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品规格:[DstRpt.&#34;Prd_GG&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
-      <TextObject Name="Memo6" Left="151.18" Top="98.27" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="包装资料:[DstRpt.&#34;Prd_Inner&#34;]/[DstRpt.&#34;Prd_Ctn&#34;]/C   [DstRpt.&#34;Prd_Vol&#34;]CBM" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo3" Left="151.18" Top="3.78" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品编号:[DstRpt.Prd_ItemNo]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo4" Left="151.18" Top="22.68" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="旧货号:[DstRpt.Prd_ItemNo1]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo5" Left="151.18" Top="79.37" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品规格:[DstRpt.Prd_GG]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo6" Left="151.18" Top="98.27" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="包装资料:[DstRpt.Prd_Inner]/[DstRpt.Prd_Ctn]/C   [DstRpt.Prd_Vol]CBM" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
       <TextObject Name="Memo7" Left="7.56" Top="117.17" Width="139.84" Height="37.80" Font="C39HrP48DmTt, 26pt" Text="[DstRpt.Prd_BarCode]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo8" Left="151.18" Top="41.57" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="中文品名:[DstRpt.&#34;Prd_CName&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
-      <TextObject Name="Memo9" Left="151.18" Top="60.47" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品价格:[DstRpt.&#34;Price1&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
-      <TextObject Name="Memo10" Left="151.18" Top="117.17" Width="204.09" Height="37.80" Font="宋体, 9pt" Text="备    注:[DstRpt.&#34;Prd_Note&#34;]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo8" Left="151.18" Top="41.57" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="中文品名:[DstRpt.Prd_CName]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
+      <TextObject Name="Memo9" Left="151.18" Top="60.47" Width="204.09" Height="15.12" Font="宋体, 9pt" Text="产品价格:[DstRpt.Price1]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0" Format="Number"/>
+      <TextObject Name="Memo10" Left="151.18" Top="117.17" Width="204.09" Height="37.80" Font="宋体, 9pt" Text="备    注:[DstRpt.Prd_Note]" Padding="2, 1, 2, 1" HorzAlign="Left" VertAlign="Top" TextFill.Color="0, 0, 0"/>
     </DataBand>
   </ReportPage>
 </Report>
